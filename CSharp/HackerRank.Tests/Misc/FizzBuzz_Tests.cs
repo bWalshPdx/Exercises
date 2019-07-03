@@ -91,15 +91,25 @@ namespace HackerRank.Tests.Misc
         public void OutputIsCorrect()
         {
             int start = 1;
-            int end = 5;
-            string expectedOutput = @$
-            "1 {}" +
+            int end = 15;
+            string expectedOutput = @"1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz";
             
-
-
-
-
-                string output = FizzBuzz.GetOutput(start, end);
+            string output = FizzBuzz.GetOutput(start, end);
+            Assert.Equal(expectedOutput, output );
         }
     }
 }

@@ -31,7 +31,32 @@ namespace HackerRank.Misc
 
         public static string GetOutput(int start, int end)
         {
-            throw new NotImplementedException();
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = start; i <= end; i++)
+            {
+                string convertedOutput = "";
+                
+                if (i == 1)
+                {
+                    convertedOutput = i.ToString();
+                }
+                else
+                {
+                    convertedOutput = Converter(i);
+                }
+
+                if (i == end)
+                {
+                    sb.Append(convertedOutput);
+                }
+                else
+                {
+                    sb.AppendLine(convertedOutput);
+                }
+            }
+
+            return sb.ToString();
         }
     }
 }
