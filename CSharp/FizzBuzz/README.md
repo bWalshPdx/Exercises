@@ -28,3 +28,7 @@ https://guides.github.com/features/mastering-markdown/
 Xunit can't run on .net standard. Moving to full framework after some small amount of research.
 
 Learning how to use AceJump for Ctrl + alt + ;
+
+## Retrospective:
+
+I have been burning in Bob Martin's 3 rules of TDD and the shortkeys for visual studio. 
