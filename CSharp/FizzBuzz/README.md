@@ -21,7 +21,7 @@ For each multiple of 5, print "Buzz" instead of the number.
 For numbers which are multiples of both 3 and 5, print "FizzBuzz" instead of the number.
 ```
 
-### Research:
+## Research:
 Learning how to make a readme. (Thinking about using it as my journal for solo katas):
 https://guides.github.com/features/mastering-markdown/
 
