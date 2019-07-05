@@ -11,7 +11,24 @@ namespace FizzBuzz
     {
         public string Convert(int input)
         {
-            return input.ToString();
+            string output = "";
+
+            if (input % 3 == 0)
+            {
+                output += "Fizz";
+            }
+
+            if (input % 5 == 0)
+            {
+                output += "Buzz";
+            }
+
+            if (output == "")
+            {
+                output = input.ToString();
+            }
+
+            return output;
         }
     }
 }
