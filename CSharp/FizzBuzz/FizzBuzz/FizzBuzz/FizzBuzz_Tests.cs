@@ -60,6 +60,35 @@ namespace FizzBuzz
             Assert.Equal(expectedOutput, output);
         }
 
+        [Fact]
+        public void Convert_ShouldReturnCorrectCollection()
+        {
+            FizzBuzz fizzBuzz = new FizzBuzz();
+
+            int limit = 15;
+
+            string expectedOutput = @"1
+2
+Fizz
+4
+Buzz
+Fizz
+7
+8
+Fizz
+Buzz
+11
+Fizz
+13
+14
+FizzBuzz" + Environment.NewLine;
+
+
+            string output = fizzBuzz.GetCollection(limit);
+
+            Assert.Equal(expectedOutput, output);
+        }
+
 
     }
 }
