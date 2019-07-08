@@ -11,6 +11,8 @@ Goal of the session:
 
 Create an Angular 7 project using the new CLI prompts:
 https://medium.com/@SamOrgill/create-an-angular-7-project-using-the-new-cli-prompts-d67bcf5626b5
+	- ng new (Create a new project)
+
 
 
 ### Exercise
