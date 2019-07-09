@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  output: string[];
+
+  constructor() {
+    this.output = {} as string[];
+  }
 
   ngOnInit() {
   }
+
+  //2019.07.08.05.51.14PM TODO:  Write a test for this first
+  // getFizzBuzz(): string[] {
+
+  // }
 
 }
