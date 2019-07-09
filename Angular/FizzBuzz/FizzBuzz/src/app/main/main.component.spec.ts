@@ -19,7 +19,11 @@ describe('MainComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should render title in a h1 tag', () => {
+    const fixture = TestBed.createComponent(MainComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    const selectedThing = compiled.querySelector('h1').textContent;
+    expect(selectedThing).toContain('FizzBuzz Kata');
   });
 });

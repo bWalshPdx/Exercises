@@ -17,6 +17,6 @@ https://medium.com/@SamOrgill/create-an-angular-7-project-using-the-new-cli-prom
 
 ### Exercise
 
-
+2019.07.08.09.25.34AM <NA>: Working on unit testing a simple output of a list on the template
 
 ## Retrospective
