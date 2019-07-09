@@ -16,9 +16,28 @@ export class MainComponent implements OnInit {
   ngOnInit() {
   }
 
-  //2019.07.08.05.51.14PM TODO:  Write a test for this first
-  // getFizzBuzz(): string[] {
+  getFizzBuzz(limit: number): string[] {
+    const output: string[] = new Array();
 
-  // }
+    for (let index = 1; index < limit; index++) {
+      var printLine = '';
+
+      if(index % 3 === 0){
+        printLine += 'Fizz';
+      }
+
+      if(index % 5 === 0){
+        printLine += 'Buzz';
+      }
+
+      if(printLine === ''){
+        printLine = index.toString();
+      }
+
+      output.push(printLine);
+    }
+
+    return output;
+  }
 
 }

@@ -33,7 +33,6 @@ describe('MainComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     const selectedThing = compiled.querySelector('#output1').textContent;
-    console.log(selectedThing);
     expect(selectedThing).toContain('1');
   });
 
@@ -44,6 +43,14 @@ describe('MainComponent', () => {
     const selectedThing = compiled.querySelector('#output3').textContent;
     console.log(selectedThing);
     expect(selectedThing).toContain('Fizz');
+  });
+
+  it('should return third element as Fizz', () => {
+    const sut: MainComponent = new MainComponent();
+    const limit: number = 5;
+    const output: string[] = sut.getFizzBuzz(limit);
+
+    expect(output[2]).toContain('Fizz');
   });
 
 });
