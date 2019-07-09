@@ -41,7 +41,7 @@ describe('MainComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
     const selectedThing = compiled.querySelector('#output3').textContent;
-    console.log(selectedThing);
+    //console.log(selectedThing);
     expect(selectedThing).toContain('Fizz');
   });
 
