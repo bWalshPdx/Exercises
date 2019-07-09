@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  output: string[];
+  public FizzBuzzCollection: string[];
 
   constructor() {
-    this.output = {} as string[];
+    this.FizzBuzzCollection = this.getFizzBuzz(5);
+
   }
 
   ngOnInit() {
@@ -22,15 +23,15 @@ export class MainComponent implements OnInit {
     for (let index = 1; index < limit; index++) {
       var printLine = '';
 
-      if(index % 3 === 0){
+      if(index % 3 === 0) {
         printLine += 'Fizz';
       }
 
-      if(index % 5 === 0){
+      if(index % 5 === 0) {
         printLine += 'Buzz';
       }
 
-      if(printLine === ''){
+      if(printLine === '') {
         printLine = index.toString();
       }
 

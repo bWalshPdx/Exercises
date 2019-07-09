@@ -17,6 +17,7 @@ https://medium.com/@SamOrgill/create-an-angular-7-project-using-the-new-cli-prom
 
 ### Exercise
 
-2019.07.08.05.51.58PM: Work on first test for fizzbuzz function
+2019.07.08.08.20.48PM <NA> Figure out why ngfor isn't working
 
 ## Retrospective
+
