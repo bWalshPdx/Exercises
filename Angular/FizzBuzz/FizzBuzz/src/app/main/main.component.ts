@@ -10,7 +10,7 @@ export class MainComponent implements OnInit {
   public FizzBuzzCollection: string[];
 
   constructor() {
-    this.FizzBuzzCollection = this.getFizzBuzz(5);
+    this.FizzBuzzCollection = this.getFizzBuzz(15);
 
   }
 
@@ -20,7 +20,7 @@ export class MainComponent implements OnInit {
   getFizzBuzz(limit: number): string[] {
     const output: string[] = new Array();
 
-    for (let index = 1; index < limit; index++) {
+    for (let index = 1; index <= limit; index++) {
       var printLine = '';
 
       if(index % 3 === 0) {

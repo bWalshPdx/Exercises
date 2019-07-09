@@ -45,12 +45,28 @@ describe('MainComponent', () => {
     expect(selectedThing).toContain('Fizz');
   });
 
-  it('should return third element as Fizz', () => {
+  it('should return five elements', () => {
     const sut: MainComponent = new MainComponent();
     const limit: number = 5;
     const output: string[] = sut.getFizzBuzz(limit);
 
-    expect(output[2]).toContain('Fizz');
+    expect(output.length).toBe(5);
+  });
+
+  it('should return fifth element as Buzz', () => {
+    const sut: MainComponent = new MainComponent();
+    const limit: number = 5;
+    const output: string[] = sut.getFizzBuzz(limit);
+
+    expect(output[4]).toContain('Buzz');
+  });
+
+  it('should return fifthteenth element as FizzBuzz', () => {
+    const sut: MainComponent = new MainComponent();
+    const limit: number = 15;
+    const output: string[] = sut.getFizzBuzz(limit);
+    console.log(output);
+    expect(output[14]).toContain('FizzBuzz');
   });
 
 });
