@@ -28,13 +28,22 @@ describe('MainComponent', () => {
     expect(selectedThing).toContain('FizzBuzz Kata');
   });
 
-  it('should render a collction of 1 through 5', () => {
+  it('should render first element as 1', () => {
     const fixture: ComponentFixture<MainComponent> = TestBed.createComponent(MainComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    const selectedThing = compiled.querySelector('#output').textContent;
+    const selectedThing = compiled.querySelector('#output1').textContent;
     console.log(selectedThing);
-    expect(selectedThing).toContain('12Fizz4Buzz');
+    expect(selectedThing).toContain('1');
+  });
+
+  it('should render third element as Fizz', () => {
+    const fixture: ComponentFixture<MainComponent> = TestBed.createComponent(MainComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    const selectedThing = compiled.querySelector('#output3').textContent;
+    console.log(selectedThing);
+    expect(selectedThing).toContain('Fizz');
   });
 
 });
