@@ -9,9 +9,12 @@ Goal of the session:
 
 ### Reference
 
+	To create a component:
+	```ng generate component```
+
 ### Exercise
 
-	2019.07.11.05.51.13PM <NA>: Working on generating a component.
+	
 
 ## Retrospective
 

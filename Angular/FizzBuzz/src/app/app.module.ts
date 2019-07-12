@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FizzBuzzComponent } from './fizz-buzz/fizz-buzz.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FizzBuzzComponent
   ],
   imports: [
     BrowserModule,
