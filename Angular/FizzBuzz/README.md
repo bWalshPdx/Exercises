@@ -23,7 +23,12 @@ a14501213ca9011cf87f31f0eee2cb6b44e58d3c
 
 ### Exercise
 
-2019.07.09.09.15.30AM <NA> Figure out why ngfor isn't working
+
 
 ## Retrospective
 
+### what went well
+
+### what was interesting
+
+### what was frustrating
