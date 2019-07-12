@@ -17,6 +17,9 @@ Live example of ngFor:
 https://stackblitz.com/angular/klqjkvjxjxb
 
 
+Last known good ngFor
+a14501213ca9011cf87f31f0eee2cb6b44e58d3c
+
 
 ### Exercise
 
