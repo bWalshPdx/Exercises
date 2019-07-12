@@ -32,7 +32,7 @@ describe('MainComponent', () => {
     const fixture: ComponentFixture<MainComponent> = TestBed.createComponent(MainComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    const selectedThing = compiled.querySelector('#output1').textContent;
+    const selectedThing = compiled.querySelector('#output0').textContent;
     expect(selectedThing).toContain('1');
   });
 
@@ -40,7 +40,7 @@ describe('MainComponent', () => {
     const fixture: ComponentFixture<MainComponent> = TestBed.createComponent(MainComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    const selectedThing = compiled.querySelector('#output3').textContent;
+    const selectedThing = compiled.querySelector('#output2').textContent;
     //console.log(selectedThing);
     expect(selectedThing).toContain('Fizz');
   });

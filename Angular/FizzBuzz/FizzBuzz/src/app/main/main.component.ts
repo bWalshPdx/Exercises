@@ -9,9 +9,12 @@ export class MainComponent implements OnInit {
 
   //public FizzBuzzCollection: string[] = this.getFizzBuzz(5);
 
-  fizzBuzzCollection = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+  public FizzBuzzCollection: string[];
 
-  constructor() {}
+  constructor() {
+    this.FizzBuzzCollection = this.getFizzBuzz(15);
+
+  }
 
   ngOnInit() {}
 
