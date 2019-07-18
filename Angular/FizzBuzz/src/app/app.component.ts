@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: 'fizz-buzz/fizz-buzz.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {

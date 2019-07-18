@@ -22,4 +22,25 @@ describe('FizzBuzzComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('render 1 on label output1', () => {
+
+    const fixture = TestBed.createComponent(FizzBuzzComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to FizzBuzz!');
+  });
+
+  it('render Fizz on label output3', () => {
+
+  });
+
+  it('render Buzz on label output5', () => {
+
+  });
+
+  it('render FizzBuzz on label output15', () => {
+
+  });
+
 });
