@@ -23,7 +23,7 @@ Goal of the session:
 
 ### Exercise
 
-	2019.07.12.12.53.06PM Figure out how to get routing to work correctly.
+	2019.07.18.09.32.22AM: Getting ngFor to work with a property
 
 ## Retrospective
 

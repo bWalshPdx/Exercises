@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FizzBuzzComponent implements OnInit {
 
-  convertedElements: string[] = ['1', '2', '3'];
-
   constructor() { }
+
+  convertedElements: string[] = ['1', '2', 'Fizz'];
 
   GetElement(input: number): string {
     let convertedOutput = '';
