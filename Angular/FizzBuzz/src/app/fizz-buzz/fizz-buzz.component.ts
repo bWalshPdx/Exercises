@@ -9,6 +9,24 @@ export class FizzBuzzComponent implements OnInit {
 
   constructor() { }
 
+  GetElement(input: number): string {
+    let convertedOutput = '';
+
+    if(input % 3 === 0){
+      convertedOutput += 'Fizz';
+    }
+
+    if(input % 5 === 0){
+      convertedOutput += 'Buzz';
+    }
+
+    if(convertedOutput === ''){
+      convertedOutput = input.toString();
+    }
+
+    return convertedOutput;
+  }
+
   ngOnInit() {
   }
 

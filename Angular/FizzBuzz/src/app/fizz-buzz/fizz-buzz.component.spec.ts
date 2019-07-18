@@ -31,6 +31,50 @@ describe('FizzBuzzComponent', () => {
     expect(compiled.querySelector('h1').textContent).toContain('Welcome to FizzBuzz!');
   });
 
+  it('should return 1 when passed a 1', () => {
+    let sut = new FizzBuzzComponent();
+    const input: number = 1;
+    const expectedOutput: string = '1';
+
+    const output: string = sut.GetElement(input);
+
+    expect(output).toBe(expectedOutput);
+
+  });
+
+  it('should return Fizz when passed a 3', () => {
+    let sut = new FizzBuzzComponent();
+    const input: number = 3;
+    const expectedOutput: string = 'Fizz';
+
+    const output: string = sut.GetElement(input);
+
+    expect(output).toBe(expectedOutput);
+
+  });
+
+  it('should return Buzz when passed a 5', () => {
+    let sut = new FizzBuzzComponent();
+    const input: number = 5;
+    const expectedOutput: string = 'Buzz';
+
+    const output: string = sut.GetElement(input);
+
+    expect(output).toBe(expectedOutput);
+
+  });
+
+  it('should return FizzBuzz when passed a 15', () => {
+    let sut = new FizzBuzzComponent();
+    const input: number = 15;
+    const expectedOutput: string = 'FizzBuzz';
+
+    const output: string = sut.GetElement(input);
+
+    expect(output).toBe(expectedOutput);
+
+  });
+
   it('render Fizz on label output3', () => {
 
   });
