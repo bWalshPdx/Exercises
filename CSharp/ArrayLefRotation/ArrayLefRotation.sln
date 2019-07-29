@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29025.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayLefRotation", "ArrayLefRotation\ArrayLefRotation.csproj", "{FE7202BE-CA0C-44FB-977E-F750C641DDA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayLefRotation.Tests", "ArrayLefRotation_Tests\ArrayLefRotation.Tests.csproj", "{8EA90CBA-92B9-4730-9E55-2B98A9B4318C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE7202BE-CA0C-44FB-977E-F750C641DDA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE7202BE-CA0C-44FB-977E-F750C641DDA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE7202BE-CA0C-44FB-977E-F750C641DDA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE7202BE-CA0C-44FB-977E-F750C641DDA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EA90CBA-92B9-4730-9E55-2B98A9B4318C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EA90CBA-92B9-4730-9E55-2B98A9B4318C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EA90CBA-92B9-4730-9E55-2B98A9B4318C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EA90CBA-92B9-4730-9E55-2B98A9B4318C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0302A848-8869-4400-92CA-F3AA367D6D50}
+	EndGlobalSection
+EndGlobal
