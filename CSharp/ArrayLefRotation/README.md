@@ -36,3 +36,8 @@ Sample Output
 ## Reference:
 
 https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays
+
+
+## Things that will make it harder next time:
+
+Instead of going from right to left, solve it going from left to right

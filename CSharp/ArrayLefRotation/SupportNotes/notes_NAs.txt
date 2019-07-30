@@ -1,0 +1,12 @@
+﻿Define the Enumerable Array:
+    <DONE> should be given 5 and it will return '1 2 3 4 5'
+    <DONE> should be given 1 and it will return '1'
+
+Define the rotater:
+    <DONE> should be given a 1 with rotate 2 and it will return '1'
+    should be given a 3 with a rotation of 2 and it will return '3 2 1'
+        2019.07.29.05.48.46PM<NAs>: Move the char from old to new
+    should be given a 3 with a rotation of 3 and it will return '1 2 3'
+
+Define the spacer:
+    should be given 1,2,3 (integers) and it will return '1 2 3'
