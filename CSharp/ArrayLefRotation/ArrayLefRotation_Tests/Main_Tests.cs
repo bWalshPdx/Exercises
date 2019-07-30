@@ -56,6 +56,35 @@ namespace ArrayLefRotation_Tests
             Assert.Equal(expectedOutput, output);
         }
 
+        //should be given a 2 with a rotation of 1 and it will return '2 1':
+        [Fact]
+        public void ShiftLeft_ShouldShiftOneWithTwoElements()
+        {
+            Main main = new Main();
+            int limit = 2;
+            int shiftPos = 1;
+            int[] expectedOutput = new[] { 2, 1 };
+
+            int[] output = main.ShiftLeft(limit, shiftPos);
+
+            Assert.Equal(expectedOutput, output);
+        }
+
+        //should be given a 2 with a rotation of 2 and it will return '1 2':
+        [Fact]
+        public void ShiftLeft_ShouldShiftTwoWithTwoElements()
+        {
+            Main main = new Main();
+            int limit = 2;
+            int shiftPos = 2;
+            int[] expectedOutput = new[] { 1, 2 };
+
+            int[] output = main.ShiftLeft(limit, shiftPos);
+
+            Assert.Equal(expectedOutput, output);
+        }
+
+
         //should be given a 3 with a rotation of 2 and it will return '3 2 1':
         [Fact]
         public void ShiftLeft_ShouldShiftTwo()

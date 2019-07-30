@@ -41,3 +41,7 @@ https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=inter
 ## Things that will make it harder next time:
 
 Instead of going from right to left, solve it going from left to right
+
+Can I get a 'hole in one' (The test passes in one run)
+
+Can you solve it without debugging?
