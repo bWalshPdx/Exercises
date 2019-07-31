@@ -24,7 +24,7 @@ namespace ArrayLefRotation_Tests
 
             int[] output = main.Generate(limit);
 
-            output.Should().BeEquivalentTo(expectedOutput);
+            output.Should().Equal(expectedOutput);
         }
 
         //should be given 1 and it will return '1'
@@ -37,7 +37,7 @@ namespace ArrayLefRotation_Tests
 
             int[] output = main.Generate(limit);
 
-            output.Should().BeEquivalentTo(expectedOutput);
+            output.Should().Equal(expectedOutput);
         }
         #endregion
 
@@ -54,7 +54,7 @@ namespace ArrayLefRotation_Tests
 
             int[] output = main.ShiftLeft(limit, shiftPos);
 
-            output.Should().BeEquivalentTo(expectedOutput);
+            output.Should().Equal(expectedOutput);
         }
 
         //should be given a 2 with a rotation of 1 and it will return '2 1':
@@ -64,11 +64,11 @@ namespace ArrayLefRotation_Tests
             Main main = new Main();
             int limit = 2;
             int shiftPos = 1;
-            int[] expectedOutput = { 3, 1 };
+            int[] expectedOutput = { 2, 1 };
 
             int[] output = main.ShiftLeft(limit, shiftPos);
 
-            output.Should().BeEquivalentTo(expectedOutput);
+            output.Should().Equal(expectedOutput);
         }
 
         //should be given a 2 with a rotation of 2 and it will return '1 2':
@@ -82,7 +82,7 @@ namespace ArrayLefRotation_Tests
 
             int[] output = main.ShiftLeft(limit, shiftPos);
 
-            output.Should().BeEquivalentTo(expectedOutput);
+            output.Should().Equal(expectedOutput);
         }
 
 
@@ -97,7 +97,7 @@ namespace ArrayLefRotation_Tests
 
             int[] output = main.ShiftLeft(limit, shiftPos);
 
-            output.Should().BeEquivalentTo(expectedOutput);
+            output.Should().Equal(expectedOutput);
         }
 
 
@@ -112,7 +112,7 @@ namespace ArrayLefRotation_Tests
 
             int[] output = main.ShiftLeft(limit, shiftPos);
 
-            output.Should().BeEquivalentTo(expectedOutput);
+            output.Should().Equal(expectedOutput);
         }
 
         #endregion
