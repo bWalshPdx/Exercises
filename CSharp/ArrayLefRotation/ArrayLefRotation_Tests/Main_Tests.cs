@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ArrayLefRotation;
+using FluentAssertions;
 using Xunit;
 
 namespace ArrayLefRotation_Tests
@@ -23,7 +24,7 @@ namespace ArrayLefRotation_Tests
 
             int[] output = main.Generate(limit);
 
-            Assert.Equal(expectedOutput, output);
+            output.Should().BeEquivalentTo(expectedOutput);
         }
 
         //should be given 1 and it will return '1'
@@ -36,7 +37,7 @@ namespace ArrayLefRotation_Tests
 
             int[] output = main.Generate(limit);
 
-            Assert.Equal(expectedOutput, output);
+            output.Should().BeEquivalentTo(expectedOutput);
         }
         #endregion
 
@@ -53,7 +54,7 @@ namespace ArrayLefRotation_Tests
 
             int[] output = main.ShiftLeft(limit, shiftPos);
 
-            Assert.Equal(expectedOutput, output);
+            output.Should().BeEquivalentTo(expectedOutput);
         }
 
         //should be given a 2 with a rotation of 1 and it will return '2 1':
@@ -63,11 +64,11 @@ namespace ArrayLefRotation_Tests
             Main main = new Main();
             int limit = 2;
             int shiftPos = 1;
-            int[] expectedOutput = new[] { 2, 1 };
+            int[] expectedOutput = { 3, 1 };
 
             int[] output = main.ShiftLeft(limit, shiftPos);
 
-            Assert.Equal(expectedOutput, output);
+            output.Should().BeEquivalentTo(expectedOutput);
         }
 
         //should be given a 2 with a rotation of 2 and it will return '1 2':
@@ -81,7 +82,7 @@ namespace ArrayLefRotation_Tests
 
             int[] output = main.ShiftLeft(limit, shiftPos);
 
-            Assert.Equal(expectedOutput, output);
+            output.Should().BeEquivalentTo(expectedOutput);
         }
 
 
@@ -96,7 +97,22 @@ namespace ArrayLefRotation_Tests
 
             int[] output = main.ShiftLeft(limit, shiftPos);
 
-            Assert.Equal(expectedOutput, output);
+            output.Should().BeEquivalentTo(expectedOutput);
+        }
+
+
+        //should be given a 3 with a rotation of 2 and it will return '3 2 1':
+        [Fact]
+        public void ShiftLeft_ShouldShiftFour()
+        {
+            Main main = new Main();
+            int limit = 5;
+            int shiftPos = 4;
+            int[] expectedOutput = { 5, 1, 2, 3, 4 };
+
+            int[] output = main.ShiftLeft(limit, shiftPos);
+
+            output.Should().BeEquivalentTo(expectedOutput);
         }
 
         #endregion
