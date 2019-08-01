@@ -17,9 +17,9 @@ namespace ArrayLefRotation
         {
             var currentList = Generate(limit);
 
-            for (int i = 0; i < shiftPos; i++)
+            for (int i = 1; i < shiftPos; i++)
             {
-                for (int j = limit - 1; j > 0; j--)
+                for (int j = limit - i; j > 0; j--)
                 {
                     int newIndex;
                     if (j == 0)

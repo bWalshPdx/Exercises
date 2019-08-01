@@ -42,6 +42,8 @@ https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=inter
 
 Have your 'guiding test' done first
 
+Figure out the smallest state change and test for that first.
+
 
 ## Things that will make it harder next time:
 
