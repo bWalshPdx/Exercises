@@ -16,28 +16,16 @@ namespace ArrayLefRotation
         public int[] ShiftLeft(int limit, int shiftPos)
         {
             var currentList = Generate(limit);
+            int[] shiftedArray = new int[limit];
 
-            for (int i = 1; i < shiftPos; i++)
+            for (int i = 0; i < limit; i++)
             {
-                for (int j = limit - i; j > 0; j--)
-                {
-                    int newIndex;
-                    if (j == 0)
-                    {
-                        newIndex = limit - 1;
-                    }
-                    else
-                    {
-                        newIndex = j - 1;
-                    }
+                int newIndex = GetShiftedIndex(limit, shiftPos, i);
 
-                    int temp = currentList[newIndex];
-                    currentList[newIndex] = currentList[j];
-                    currentList[j] = temp;
-                }
+                shiftedArray[newIndex] = currentList[i];
             }
 
-            return currentList;
+            return shiftedArray;
         }
 
         public int GetShiftedIndex(int arrayLength, int shiftNumber, int originalIndex)
