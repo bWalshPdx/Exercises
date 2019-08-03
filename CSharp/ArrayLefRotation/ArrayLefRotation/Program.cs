@@ -50,5 +50,10 @@ namespace ArrayLefRotation
 
             return updatedIndex;
         }
+
+        public string GetShiftedArray(string input)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -115,6 +115,9 @@ namespace ArrayLefRotation_Tests
             output.Should().Equal(expectedOutput);
         }
 
+        #endregion
+
+        #region GetShiftedIndex
         [Theory]
         [InlineDataAttribute(5, 1, 4, 3)]
         [InlineDataAttribute(5, 1, 0, 4)]
@@ -128,9 +131,23 @@ namespace ArrayLefRotation_Tests
 
             output.Should().Be(expectedIndex);
         }
-
-        
-
         #endregion
+
+
+        #region ShiftArray
+
+        [Theory]
+        [InlineDataAttribute("5 4", "5 1 2 3 4")]
+        public void ShiftArray_ReturnFourShiftedArray(string input, string expectedOutput)
+        {
+            Program main = new Program();
+
+            string output = main.GetShiftedArray(input);
+
+            output.Should().Be(expectedOutput);
+        }
+        #endregion
+
+
     }
 }

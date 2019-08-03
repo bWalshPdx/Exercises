@@ -46,6 +46,7 @@ Figure out the smallest state change and test for that first.
 
 Get better at the actual keyboard shortcut workflow for writing tests in visual studio 2019
 
+Read the instructions more closely, I did'nt need to generate my collection.
 
 ## Things that will make it harder next time:
 
@@ -60,3 +61,4 @@ Return the the shifted array lazily.
 Can I solve this being just as performant with a high number of shifts as a single shift.
 
 Forgot to write the array to spaced output converter, make sure you write out your plan and follow it.
+
