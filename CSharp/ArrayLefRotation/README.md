@@ -44,6 +44,8 @@ Have your 'guiding test' done first
 
 Figure out the smallest state change and test for that first.
 
+Get better at the actual keyboard shortcut workflow for writing tests in visual studio 2019
+
 
 ## Things that will make it harder next time:
 
@@ -52,3 +54,7 @@ Instead of going from right to left, solve it going from left to right
 Can I get a 'hole in one' (The test passes in one run)
 
 Can you solve it without debugging?
+
+Return the the shifted array lazily.
+
+Can I solve this being just as performant with a high number of shifts as a single shift.
