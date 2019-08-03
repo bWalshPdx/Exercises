@@ -39,5 +39,10 @@ namespace ArrayLefRotation
 
             return currentList;
         }
+
+        public int GetShiftedIndex(int arrayLength, int shiftNumber, int originalIndex)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
