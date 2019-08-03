@@ -47,7 +47,7 @@ namespace ArrayLefRotation
             {
                 int nextIndex = updatedIndex - 1;
 
-                if (updatedIndex < 0)
+                if (nextIndex < 0)
                 {
                     nextIndex = arrayLength - 1;
                 }
