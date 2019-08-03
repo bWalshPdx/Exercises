@@ -18,7 +18,7 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void Generator_ShouldReturnFiveElements()
         {
-            Main main = new Main();
+            Program main = new Program();
             int limit = 5;
             int[] expectedOutput = new[] {1, 2, 3, 4, 5};
 
@@ -31,7 +31,7 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void Generator_ShouldReturnOneElement()
         {
-            Main main = new Main();
+            Program main = new Program();
             int limit = 1;
             int[] expectedOutput = new[] { 1 };
 
@@ -47,7 +47,7 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void ShiftLeft_ShouldShiftOne()
         {
-            Main main = new Main();
+            Program main = new Program();
             int limit = 1;
             int shiftPos = 2;
             int[] expectedOutput = new[] { 1 };
@@ -61,7 +61,7 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void ShiftLeft_ShouldShiftOneWithTwoElements()
         {
-            Main main = new Main();
+            Program main = new Program();
             int limit = 2;
             int shiftPos = 1;
             int[] expectedOutput = { 2, 1 };
@@ -75,7 +75,7 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void ShiftLeft_ShouldShiftTwoWithTwoElements()
         {
-            Main main = new Main();
+            Program main = new Program();
             int limit = 2;
             int shiftPos = 2;
             int[] expectedOutput = new[] { 1, 2 };
@@ -90,7 +90,7 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void ShiftLeft_ShouldShiftTwo()
         {
-            Main main = new Main();
+            Program main = new Program();
             int limit = 3;
             int shiftPos = 2;
             int[] expectedOutput = new[] { 3, 1, 2 };
@@ -105,7 +105,7 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void ShiftLeft_ShouldShiftFour()
         {
-            Main main = new Main();
+            Program main = new Program();
             int limit = 5;
             int shiftPos = 4;
             int[] expectedOutput = { 5, 1, 2, 3, 4 };
@@ -122,7 +122,7 @@ namespace ArrayLefRotation_Tests
         [InlineDataAttribute(5, 2, 0, 3)]
         public void GetShiftedIndex(int arrayLength, int shiftNumber, int originalIndex, int expectedIndex)
         {
-            Main main = new Main();
+            Program main = new Program();
 
             int output = main.GetShiftedIndex(arrayLength, shiftNumber, originalIndex);
 
