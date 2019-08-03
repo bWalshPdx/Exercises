@@ -93,7 +93,7 @@ namespace ArrayLefRotation_Tests
             Main main = new Main();
             int limit = 3;
             int shiftPos = 2;
-            int[] expectedOutput = new[] { 3, 2, 1 };
+            int[] expectedOutput = new[] { 3, 1, 2 };
 
             int[] output = main.ShiftLeft(limit, shiftPos);
 
