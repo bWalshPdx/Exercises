@@ -42,7 +42,20 @@ namespace ArrayLefRotation
 
         public int GetShiftedIndex(int arrayLength, int shiftNumber, int originalIndex)
         {
-            throw new NotImplementedException();
+            int updatedIndex = originalIndex;
+            for (int i = 0; i < shiftNumber; i++)
+            {
+                int nextIndex = updatedIndex - 1;
+
+                if (updatedIndex < 0)
+                {
+                    nextIndex = arrayLength - 1;
+                }
+
+                updatedIndex = nextIndex;
+            }
+
+            return updatedIndex;
         }
     }
 }

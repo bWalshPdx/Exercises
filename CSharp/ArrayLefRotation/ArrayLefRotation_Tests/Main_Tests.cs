@@ -118,6 +118,7 @@ namespace ArrayLefRotation_Tests
         [Theory]
         [InlineDataAttribute(5, 1, 4, 3)]
         [InlineDataAttribute(5, 1, 1, 4)]
+        [InlineDataAttribute(5, 1, 3, 2)]
         public void GetShiftedIndex(int arrayLength, int shiftNumber, int originalIndex, int expectedIndex)
         {
             Main main = new Main();
