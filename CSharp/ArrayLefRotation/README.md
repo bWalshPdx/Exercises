@@ -58,3 +58,5 @@ Can you solve it without debugging?
 Return the the shifted array lazily.
 
 Can I solve this being just as performant with a high number of shifts as a single shift.
+
+Forgot to write the array to spaced output converter, make sure you write out your plan and follow it.
