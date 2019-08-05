@@ -12,47 +12,17 @@ namespace ArrayLefRotation_Tests
     
     public class Main_Tests
     {
-        #region Generator
-   
-        //should be given 5 and it will return '1 2 3 4 5'
-        [Fact]
-        public void Generator_ShouldReturnFiveElements()
-        {
-            Program main = new Program();
-            int limit = 5;
-            int[] expectedOutput = new[] {1, 2, 3, 4, 5};
-
-            int[] output = main.Generate(limit);
-
-            output.Should().Equal(expectedOutput);
-        }
-
-        //should be given 1 and it will return '1'
-        [Fact]
-        public void Generator_ShouldReturnOneElement()
-        {
-            Program main = new Program();
-            int limit = 1;
-            int[] expectedOutput = new[] { 1 };
-
-            int[] output = main.Generate(limit);
-
-            output.Should().Equal(expectedOutput);
-        }
-        #endregion
-
         #region ShiftLeft
 
         //should be given a 1 with rotate 2 and it will return '1':
         [Fact]
         public void ShiftLeft_ShouldShiftOne()
         {
-            Program main = new Program();
-            int limit = 1;
+            int[] testSeq = Enumerable.Range(1, 1).ToArray();
             int shiftPos = 2;
             int[] expectedOutput = new[] { 1 };
 
-            int[] output = main.ShiftLeft(limit, shiftPos);
+            int[] output = Program.ShiftLeft(testSeq, shiftPos);
 
             output.Should().Equal(expectedOutput);
         }
@@ -61,12 +31,11 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void ShiftLeft_ShouldShiftOneWithTwoElements()
         {
-            Program main = new Program();
-            int limit = 2;
+            int[] testSeq = Enumerable.Range(1, 1).ToArray();
             int shiftPos = 1;
             int[] expectedOutput = { 2, 1 };
 
-            int[] output = main.ShiftLeft(limit, shiftPos);
+            int[] output = Program.ShiftLeft(testSeq, shiftPos);
 
             output.Should().Equal(expectedOutput);
         }
@@ -75,12 +44,11 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void ShiftLeft_ShouldShiftTwoWithTwoElements()
         {
-            Program main = new Program();
-            int limit = 2;
+            int[] testSeq = Enumerable.Range(1, 1).ToArray();
             int shiftPos = 2;
             int[] expectedOutput = new[] { 1, 2 };
 
-            int[] output = main.ShiftLeft(limit, shiftPos);
+            int[] output = Program.ShiftLeft(testSeq, shiftPos);
 
             output.Should().Equal(expectedOutput);
         }
@@ -90,12 +58,12 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void ShiftLeft_ShouldShiftTwo()
         {
-            Program main = new Program();
-            int limit = 3;
+            
+            int[] testSeq = Enumerable.Range(1, 1).ToArray();
             int shiftPos = 2;
             int[] expectedOutput = new[] { 3, 1, 2 };
 
-            int[] output = main.ShiftLeft(limit, shiftPos);
+            int[] output = Program.ShiftLeft(testSeq, shiftPos);
 
             output.Should().Equal(expectedOutput);
         }
@@ -105,12 +73,11 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void ShiftLeft_ShouldShiftFour()
         {
-            Program main = new Program();
-            int limit = 5;
+            int[] testSeq = Enumerable.Range(1, 5).ToArray();
             int shiftPos = 4;
             int[] expectedOutput = { 5, 1, 2, 3, 4 };
 
-            int[] output = main.ShiftLeft(limit, shiftPos);
+            int[] output = Program.ShiftLeft(testSeq, shiftPos);
 
             output.Should().Equal(expectedOutput);
         }
@@ -125,9 +92,7 @@ namespace ArrayLefRotation_Tests
         [InlineDataAttribute(5, 2, 0, 3)]
         public void GetShiftedIndex(int arrayLength, int shiftNumber, int originalIndex, int expectedIndex)
         {
-            Program main = new Program();
-
-            int output = main.GetShiftedIndex(arrayLength, shiftNumber, originalIndex);
+            int output = Program.GetShiftedIndex(arrayLength, shiftNumber, originalIndex);
 
             output.Should().Be(expectedIndex);
         }
@@ -137,12 +102,10 @@ namespace ArrayLefRotation_Tests
         #region ShiftArray
 
         [Theory]
-        [InlineDataAttribute("5 4", "5 1 2 3 4")]
-        public void ShiftArray_ReturnFourShiftedArray(string input, string expectedOutput)
+        [InlineDataAttribute("5 4", "1 2 3 4 5", "5 1 2 3 4")]
+        public void ShiftArray_ReturnFourShiftedArray(string probDesc, string inputSeq, string expectedOutput)
         {
-            Program main = new Program();
-
-            string output = main.GetShiftedArray(input);
+            string output = Program.GetShiftedArray(probDesc, inputSeq);
 
             output.Should().Be(expectedOutput);
         }

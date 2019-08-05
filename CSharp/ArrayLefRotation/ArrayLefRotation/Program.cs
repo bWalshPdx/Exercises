@@ -11,31 +11,29 @@ namespace ArrayLefRotation
     {
         public static void Main(string[] args)
         {
-            TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+            string problemDescription = args[0];
+            string inputArray = args[1];
+            string output = GetShiftedArray(problemDescription, inputArray);
+
+            Console.Write(output);
         }
 
 
-        public int[] Generate(int limit)
+        public static int[] ShiftLeft(int[] sequence, int shiftPos)
         {
-            return Enumerable.Range(1, limit).ToArray();
-        }
+            int[] shiftedArray = sequence.Select(e => e).ToArray();
 
-        public int[] ShiftLeft(int limit, int shiftPos)
-        {
-            var currentList = Generate(limit);
-            int[] shiftedArray = new int[limit];
-
-            for (int i = 0; i < limit; i++)
+            for (int i = 0; i < sequence.Length; i++)
             {
-                int newIndex = GetShiftedIndex(limit, shiftPos, i);
+                int newIndex = GetShiftedIndex(sequence.Length, shiftPos, i);
 
-                shiftedArray[newIndex] = currentList[i];
+                shiftedArray[newIndex] = sequence[i];
             }
 
             return shiftedArray;
         }
 
-        public int GetShiftedIndex(int arrayLength, int shiftNumber, int originalIndex)
+        public static int GetShiftedIndex(int arrayLength, int shiftNumber, int originalIndex)
         {
             int updatedIndex = originalIndex;
             for (int i = 0; i < shiftNumber; i++)
@@ -51,9 +49,19 @@ namespace ArrayLefRotation
             return updatedIndex;
         }
 
-        public string GetShiftedArray(string input)
+        public static string GetShiftedArray(string problemDescription, string inputArray)
         {
-            throw new NotImplementedException();
+            int[] splitProblem = problemDescription.Split(' ').Select(e => Convert.ToInt32(e)).ToArray();
+            
+            int shiftNum = splitProblem[1];
+
+            int[] splitInput = inputArray.Split(' ').Select(e => Convert.ToInt32(e)).ToArray();
+
+            int[] shiftedArray = ShiftLeft(splitInput, shiftNum);
+
+            string output = String.Join(" ", shiftedArray);
+
+            return output;
         }
     }
 }

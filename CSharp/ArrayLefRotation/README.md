@@ -48,6 +48,18 @@ Get better at the actual keyboard shortcut workflow for writing tests in visual 
 
 Read the instructions more closely, I did'nt need to generate my collection.
 
+	- Be sure you look at the example tests, to make sure you are seeing the problem clearly.
+
+### The process for next time
+
+1. Read the whole description twice
+
+2. Mindmap the psuedo code for the problem
+
+3. Write out 'should' statements for each function
+
+4. Start TDD cycle.
+
 ## Things that will make it harder next time:
 
 Instead of going from right to left, solve it going from left to right
@@ -61,4 +73,3 @@ Return the the shifted array lazily.
 Can I solve this being just as performant with a high number of shifts as a single shift.
 
 Forgot to write the array to spaced output converter, make sure you write out your plan and follow it.
-
