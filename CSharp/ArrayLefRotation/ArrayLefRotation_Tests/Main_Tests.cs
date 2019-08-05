@@ -31,7 +31,7 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void ShiftLeft_ShouldShiftOneWithTwoElements()
         {
-            int[] testSeq = Enumerable.Range(1, 1).ToArray();
+            int[] testSeq = Enumerable.Range(1, 2).ToArray();
             int shiftPos = 1;
             int[] expectedOutput = { 2, 1 };
 
@@ -44,7 +44,7 @@ namespace ArrayLefRotation_Tests
         [Fact]
         public void ShiftLeft_ShouldShiftTwoWithTwoElements()
         {
-            int[] testSeq = Enumerable.Range(1, 1).ToArray();
+            int[] testSeq = Enumerable.Range(1, 2).ToArray();
             int shiftPos = 2;
             int[] expectedOutput = new[] { 1, 2 };
 
@@ -59,7 +59,7 @@ namespace ArrayLefRotation_Tests
         public void ShiftLeft_ShouldShiftTwo()
         {
             
-            int[] testSeq = Enumerable.Range(1, 1).ToArray();
+            int[] testSeq = Enumerable.Range(1, 3).ToArray();
             int shiftPos = 2;
             int[] expectedOutput = new[] { 3, 1, 2 };
 

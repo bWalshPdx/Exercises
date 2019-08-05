@@ -11,8 +11,10 @@ namespace ArrayLefRotation
     {
         public static void Main(string[] args)
         {
-            string problemDescription = args[0];
-            string inputArray = args[1];
+            string[] firstLine = Console.ReadLine().Split(' ');
+            string problemDescription = firstLine[0];
+            string inputArray = Console.ReadLine();
+
             string output = GetShiftedArray(problemDescription, inputArray);
 
             Console.Write(output);
