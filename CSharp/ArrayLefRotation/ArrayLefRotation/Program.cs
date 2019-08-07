@@ -37,15 +37,13 @@ namespace ArrayLefRotation
 
         public static int GetShiftedIndex(int arrayLength, int shiftNumber, int originalIndex)
         {
-            int updatedIndex = originalIndex;
-            for (int i = 0; i < shiftNumber; i++)
+            shiftNumber = shiftNumber % arrayLength;
+
+            int updatedIndex = originalIndex - shiftNumber;
+
+            if (updatedIndex < 0)
             {
-                int nextIndex = updatedIndex - 1;
-
-                if (nextIndex < 0)
-                    nextIndex = arrayLength - 1;
-
-                updatedIndex = nextIndex;
+                updatedIndex = arrayLength + updatedIndex;
             }
 
             return updatedIndex;
