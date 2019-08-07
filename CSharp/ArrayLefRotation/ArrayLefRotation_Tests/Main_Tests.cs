@@ -103,7 +103,9 @@ namespace ArrayLefRotation_Tests
 
         [Theory]
         [InlineDataAttribute("5 4", "1 2 3 4 5", "5 1 2 3 4")]
-        public void ShiftArray_ReturnFourShiftedArray(string probDesc, string inputSeq, string expectedOutput)
+        [InlineDataAttribute("20 10", "41 73 89 7 10 1 59 58 84 77 77 97 58 1 86 58 26 10 86 51", "77 97 58 1 86 58 26 10 86 51 41 73 89 7 10 1 59 58 84 77")]
+        [InlineDataAttribute("15 13", "33 47 70 37 8 53 13 93 71 72 51 100 60 87 97", "87 97 33 47 70 37 8 53 13 93 71 72 51 100 60")]
+        public void ShiftArray_ReturnsCorrectShiftedArray(string probDesc, string inputSeq, string expectedOutput)
         {
             string output = Program.GetShiftedArray(probDesc, inputSeq);
 
