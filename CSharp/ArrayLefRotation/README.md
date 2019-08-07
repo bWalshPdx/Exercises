@@ -42,6 +42,8 @@ https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=inter
 
 Have your 'guiding test' done first
 
+Ensure you can pass the very first test in HackerRank, just to make sure everything is working right away.
+
 Figure out the smallest state change and test for that first.
 
 Get better at the actual keyboard shortcut workflow for writing tests in visual studio 2019
@@ -73,3 +75,17 @@ Return the the shifted array lazily.
 Can I solve this being just as performant with a high number of shifts as a single shift.
 
 Forgot to write the array to spaced output converter, make sure you write out your plan and follow it.
+
+## Retrospective:
+
+I did'nt spend enough time thinking about how it was being tested by HackerRank, so I had to change what I was working on when I thought I was done.
+
+It also did'nt pass due to performance issues.
+
+I liked how I had all my test written so the fix to make it faster went well.
+
+I need to keep practicing / figuring out how to get the shortkeys / navigation figured out for TDD. 
+
+I like these kata's because it's helping me do TDD in prod much more often. I do need to fix my bookmark keys though.
+
+I also need to create a kata README shortkey, which will makes things easier.
