@@ -1,0 +1,9 @@
+﻿--=======================================================================
+-- RESEARCH: New Year Chaos
+--=======================================================================
+
+First verify if the line is too chaotic
+
+    A element can't be further than two places ahead in line
+
+

@@ -2,3 +2,11 @@
 -- NEXT ACTIONS: New Year Chaos
 --=======================================================================
 
+1. Read the whole description twice
+    2019.08.08.09.57.15AM<NA>
+
+2. Mindmap the psuedo code for the problem
+
+3. Write out 'should' statements for each function
+
+4. Start TDD cycle.
