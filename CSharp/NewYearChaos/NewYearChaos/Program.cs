@@ -53,4 +53,43 @@ class Solution
             };
         }
     }
+
+    
+
+
+    public class HackerRankHarness
+    {
+        private readonly UseType _type;
+        private readonly Func<IEnumerable<string>, IEnumerable<string>> _solution;
+
+        public enum UseType { Console, File };
+
+        public HackerRankHarness(Func<IEnumerable<string>, IEnumerable<string>> solution)
+        {
+            _type = UseType.Console;
+            _solution = solution;
+        }
+
+        public HackerRankHarness(string inputFilePath, string outputFilePath, Func<IEnumerable<string>, IEnumerable<string>> solution)
+        {
+            _type = UseType.File;
+            _solution = solution;
+        }
+
+        public void Input()
+        {
+            List<string> inputCollection = new List<string>();
+
+            if (_type == UseType.Console)
+            {
+                //TODO: Figure out a way to break after a certain amount of time when waiting for console readline
+            }
+
+        }
+
+        public void Output()
+        {
+
+        }
+    }
 }
