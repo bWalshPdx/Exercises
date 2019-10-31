@@ -58,7 +58,7 @@ namespace MyNamespace
 
             public int GetBribeCount(string[] line, string id)
             {
-                for (int i = line.Length - 1; i > 0; i--)
+                for (int i = line.Length - 1; i >= 0; i--)
                 {
                     if (line[i] == id)
                     {
