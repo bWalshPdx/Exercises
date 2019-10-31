@@ -35,5 +35,17 @@ namespace NewYearChaos
 
             bribeCount.Should().Be(expectedCount);
         }
+        [Fact]
+        public void GetBribeCount_GivenIdIsFurtherBackInLine_ShouldReturnZeroBribeCount()
+        {
+            string[] line = new string[5] { "5", "1", "2", "3", "4" };
+            string id = "1";
+            int expectedCount = 0;
+
+            Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
+            int bribeCount = solution.GetBribeCount(line, id);
+
+            bribeCount.Should().Be(expectedCount);
+        }
     }
 }

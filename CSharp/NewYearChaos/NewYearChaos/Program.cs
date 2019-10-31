@@ -47,8 +47,6 @@ namespace MyNamespace
         {
             public string[] Solution(int[] input)
             {
-                Console.WriteLine("This was hit");
-
                 return new string[]
                 {
                     "3",
@@ -58,7 +56,7 @@ namespace MyNamespace
 
             public int GetBribeCount(string[] line, string id)
             {
-                for (int i = line.Length - 1; i >= 0; i--)
+                for (int i = Int32.Parse(id) - 1; i >= 0; i--)
                 {
                     if (line[i] == id)
                     {
