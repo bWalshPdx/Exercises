@@ -12,84 +12,102 @@ using System.Text.RegularExpressions;
 using System.Text;
 using System;
 
-class Solution
+
+namespace MyNamespace
 {
-
-    // Complete the minimumBribes function below.
-    static void minimumBribes(int[] q)
+    public class Solution
     {
-        New_Year_Chaos mySolution = new New_Year_Chaos();
 
-        var output = mySolution.Solution(q);
-
-        foreach (string i in output)
+        // Complete the minimumBribes function below.
+        static void minimumBribes(int[] q)
         {
-            Console.WriteLine(i);
-        }
-    }
+            New_Year_Chaos mySolution = new New_Year_Chaos();
 
-    static void Main(string[] args)
-    {
-        int t = Convert.ToInt32(Console.ReadLine());
+            var output = mySolution.Solution(q);
 
-        for (int tItr = 0; tItr < t; tItr++)
-        {
-            int n = Convert.ToInt32(Console.ReadLine());
-
-            int[] q = Array.ConvertAll(Console.ReadLine().Split(' '), qTemp => Convert.ToInt32(qTemp));
-            minimumBribes(q);
-        }
-    }
-    public class New_Year_Chaos
-    {
-        public string[] Solution(int[] input)
-        {
-            Console.WriteLine("This was hit");
-
-            return new string[]
+            foreach (string i in output)
             {
-                "3",
-                "Too chaotic"
-            };
-        }
-    }
-
-    
-
-
-    public class HackerRankHarness
-    {
-        private readonly UseType _type;
-        private readonly Func<IEnumerable<string>, IEnumerable<string>> _solution;
-
-        public enum UseType { Console, File };
-
-        public HackerRankHarness(Func<IEnumerable<string>, IEnumerable<string>> solution)
-        {
-            _type = UseType.Console;
-            _solution = solution;
+                Console.WriteLine(i);
+            }
         }
 
-        public HackerRankHarness(string inputFilePath, string outputFilePath, Func<IEnumerable<string>, IEnumerable<string>> solution)
+        static void Main(string[] args)
         {
-            _type = UseType.File;
-            _solution = solution;
-        }
+            int t = Convert.ToInt32(Console.ReadLine());
 
-        public void Input()
-        {
-            List<string> inputCollection = new List<string>();
-
-            if (_type == UseType.Console)
+            for (int tItr = 0; tItr < t; tItr++)
             {
-                //TODO: Figure out a way to break after a certain amount of time when waiting for console readline
+                int n = Convert.ToInt32(Console.ReadLine());
+
+                int[] q = Array.ConvertAll(Console.ReadLine().Split(' '), qTemp => Convert.ToInt32(qTemp));
+                minimumBribes(q);
+            }
+        }
+        public class New_Year_Chaos
+        {
+            public string[] Solution(int[] input)
+            {
+                Console.WriteLine("This was hit");
+
+                return new string[]
+                {
+                    "3",
+                    "Too chaotic"
+                };
             }
 
+            public int GetBribeCount(string[] line, string id)
+            {
+                for (int i = line.Length - 1; i > 0; i--)
+                {
+                    if (line[i] == id)
+                    {
+                        return line.Length - (i + 1);
+                    }
+                }
+
+                throw new Exception("Can't find a id in the line");
+            }
         }
 
-        public void Output()
-        {
 
+
+
+        public class HackerRankHarness
+        {
+            private readonly UseType _type;
+            private readonly Func<IEnumerable<string>, IEnumerable<string>> _solution;
+
+            public enum UseType { Console, File };
+
+            public HackerRankHarness(Func<IEnumerable<string>, IEnumerable<string>> solution)
+            {
+                _type = UseType.Console;
+                _solution = solution;
+            }
+
+            public HackerRankHarness(string inputFilePath, string outputFilePath, Func<IEnumerable<string>, IEnumerable<string>> solution)
+            {
+                _type = UseType.File;
+                _solution = solution;
+            }
+
+            public void Input()
+            {
+                List<string> inputCollection = new List<string>();
+
+                if (_type == UseType.Console)
+                {
+                    //TODO: Figure out a way to break after a certain amount of time when waiting for console readline
+                }
+
+            }
+
+            public void Output()
+            {
+
+            }
         }
     }
 }
+
