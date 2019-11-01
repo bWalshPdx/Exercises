@@ -89,7 +89,7 @@ namespace MyNamespace
 
             public bool IsTooChaotic(string[] line)
             {
-                throw new NotImplementedException();
+                return GetBribeCountForLine(line) >= 3;
             }
         }
     }
