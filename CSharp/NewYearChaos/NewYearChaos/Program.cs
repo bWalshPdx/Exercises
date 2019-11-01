@@ -56,11 +56,19 @@ namespace MyNamespace
 
             public int GetBribeCount(string[] line, string id)
             {
-                for (int i = Int32.Parse(id) - 1; i >= 0; i--)
+                int parsedId = Int32.Parse(id);
+
+                for (int i = line.Length - 1; i >= 0; i--)
                 {
+
                     if (line[i] == id)
                     {
-                        return line.Length - (i + 1);
+                        if (parsedId <= i)
+                        {
+                            return 0;
+                        }
+
+                        return parsedId - (i + 1);
                     }
                 }
 
