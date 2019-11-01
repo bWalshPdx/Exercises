@@ -51,7 +51,7 @@ namespace NewYearChaos
         }
 
         [Fact]
-        public void Solution_GivenFirstLineInput_ShouldReturnTotalBribeCount()
+        public void GetBribeCountForLine_GivenFirstLineInput_ShouldReturnTotalBribeCount()
         {
             string[] line = new string[5] { "2", "1", "5", "3", "4" };
             string id = "1";
@@ -63,5 +63,15 @@ namespace NewYearChaos
             bribeCount.Should().Be(expectedCount);
         }
 
+        [Fact]
+        public void IsToChaotic_GivenLineIsTooChaotic_ShouldReturnTrue()
+        {
+            string[] line = new string[5] { "2", "5", "1", "3", "4" };
+            
+            Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
+            bool tooChaotic = solution.IsTooChaotic(line);
+
+            tooChaotic.Should().Be(true);
+        }
     }
 }

@@ -86,6 +86,11 @@ namespace MyNamespace
 
                 return totalBribes;
             }
+
+            public bool IsTooChaotic(string[] line)
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
