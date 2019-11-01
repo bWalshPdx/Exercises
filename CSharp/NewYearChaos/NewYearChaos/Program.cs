@@ -74,44 +74,17 @@ namespace MyNamespace
 
                 throw new Exception("Can't find a id in the line");
             }
-        }
 
-
-
-
-        public class HackerRankHarness
-        {
-            private readonly UseType _type;
-            private readonly Func<IEnumerable<string>, IEnumerable<string>> _solution;
-
-            public enum UseType { Console, File };
-
-            public HackerRankHarness(Func<IEnumerable<string>, IEnumerable<string>> solution)
+            public int GetBribeCountForLine(string[] line)
             {
-                _type = UseType.Console;
-                _solution = solution;
-            }
+                int totalBribes = 0;
 
-            public HackerRankHarness(string inputFilePath, string outputFilePath, Func<IEnumerable<string>, IEnumerable<string>> solution)
-            {
-                _type = UseType.File;
-                _solution = solution;
-            }
-
-            public void Input()
-            {
-                List<string> inputCollection = new List<string>();
-
-                if (_type == UseType.Console)
+                foreach (var id in line)
                 {
-                    //TODO: Figure out a way to break after a certain amount of time when waiting for console readline
+                    totalBribes += GetBribeCount(line, id);
                 }
 
-            }
-
-            public void Output()
-            {
-
+                return totalBribes;
             }
         }
     }
