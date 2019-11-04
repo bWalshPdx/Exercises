@@ -54,14 +54,14 @@ namespace MyNamespace
                 };
             }
 
-            public int GetBribeCount(string[] line, string id)
+            public int GetBribeCount(int[] line, string id)
             {
                 int parsedId = Int32.Parse(id);
 
                 for (int i = line.Length - 1; i >= 0; i--)
                 {
 
-                    if (line[i] == id)
+                    if (line[i] == parsedId)
                     {
                         if (parsedId <= i)
                         {
@@ -75,7 +75,7 @@ namespace MyNamespace
                 throw new Exception("Can't find a id in the line");
             }
 
-            public string GetBribeCountForLine(string[] line)
+            public string GetBribeCountForLine(int[] line)
             {
                 int totalBribes = 0;
 
@@ -92,12 +92,6 @@ namespace MyNamespace
                 }
 
                 return totalBribes.ToString();
-            }
-
-            public string GetResult(string[] line)
-            {
-
-                return GetBribeCountForLine(line);
             }
         }
     }

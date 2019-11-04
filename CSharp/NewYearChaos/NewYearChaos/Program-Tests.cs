@@ -14,7 +14,7 @@ namespace NewYearChaos
         [Fact]
         public void GetBribeCount_GivenIdAtBackOfLine_ShouldReturnCorrectBribeCount()
         {
-            string[] line = new string[5] {"1", "2", "3", "5", "4"};
+            int[] line = new int[5] {1, 2, 3, 5, 4};
             string id = "5";
             int expectedCount = 1;
 
@@ -27,7 +27,7 @@ namespace NewYearChaos
         [Fact]
         public void GetBribeCount_GivenIdAtFrontOfLine_ShouldReturnCorrectBribeCount()
         {
-            string[] line = new string[5] { "5", "1", "2", "3", "4" };
+            int[] line = new int[5] { 5, 1, 2, 3, 4 };
             string id = "5";
             int expectedCount = 4;
 
@@ -40,7 +40,7 @@ namespace NewYearChaos
         [Fact]
         public void GetBribeCount_GivenIdIsFurtherBackInLine_ShouldReturnZeroBribeCount()
         {
-            string[] line = new string[5] { "5", "1", "2", "3", "4" };
+            int[] line = new int[5] { 5, 1, 2, 3, 4 };
             string id = "1";
             int expectedCount = 0;
 
@@ -53,7 +53,7 @@ namespace NewYearChaos
         [Fact]
         public void GetBribeCountForLine_GivenFirstLineInput_ShouldReturnTotalBribeCount()
         {
-            string[] line = new string[5] { "2", "1", "5", "3", "4" };
+            int[] line = new int[5] { 2, 1, 5, 3, 4 };
             string id = "1";
             string expectedCount = "3";
 
@@ -66,7 +66,7 @@ namespace NewYearChaos
         [Fact]
         public void IsToChaotic_GivenLineIsTooChaotic_ShouldReturnTrue()
         {
-            string[] line = new string[5] { "2", "5", "1", "3", "4" };
+            int[] line = new int[5] { 2, 5, 1, 3, 4 };
             
             Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
             string output = solution.GetBribeCountForLine(line);
@@ -77,7 +77,7 @@ namespace NewYearChaos
         [Fact]
         public void IsToChaotic_GivenLineIsValid_ShouldReturnFalse()
         {
-            string[] line = new string[5] { "2", "1", "5", "3", "4" };
+            int[] line = new int[5] { 2, 1, 5, 3, 4 };
 
             Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
             string output = solution.GetBribeCountForLine(line);
@@ -86,28 +86,47 @@ namespace NewYearChaos
         }
 
         [Fact]
-        public void GetResult_GivenLineIsTooChaotic_ShouldReturnTooChaotic()
+        public void GetBribeCountForLine_GivenLineIsTooChaotic_ShouldReturnTooChaotic()
         {
-            string[] line = new string[5] { "2", "5", "1", "3", "4" };
+            int[] line = new int[5] { 2, 5, 1, 3, 4 };
             
 
             Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
-            string result = solution.GetResult(line);
+            string result = solution.GetBribeCountForLine(line);
 
             result.Should().Be("Too chaotic");
         }
 
         [Fact]
-        public void GetResult_GivenLineWith3Jumps_ShouldReturnThree()
+        public void GetBribeCountForLine_GivenLineWith3Jumps_ShouldReturnThree()
         {
             string[] line = new string[5] { "2", "1", "5", "3", "4" };
             string id = "1";
             string expected = "3";
 
             Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
-            string result = solution.GetResult(line);
+            string result = solution.GetBribeCountForLine(line);
 
             result.Should().Be(expected);
         }
+
+        [Fact]
+        public void Solution_GivenExampleInput_ShouldReturnExampleOutput()
+        {
+            string[] exampleInput = new string[5] { "2",
+                                            "5",
+                                            "2 1 5 3 4",
+                                            "5",
+                                            "2 5 1 3 4" };
+
+            string[] exampleOutput = new string[2] { "3",
+                                                     "Too chaotic"};
+
+            Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
+            string[] result = solution.Solution(exampleInput);
+
+            result.Should().Be(expected);
+        }
+
     }
 }
