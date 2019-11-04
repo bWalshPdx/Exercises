@@ -87,9 +87,22 @@ namespace MyNamespace
                 return totalBribes;
             }
 
+            
+
             public bool IsTooChaotic(string[] line)
             {
                 return GetBribeCountForLine(line) >= 3;
+            }
+
+            public string GetResult(string[] line, string id)
+            {
+                if (IsTooChaotic(line))
+                {
+                    return "Too chaotic";
+                }
+
+
+                throw new NotImplementedException();
             }
         }
     }

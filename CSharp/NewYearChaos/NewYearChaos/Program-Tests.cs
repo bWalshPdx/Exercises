@@ -73,5 +73,17 @@ namespace NewYearChaos
 
             tooChaotic.Should().Be(true);
         }
+
+        [Fact]
+        public void GetResult_GivenLineIsTooChaotic_ShouldReturnTooChaotic()
+        {
+            string[] line = new string[5] { "2", "5", "1", "3", "4" };
+            
+
+            Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
+            string result = solution.GetResult(line, "Id never used");
+
+            result.Should().Be("Too chaotic");
+        }
     }
 }
