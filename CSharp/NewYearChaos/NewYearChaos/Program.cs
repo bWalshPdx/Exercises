@@ -75,34 +75,29 @@ namespace MyNamespace
                 throw new Exception("Can't find a id in the line");
             }
 
-            public int GetBribeCountForLine(string[] line)
+            public string GetBribeCountForLine(string[] line)
             {
                 int totalBribes = 0;
 
                 foreach (var id in line)
                 {
-                    totalBribes += GetBribeCount(line, id);
+                    int currentBribes = GetBribeCount(line, id);
+
+                    if (currentBribes >= 3)
+                    {
+                        return "Too chaotic";
+                    }
+
+                    totalBribes += currentBribes;
                 }
 
-                return totalBribes;
+                return totalBribes.ToString();
             }
 
-            
-
-            public bool IsTooChaotic(string[] line)
+            public string GetResult(string[] line)
             {
-                return GetBribeCountForLine(line) >= 3;
-            }
 
-            public string GetResult(string[] line, string id)
-            {
-                if (IsTooChaotic(line))
-                {
-                    return "Too chaotic";
-                }
-
-
-                throw new NotImplementedException();
+                return GetBribeCountForLine(line);
             }
         }
     }

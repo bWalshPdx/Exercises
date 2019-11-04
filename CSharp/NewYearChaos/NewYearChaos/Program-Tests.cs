@@ -55,10 +55,10 @@ namespace NewYearChaos
         {
             string[] line = new string[5] { "2", "1", "5", "3", "4" };
             string id = "1";
-            int expectedCount = 3;
+            string expectedCount = "3";
 
             Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
-            int bribeCount = solution.GetBribeCountForLine(line);
+            string bribeCount = solution.GetBribeCountForLine(line);
 
             bribeCount.Should().Be(expectedCount);
         }
@@ -69,9 +69,20 @@ namespace NewYearChaos
             string[] line = new string[5] { "2", "5", "1", "3", "4" };
             
             Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
-            bool tooChaotic = solution.IsTooChaotic(line);
+            string output = solution.GetBribeCountForLine(line);
 
-            tooChaotic.Should().Be(true);
+            output.Should().Be("Too chaotic");
+        }
+
+        [Fact]
+        public void IsToChaotic_GivenLineIsValid_ShouldReturnFalse()
+        {
+            string[] line = new string[5] { "2", "1", "5", "3", "4" };
+
+            Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
+            string output = solution.GetBribeCountForLine(line);
+
+            output.Should().NotBe("Too chaotic");
         }
 
         [Fact]
@@ -81,9 +92,22 @@ namespace NewYearChaos
             
 
             Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
-            string result = solution.GetResult(line, "Id never used");
+            string result = solution.GetResult(line);
 
             result.Should().Be("Too chaotic");
+        }
+
+        [Fact]
+        public void GetResult_GivenLineWith3Jumps_ShouldReturnThree()
+        {
+            string[] line = new string[5] { "2", "1", "5", "3", "4" };
+            string id = "1";
+            string expected = "3";
+
+            Solution.New_Year_Chaos solution = new Solution.New_Year_Chaos();
+            string result = solution.GetResult(line);
+
+            result.Should().Be(expected);
         }
     }
 }
