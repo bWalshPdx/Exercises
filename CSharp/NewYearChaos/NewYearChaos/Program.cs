@@ -23,12 +23,7 @@ namespace MyNamespace
         {
             New_Year_Chaos mySolution = new New_Year_Chaos();
 
-            var output = mySolution.Solution(q);
-
-            foreach (string i in output)
-            {
-                Console.WriteLine(i);
-            }
+            Console.WriteLine(mySolution.GetBribeCountForLine(q));
         }
 
         static void Main(string[] args)
@@ -45,30 +40,19 @@ namespace MyNamespace
         }
         public class New_Year_Chaos
         {
-            public string[] Solution(int[] input)
+            public int GetBribeCount(int[] line, int id)
             {
-                return new string[]
-                {
-                    "3",
-                    "Too chaotic"
-                };
-            }
-
-            public int GetBribeCount(int[] line, string id)
-            {
-                int parsedId = Int32.Parse(id);
-
                 for (int i = line.Length - 1; i >= 0; i--)
                 {
 
-                    if (line[i] == parsedId)
+                    if (line[i] == id)
                     {
-                        if (parsedId <= i)
+                        if (id <= i)
                         {
                             return 0;
                         }
 
-                        return parsedId - (i + 1);
+                        return id - (i + 1);
                     }
                 }
 
