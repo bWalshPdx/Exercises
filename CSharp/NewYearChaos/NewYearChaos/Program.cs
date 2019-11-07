@@ -40,42 +40,32 @@ namespace MyNamespace
         }
         public class New_Year_Chaos
         {
-            public int GetBribeCount(int[] line, int id)
-            {
-                for (int i = line.Length - 1; i >= 0; i--)
-                {
-
-                    if (line[i] == id)
-                    {
-                        if (id <= i)
-                        {
-                            return 0;
-                        }
-
-                        return id - (i + 1);
-                    }
-                }
-
-                throw new Exception("Can't find a id in the line");
-            }
-
+            
             public string GetBribeCountForLine(int[] line)
             {
-                int totalBribes = 0;
+                int bribeCount = 0;
 
-                foreach (var id in line)
+                for (int i = line.Length - 1; i >= 0; i--)
                 {
-                    int currentBribes = GetBribeCount(line, id);
-
-                    if (currentBribes >= 3)
+                    if (line[i] > i)
                     {
-                        return "Too chaotic";
+                        int currentBribeCount = line[i] - (i + 1);
+
+                        if (currentBribeCount >= 3)
+                        {
+                            return "Too chaotic";
+                        }
+
+                        bribeCount += currentBribeCount;
                     }
 
-                    totalBribes += currentBribes;
+                    
+                    
+
+
                 }
 
-                return totalBribes.ToString();
+                return bribeCount.ToString();
             }
         }
     }
