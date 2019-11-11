@@ -47,9 +47,11 @@ namespace MyNamespace
 
                 for (int i = line.Length - 1; i >= 0; i--)
                 {
+                    int currentBribeCount = 0;
+
                     if (line[i] > i)
                     {
-                        int currentBribeCount = line[i] - (i + 1);
+                        currentBribeCount = line[i] - (i + 1);
 
                         if (currentBribeCount >= 3)
                         {
@@ -57,10 +59,22 @@ namespace MyNamespace
                         }
 
                         bribeCount += currentBribeCount;
+
+                        //Capture value that made the bribes:
+                        
+
+                        //Capture range of values that need to move:
+                        int startIndex = i + 1;
+                        int endIndex = i + currentBribeCount;
+
+
+                        //Move the range up by current vote count:
+
+
                     }
 
-                    
-                    
+
+
 
 
                 }
