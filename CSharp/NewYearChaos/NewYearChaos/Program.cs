@@ -43,6 +43,48 @@ namespace MyNamespace
             
             public string GetBribeCountForLine(int[] line)
             {
+                bool bribeFound = true;
+                int totalBribeCount = 0;
+
+                while (bribeFound)
+                {
+                    
+                    bribeFound = false;
+
+                    for (int i = line.Length - 1; i >= 0; i--)
+                    {
+                        int currentBribeCount = 0;
+
+                        if (line[i] > i + 1)
+                        {
+                            bribeFound = true;
+                            currentBribeCount = line[i] - (i + 1);
+
+                            if (currentBribeCount >= 3)
+                            {
+                                return "Too chaotic";
+                            }
+
+                            totalBribeCount += currentBribeCount;
+
+
+                            //Perform Swaps for the number of bribes found:
+                            for (int j = i; j < i + currentBribeCount; j++)
+                            {
+                                int firstValue = line[j];
+                                int secondValue = line[j + 1];
+                                line[j + 1] = firstValue;
+                                line[j] = secondValue;
+                            }
+
+                            break;
+                        }
+                    }
+                }
+
+                return totalBribeCount.ToString();
+
+                /*
                 int bribeCount = 0;
 
                 for (int i = line.Length - 1; i >= 0; i--)
@@ -66,7 +108,7 @@ namespace MyNamespace
                         //Capture range of values that need to move:
                         int startIndex = i + 1;
                         int endIndex = i + currentBribeCount;
-
+                         
 
                         //Move the range up by current vote count:
 
@@ -80,6 +122,8 @@ namespace MyNamespace
                 }
 
                 return bribeCount.ToString();
+
+                */
             }
         }
     }
