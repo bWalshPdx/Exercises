@@ -45,11 +45,12 @@ namespace MyNamespace
             {
                 bool bribeFound = true;
                 int totalBribeCount = 0;
-                
+
+                int currentSortedIndex = line.Length - 1;
+
                 while (bribeFound)
                 {
-                    int currentSortedIndex = line.Length - 1;
-
+                    
                     bribeFound = false;
 
                     for (int i = currentSortedIndex; i >= 0; i--)
@@ -76,6 +77,8 @@ namespace MyNamespace
                                 line[j + 1] = firstValue;
                                 line[j] = secondValue;
                             }
+
+                            currentSortedIndex = i;
 
                             break;
                         }
