@@ -45,20 +45,21 @@ namespace MyNamespace
             {
                 bool bribeFound = true;
                 int totalBribeCount = 0;
-
+                
                 while (bribeFound)
                 {
-                    
+                    int currentSortedIndex = line.Length - 1;
+
                     bribeFound = false;
 
-                    for (int i = line.Length - 1; i >= 0; i--)
+                    for (int i = currentSortedIndex; i >= 0; i--)
                     {
-                        int currentBribeCount = 0;
+                        int properValue = i + 1;
 
-                        if (line[i] > i + 1)
+                        if (line[i] > properValue)
                         {
                             bribeFound = true;
-                            currentBribeCount = line[i] - (i + 1);
+                            int currentBribeCount = line[i] - (i + 1);
 
                             if (currentBribeCount >= 3)
                             {
@@ -66,7 +67,6 @@ namespace MyNamespace
                             }
 
                             totalBribeCount += currentBribeCount;
-
 
                             //Perform Swaps for the number of bribes found:
                             for (int j = i; j < i + currentBribeCount; j++)
@@ -84,46 +84,6 @@ namespace MyNamespace
 
                 return totalBribeCount.ToString();
 
-                /*
-                int bribeCount = 0;
-
-                for (int i = line.Length - 1; i >= 0; i--)
-                {
-                    int currentBribeCount = 0;
-
-                    if (line[i] > i)
-                    {
-                        currentBribeCount = line[i] - (i + 1);
-
-                        if (currentBribeCount >= 3)
-                        {
-                            return "Too chaotic";
-                        }
-
-                        bribeCount += currentBribeCount;
-
-                        //Capture value that made the bribes:
-                        
-
-                        //Capture range of values that need to move:
-                        int startIndex = i + 1;
-                        int endIndex = i + currentBribeCount;
-                         
-
-                        //Move the range up by current vote count:
-
-
-                    }
-
-
-
-
-
-                }
-
-                return bribeCount.ToString();
-
-                */
             }
         }
     }
