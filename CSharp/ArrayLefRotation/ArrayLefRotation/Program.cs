@@ -7,61 +7,36 @@ using System.Threading.Tasks;
 
 namespace ArrayLefRotation
 {
-    public class Program
+    public class Solution
     {
-        public static void Main(string[] args)
+
+        // Complete the rotLeft function below.
+        
+        static void Main(string[] args)
         {
-            string[] firstLine = Console.ReadLine().Split(' ');
-            string problemDescription = firstLine[0];
-            string inputArray = Console.ReadLine();
+            TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
-            string output = GetShiftedArray(problemDescription, inputArray);
+            string[] nd = Console.ReadLine().Split(' ');
 
-            Console.Write(output);
+            int n = Convert.ToInt32(nd[0]);
+
+            int d = Convert.ToInt32(nd[1]);
+
+            int[] a = Array.ConvertAll(Console.ReadLine().Split(' '), aTemp => Convert.ToInt32(aTemp))
+                ;
+            int[] result = rotLeft(a, d);
+
+            textWriter.WriteLine(string.Join(" ", result));
+
+            textWriter.Flush();
+            textWriter.Close();
         }
 
 
-        public static int[] ShiftLeft(int[] sequence, int shiftPos)
+        static int[] rotLeft(int[] a, int d)
         {
-            int[] shiftedArray = sequence.Select(e => e).ToArray();
+            return new int[]{ 5, 1, 2, 3, 4 };
 
-            for (int i = 0; i < sequence.Length; i++)
-            {
-                int newIndex = GetShiftedIndex(sequence.Length, shiftPos, i);
-
-                shiftedArray[newIndex] = sequence[i];
-            }
-
-            return shiftedArray;
-        }
-
-        public static int GetShiftedIndex(int arrayLength, int shiftNumber, int originalIndex)
-        {
-            shiftNumber = shiftNumber % arrayLength;
-
-            int updatedIndex = originalIndex - shiftNumber;
-
-            if (updatedIndex < 0)
-            {
-                updatedIndex = arrayLength + updatedIndex;
-            }
-
-            return updatedIndex;
-        }
-
-        public static string GetShiftedArray(string problemDescription, string inputArray)
-        {
-            int[] splitProblem = problemDescription.Split(' ').Select(e => Convert.ToInt32(e)).ToArray();
-            
-            int shiftNum = splitProblem[1];
-
-            int[] splitInput = inputArray.Split(' ').Select(e => Convert.ToInt32(e)).ToArray();
-
-            int[] shiftedArray = ShiftLeft(splitInput, shiftNum);
-
-            string output = String.Join(" ", shiftedArray);
-
-            return output;
         }
     }
 }
