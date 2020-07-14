@@ -14,13 +14,19 @@ namespace QueueUsingTwoStacks
 
         public Custom_Queue(string value)
         {
-
+            Value = value;
         }
 
         public string Dequeue()
         {
-            throw new NotImplementedException();
+            string output = Value;
+
+            if (Next != null)
+            {
+                Value = Next.Dequeue();
+            }
+
+            return output;
         }
     }
-
 }
