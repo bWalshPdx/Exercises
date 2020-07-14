@@ -24,17 +24,14 @@ namespace QueueUsingTwoStacks
 
         public void Enqueue(string value)
         {
-            string output = Value;
+            
+            if (!String.IsNullOrEmpty(Value))
+            {
+                Next = this;
+                Next.Enqueue(Value);
+            }
 
-            if (String.IsNullOrEmpty(Value))
-            {
-                Value = value;
-            }
-            else
-            {
-                Next = new Custom_Queue();
-                Next.Enqueue(value);
-            }
+            Value = value;
         }
 
 
