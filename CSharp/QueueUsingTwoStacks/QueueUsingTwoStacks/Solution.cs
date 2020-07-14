@@ -27,7 +27,7 @@ namespace QueueUsingTwoStacks
             
             if (!String.IsNullOrEmpty(Value))
             {
-                Next = this;
+                Next = new Custom_Queue();
                 Next.Enqueue(Value);
             }
 
