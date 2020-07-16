@@ -13,9 +13,11 @@ namespace Solution_Tests
         {
             string testValue = "0";
 
-            Custom_Queue queue = new Custom_Queue(testValue);
+            ManipulateQueue manipulateQueue = new ManipulateQueue();
 
-            string value = queue.Dequeue();
+            manipulateQueue.Enqueue(testValue);
+
+            string value = manipulateQueue.Dequeue();
 
             value.Should().BeEquivalentTo(testValue);
         }
@@ -25,11 +27,11 @@ namespace Solution_Tests
         {
             string testValue = "0";
 
-            Custom_Queue queue = new Custom_Queue();
+            ManipulateQueue manipulateQueue = new ManipulateQueue();
 
-            queue.Enqueue(testValue);
+            manipulateQueue.Enqueue(testValue);
 
-            string value = queue.Dequeue();
+            string value = manipulateQueue.Dequeue();
 
             value.Should().BeEquivalentTo(testValue);
         }
@@ -38,20 +40,20 @@ namespace Solution_Tests
         public void Dequeue_GivenAValueCollection_ShouldReturnTheCorrectValues()
         {
             List<string> testValues = new List<string>(){"2", "3", "4"};
- 
-            Custom_Queue queue = new Custom_Queue();
+
+            ManipulateQueue manipulateQueue = new ManipulateQueue();
 
 
             foreach (var value in testValues)
             {
-               queue.Enqueue(value); 
+                manipulateQueue.Enqueue(value); 
             }
 
             List<string> output = new List<string>();
 
             foreach (var value in testValues)
             {
-                string returnedValue = queue.Dequeue();
+                string returnedValue = manipulateQueue.Dequeue();
 
                 output.Add(returnedValue);
             }

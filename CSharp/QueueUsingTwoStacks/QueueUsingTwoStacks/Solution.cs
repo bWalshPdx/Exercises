@@ -11,31 +11,43 @@ namespace QueueUsingTwoStacks
 
     public class Custom_Queue
     {
-        private ValueTuple<string, ValueTuple> Head { get; set; }
+        public string Value { get; set; }
+        public Custom_Queue Next { get; set; }
 
-        private ValueTuple<string, ValueTuple> Tail { get; set; }
+        public Custom_Queue DeepCopy()
+        {
+            return (Custom_Queue) this.MemberwiseClone();
+        }
+    }
 
+    public class ManipulateQueue
+    {
+        private Custom_Queue Head { get; set; }
+
+        public ManipulateQueue()
+        {
+            Head = new Custom_Queue();
+        }
 
         public void Enqueue(string value)
         {
-
-            if(!String.IsNullOrEmpty(Head.Item1))
-            {
-                Head = (value, Head);
-            }
+            Custom_Queue newTail = Head.DeepCopy();
+            //Create new Head w/ No Tail:
+            Head = new Custom_Queue(){Value = value, Next = newTail };
         }
 
 
         public string Dequeue()
         {
-            string output = Value;
+            string output = Head.Value;
 
-            if (Next != null)
+            if (Head.Next != null)
             {
-                Value = Next.Dequeue();
+                Head = Head.Next;
             }
 
             return output;
         }
     }
+
 }
