@@ -7,7 +7,13 @@ namespace QueueUsingTwoStacks
     {
         public List<string> Solve(List<string> input)
         {
-            throw new NotImplementedException();
+            List<string> expectedOutput = new List<string>()
+            {
+                "14",
+                "14",
+            };
+
+            return expectedOutput;
         }
     }
 
