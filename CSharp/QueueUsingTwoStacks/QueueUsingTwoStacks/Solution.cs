@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace QueueUsingTwoStacks
 {
     public class Solution
     {
-        
+        public List<string> Solve(List<string> input)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class Custom_Queue

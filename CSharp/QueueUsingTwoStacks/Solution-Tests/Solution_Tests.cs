@@ -9,6 +9,13 @@ namespace Solution_Tests
 {
     public class Solution_Tests
     {
+
+        #region ManipulateQueue-Tests
+
+        
+
+            
+
         [Fact]
         public void Initialize_GivenARecievedValue_ShouldAddValueToTheStack()
         {
@@ -91,5 +98,40 @@ namespace Solution_Tests
             output.Should().BeEquivalentTo(testInput);
 
         }
+        #endregion
+
+        #region Solution-Tests
+
+        [Fact]
+        public void Solve_GivenFirstInputExample_ShouldReturnTheCorrectValues()
+        {
+            List<string> input = new List<string>()
+            {
+                "1 42",
+                "2",
+                "1 14",
+                "3",
+                "1 28",
+                "3",
+                "1 60",
+                "1 78",
+                "2",
+                "2"
+            }; 
+
+            List<string> expectedOutput = new List<string>()
+            {
+                "14",
+                "14",
+            };
+
+            Solution solution = new Solution();
+
+            List<string> output = solution.Solve(input);
+
+            output.Should().BeEquivalentTo(expectedOutput);
+        }
+
+        #endregion
     }
 }
