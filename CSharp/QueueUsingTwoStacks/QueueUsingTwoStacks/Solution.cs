@@ -7,13 +7,15 @@ namespace QueueUsingTwoStacks
         
     }
 
-    
-
     public class Custom_Queue
     {
         public string Value { get; set; }
         public Custom_Queue Next { get; set; }
 
+        /// <summary>
+        /// I need to make a copy that is not a reference:
+        /// </summary>
+        /// <returns></returns>
         public Custom_Queue DeepCopy()
         {
             return (Custom_Queue) this.MemberwiseClone();
