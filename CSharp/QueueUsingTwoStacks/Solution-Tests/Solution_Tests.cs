@@ -12,10 +12,6 @@ namespace Solution_Tests
 
         #region ManipulateQueue-Tests
 
-        
-
-            
-
         [Fact]
         public void Initialize_GivenARecievedValue_ShouldAddValueToTheStack()
         {
@@ -98,6 +94,25 @@ namespace Solution_Tests
             output.Should().BeEquivalentTo(testInput);
 
         }
+
+        [Fact]
+        public void Print_GivenPopulatedQueue_ShouldReturnCorrectValue()
+        {
+            List<string> testValues = new List<string>() { "2", "3", "4" };
+
+            ManipulateQueue manipulateQueue = new ManipulateQueue();
+
+            foreach (var value in testValues)
+            {
+                manipulateQueue.Enqueue(value);
+            }
+
+            string output = manipulateQueue.GetHeadValue();
+
+            output.Should().BeEquivalentTo("4");
+        }
+
+
         #endregion
 
         #region Solution-Tests

@@ -7,13 +7,30 @@ namespace QueueUsingTwoStacks
     {
         public List<string> Solve(List<string> input)
         {
-            List<string> expectedOutput = new List<string>()
+            foreach (var currentInput in input)
+            {
+                string operationCode;
+                string newValue;
+
+
+                string[] splitInput = currentInput.Split(' ');
+
+                operationCode = splitInput[0];
+
+                if (splitInput.Length > 1)
+                {
+                    newValue = splitInput[1];
+                }
+
+            }
+
+            List<string> fakeOutput = new List<string>()
             {
                 "14",
                 "14",
             };
 
-            return expectedOutput;
+            return fakeOutput;
         }
     }
 
@@ -59,6 +76,11 @@ namespace QueueUsingTwoStacks
             }
 
             return output;
+        }
+
+        public string GetHeadValue()
+        {
+            return Head.Value;
         }
     }
 
