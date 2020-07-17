@@ -8,3 +8,5 @@ https://www.hackerrank.com/challenges/queue-using-two-stacks/problem
 <NA> 2020.07.15.08.47.15AM: Fiddling with value types via a 'valuetuple' and adding the head to the tail.
 
 <NA> 2020.07.15.05.37.04PM: Still working on deepcopy of head and tail.
+
+<NA> 2020.07.16.09.08.52AM: Failing solve test. integrating final switch

@@ -67,14 +67,24 @@ namespace QueueUsingTwoStacks
 
         public ManipulateQueue()
         {
-            Head = new Custom_Queue();
+            
         }
 
         public void Enqueue(string value)
         {
-            Custom_Queue newTail = Head.DeepCopy();
-            //Create new Head w/ No Tail:
-            Head = new Custom_Queue(){Value = value, Next = newTail };
+            if (Head == null)
+            {
+                Head = new Custom_Queue() { Value = value};
+            }
+            else
+            {
+                Custom_Queue newTail = Head.DeepCopy();
+                //Create new Head w/ No Tail:
+                Head = new Custom_Queue() { Value = value, Next = newTail };
+            }
+
+            
+
         }
 
 
@@ -85,6 +95,10 @@ namespace QueueUsingTwoStacks
             if (Head.Next != null)
             {
                 Head = Head.Next;
+            }
+            else
+            {
+                Head = null;
             }
 
             return output;
