@@ -10,3 +10,6 @@ https://www.hackerrank.com/challenges/queue-using-two-stacks/problem
 <NA> 2020.07.15.05.37.04PM: Still working on deepcopy of head and tail.
 
 <NA> 2020.07.16.09.08.52AM: Failing solve test. integrating final switch
+
+
+<NA> 2020.07.17.09.29.17AM: Need to fix my 'enqueue' so it puts people at the back of the line

@@ -7,11 +7,16 @@ namespace QueueUsingTwoStacks
     {
         static void Main(String[] args)
         {
+            List<string> input = HackerRankIo.ReceiveInput();
             /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+
+            var output = Solve(input);
+
+            HackerRankIo.ReturnOutput(output);
         }
 
 
-        public List<string> Solve(List<string> input)
+        public static List<string> Solve(List<string> input)
         {
             List<string> output = new List<string>();
 
@@ -116,6 +121,31 @@ namespace QueueUsingTwoStacks
             } while (currentNode != null);
 
             return output;
+        }
+    }
+
+    public static class HackerRankIo
+    {
+        public static List<string> ReceiveInput()
+        {
+            int elementsInputted = Int32.Parse(System.Console.ReadLine());
+
+            List<string> input = new List<string>();
+
+            for (int i = 0; i < elementsInputted; i++)
+            {
+                input.Add(System.Console.ReadLine());
+            }
+
+            return input;
+        }
+
+        public static void ReturnOutput(List<string> output)
+        {
+            foreach (var currentOutput in output)
+            {
+                System.Console.WriteLine(currentOutput);
+            }
         }
     }
 
