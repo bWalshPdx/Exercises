@@ -5,6 +5,12 @@ namespace QueueUsingTwoStacks
 {
     public class Solution
     {
+        static void Main(String[] args)
+        {
+            /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+        }
+
+
         public List<string> Solve(List<string> input)
         {
             List<string> output = new List<string>();
@@ -65,11 +71,6 @@ namespace QueueUsingTwoStacks
     {
         private Custom_Queue Head { get; set; }
 
-        public ManipulateQueue()
-        {
-            
-        }
-
         public void Enqueue(string value)
         {
             if (Head == null)
@@ -82,9 +83,6 @@ namespace QueueUsingTwoStacks
                 //Create new Head w/ No Tail:
                 Head = new Custom_Queue() { Value = value, Next = newTail };
             }
-
-            
-
         }
 
 
@@ -106,7 +104,18 @@ namespace QueueUsingTwoStacks
 
         public string GetHeadValue()
         {
-            return Head.Value;
+            //This is a performance hit:
+            Custom_Queue currentNode = Head;
+            string output;
+
+            do
+            {
+                output = currentNode.Value;
+
+                currentNode = currentNode.Next;
+            } while (currentNode != null);
+
+            return output;
         }
     }
 
