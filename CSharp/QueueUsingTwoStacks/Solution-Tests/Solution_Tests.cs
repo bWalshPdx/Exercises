@@ -109,7 +109,7 @@ namespace Solution_Tests
 
             string output = manipulateQueue.GetHeadValue();
 
-            output.Should().BeEquivalentTo("4");
+            output.Should().BeEquivalentTo("2");
         }
 
 
@@ -118,7 +118,7 @@ namespace Solution_Tests
         #region Solution-Tests
 
         [Fact]
-        public void Solve_GivenFirstInputExample_ShouldReturnTheCorrectValues()
+        public void Solve_GivenTestCase0_ShouldReturnTheCorrectValues()
         {
             List<string> input = new List<string>()
             {
@@ -140,9 +140,40 @@ namespace Solution_Tests
                 "14",
             };
 
-            Solution solution = new Solution();
+            //Solution solution = new Solution();
 
-            List<string> output = solution.Solve(input);
+            List<string> output = Solution.Solve(input);
+
+            output.Should().BeEquivalentTo(expectedOutput);
+        }
+
+        [Fact]
+        public void Solve_GivenTestCase1_ShouldReturnTheCorrectValues()
+        {
+            List<string> input = new List<string>()
+            {
+                "1 76",
+                "1 33",
+                "2",
+                "1 23",
+                "1 97",
+                "1 21",
+                "3",
+                "3",
+                "1 74",
+                "3"
+            };
+
+            List<string> expectedOutput = new List<string>()
+            {
+                "33",
+                "33",
+                "33"
+            };
+
+            //Solution solution = new Solution();
+
+            List<string> output = Solution.Solve(input);
 
             output.Should().BeEquivalentTo(expectedOutput);
         }
