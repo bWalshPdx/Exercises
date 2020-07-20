@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace QueueUsingTwoStacks
 {
@@ -74,25 +75,31 @@ namespace QueueUsingTwoStacks
 
     public class ManipulateQueue
     {
-        private Custom_Queue Head { get; set; }
+        private Custom_Queue Head;
 
         public void Enqueue(string value)
         {
-            
+            Head = Enqueue(value, Head);
+        }
 
-            if (Head == null)
+        private Custom_Queue Enqueue(string value, Custom_Queue node)
+        {
+            if (node == null)
             {
-                Head = new Custom_Queue() { Value = value};
+                node = new Custom_Queue() { Value = value };
+                return node;
+            }
+
+            if (node.Next == null)
+            {
+                node.Next = new Custom_Queue() { Value = value };
             }
             else
             {
-                
-
-
-                Custom_Queue newTail = Head.DeepCopy();
-                //Create new Head w/ No Tail:
-                Head = new Custom_Queue() { Value = value, Next = newTail };
+                node.Next = Enqueue(value, node.Next);
             }
+
+            return node;    
         }
 
 

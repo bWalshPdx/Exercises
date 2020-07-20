@@ -109,7 +109,7 @@ namespace Solution_Tests
 
             string output = manipulateQueue.GetHeadValue();
 
-            output.Should().BeEquivalentTo("2");
+            output.Should().BeEquivalentTo("4");
         }
 
 
