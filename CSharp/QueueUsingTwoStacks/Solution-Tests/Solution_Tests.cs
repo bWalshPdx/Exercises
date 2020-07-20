@@ -62,7 +62,7 @@ namespace Solution_Tests
                 output.Add(returnedValue);
             }
 
-            output.Should().BeEquivalentTo(new List<string>(){"4", "3", "2"});
+            output.Should().Equal(new List<string>(){"2", "3", "4"});
         }
 
         /// <summary>

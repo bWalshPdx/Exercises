@@ -13,3 +13,16 @@ https://www.hackerrank.com/challenges/queue-using-two-stacks/problem
 
 
 <NA> 2020.07.17.09.29.17AM: Need to fix my 'enqueue' so it puts people at the back of the line
+
+
+	- My tests were written wrong, it should be:
+		- Figure out on paper what it should be doing
+		- Write tests to reflect what was written out on paper
+		- Get tests to pass
+		- Goto 10 until exercise is solved.
+
+   - Update 'Developer Keybindings' to know how to find that particular shortcut again if it ever gets reset.
+
+   - I would like to fix the windows shared clipboard
+
+   <NA> <DONE>@:2020.07.20.08.46.40AM: change Enqueue to be recursive

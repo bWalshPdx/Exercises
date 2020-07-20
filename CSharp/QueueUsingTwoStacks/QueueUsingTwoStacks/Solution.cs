@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace QueueUsingTwoStacks
@@ -78,12 +78,17 @@ namespace QueueUsingTwoStacks
 
         public void Enqueue(string value)
         {
+            
+
             if (Head == null)
             {
                 Head = new Custom_Queue() { Value = value};
             }
             else
             {
+                
+
+
                 Custom_Queue newTail = Head.DeepCopy();
                 //Create new Head w/ No Tail:
                 Head = new Custom_Queue() { Value = value, Next = newTail };
