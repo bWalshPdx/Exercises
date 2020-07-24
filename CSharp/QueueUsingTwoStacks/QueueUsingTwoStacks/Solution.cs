@@ -121,18 +121,7 @@ namespace QueueUsingTwoStacks
 
         public string GetHeadValue()
         {
-            //This is a performance hit:
-            Custom_Queue currentNode = Head;
-            string output;
-
-            do
-            {
-                output = currentNode.Value;
-
-                currentNode = currentNode.Next;
-            } while (currentNode != null);
-
-            return output;
+            return Head.Value;
         }
     }
 
