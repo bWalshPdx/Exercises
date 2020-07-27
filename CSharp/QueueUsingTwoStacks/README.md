@@ -1,5 +1,7 @@
 https://www.hackerrank.com/challenges/queue-using-two-stacks/problem
 
+https://en.wikipedia.org/wiki/Queue_(abstract_data_type)
+
 
 File to Upload:
 C:\personal-repos\Exercises\CSharp\QueueUsingTwoStacks\QueueUsingTwoStacks\Solution.cs
@@ -34,3 +36,5 @@ C:\personal-repos\Exercises\CSharp\QueueUsingTwoStacks\QueueUsingTwoStacks\Solut
   <NA> <DONE>@:2020.07.20.09.26.47AM: Look at why test cases are not working (The guiding tests)
 
   <NA> 2020.07.24.08.46.25AM: Its correct, it just needs to be faster.
+
+  <NA> 2020.07.27.09.24.37AM: Fixing error with printout when keeping track of the tail and the head.

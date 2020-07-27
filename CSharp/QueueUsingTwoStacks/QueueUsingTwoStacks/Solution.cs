@@ -49,7 +49,6 @@ namespace QueueUsingTwoStacks
                     case "3":
                         output.Add(manipulateQueue.GetHeadValue());
                         break;
-
                 }
 
             }
@@ -61,37 +60,26 @@ namespace QueueUsingTwoStacks
     public class Custom_Queue
     {
         public string Value { get; set; }
-        public Custom_Queue Next { get; set; }
+        public Custom_Queue Tail { get; set; }
 
     }
 
     public class ManipulateQueue
     {
         private Custom_Queue Head;
+        private Custom_Queue Last_Node;
 
         public void Enqueue(string value)
         {
-            Head = Enqueue(value, Head);
-        }
-
-        private Custom_Queue Enqueue(string value, Custom_Queue node)
-        {
-            if (node == null)
+            if (Last_Node == null)
             {
-                node = new Custom_Queue() { Value = value };
-                return node;
+                Last_Node = new Custom_Queue() { Value = value };
+                Head = Last_Node;
+                return;
             }
 
-            if (node.Next == null)
-            {
-                node.Next = new Custom_Queue() { Value = value };
-            }
-            else
-            {
-                node.Next = Enqueue(value, node.Next);
-            }
-
-            return node;    
+            Last_Node.Tail = new Custom_Queue() { Value = value };
+            Last_Node = Last_Node.Tail;
         }
 
 
@@ -99,9 +87,9 @@ namespace QueueUsingTwoStacks
         {
             string output = Head.Value;
 
-            if (Head.Next != null)
+            if (Head.Tail != null)
             {
-                Head = Head.Next;
+                Head = Head.Tail;
             }
             else
             {
