@@ -140,8 +140,6 @@ namespace Solution_Tests
                 "14",
             };
 
-            //Solution solution = new Solution();
-
             List<string> output = Solution.Solve(input);
 
             output.Should().BeEquivalentTo(expectedOutput);
