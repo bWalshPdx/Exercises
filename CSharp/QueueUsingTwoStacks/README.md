@@ -38,3 +38,21 @@ C:\personal-repos\Exercises\CSharp\QueueUsingTwoStacks\QueueUsingTwoStacks\Solut
   <NA> 2020.07.24.08.46.25AM: Its correct, it just needs to be faster.
 
   <NA> 2020.07.27.09.24.37AM: Fixing error with printout when keeping track of the tail and the head.
+
+
+--------------------------------------
+-- Things that went well:
+--------------------------------------
+
+I completed the excercise
+
+It went fairly smoothly
+
+--------------------------------------
+-- Things that could go better:
+--------------------------------------
+
+I need to physically write out my work and translate those to tests. I did need to refactor a bit and I did get confused on some of the basics of queues.
+
+Write out your normal workflow and figure out the shortkeys. Put those shortkeys on your monitor only when you are working on a feature or exercise.
+
