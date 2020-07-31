@@ -94,6 +94,7 @@ namespace QueueUsingTwoStacks
             else
             {
                 Head = null;
+                Last_Node = null;
             }
 
             return output;
