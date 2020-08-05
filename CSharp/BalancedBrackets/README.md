@@ -54,12 +54,50 @@ size => passing along a counter (uneeded in this exercise)
 isEmpty => not Needed in this exercise
 
 
-Psuedo code:
+*Psuedo code:*
 
-Get the first character of the incoming string
+- Get the first character of the incoming string
 
-IF: Opening paren, recurse with new substring and opening paren.
- IF: Closed paren, check the passed along open paren and if the it matches the type return true, else false.
+- IF: Opening paren, recurse with new substring and opening paren.
+- IF: Closed paren, check the passed along open paren and if the it matches the type return true, else false.
+
+
+#### Example Guiding Tests:
+Test1:
+Input:
+2
+{{([])}}
+{{)[](}}
+
+Output:
+YES
+NO
+
+Test2:
+
+Input:
+3
+{(([])[])[]}
+{(([])[])[]]}
+{(([])[])[]}[]
+Output:
+YES
+NO
+YES
+
+Test3:
+
+Input:
+3
+{[()]}
+{[(])}
+{{[[(())]]}}
+
+Output:
+YES
+NO
+YES
+
 
 ## Journal:
 ***
