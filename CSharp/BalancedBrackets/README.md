@@ -80,12 +80,13 @@ Input:
 {(([])[])[]}
 {(([])[])[]]}
 {(([])[])[]}[]
+
 Output:
 YES
 NO
 YES
 
-Test3:
+Test0:
 
 Input:
 3
@@ -103,3 +104,6 @@ YES
 ***
 
 <NA> 2020.08.04.09.13.35AM: Write out psuedo code for exercise
+
+
+<NA> 2020.08.05.09.38.00AM: write out first tests to solution from psuedo code
