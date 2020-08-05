@@ -1,6 +1,6 @@
---=======================================================================
--- HackerRank: Balanced Brackets:
---=======================================================================
+
+# HackerRank: Balanced Brackets:
+***
 
 A bracket is considered to be any one of the following characters: (, ), {, }, [, or ].
 
@@ -27,16 +27,14 @@ Input Format
 The first line contains a single integer , the number of strings.
 Each of the next  lines contains a single string , a sequence of brackets.
 
---------------------------------------
--- References:
---------------------------------------
+
+## References:
+***
 
 https://www.hackerrank.com/challenges/balanced-brackets/problem
 
-
---------------------------------------
--- Research:
---------------------------------------
+## Research:
+***
 
 Simplest way to write this is via recursion. It will also make a better lead to the recursive descent parser.
 
@@ -55,8 +53,15 @@ size => passing along a counter (uneeded in this exercise)
 
 isEmpty => not Needed in this exercise
 
---------------------------------------
--- Journal:
---------------------------------------
+
+Psuedo code:
+
+Get the first character of the incoming string
+
+IF: Opening paren, recurse with new substring and opening paren.
+ IF: Closed paren, check the passed along open paren and if the it matches the type return true, else false.
+
+## Journal:
+***
 
 <NA> 2020.08.04.09.13.35AM: Write out psuedo code for exercise
