@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace BalancedBrackets
 {
-    public static class Go
+    public class Go
     {
         static void Main(string[] args)
         {
@@ -31,6 +31,10 @@ namespace BalancedBrackets
             return input;
         }
 
+        public bool HasMatchingParen(string head, string tail)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public static class HackerRankIo
