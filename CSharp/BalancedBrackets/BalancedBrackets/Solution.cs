@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace BalancedBrackets
@@ -31,9 +32,17 @@ namespace BalancedBrackets
             return input;
         }
 
-        public bool HasMatchingParen(string head, string tail)
+        public bool HasMatchingParen(char head, string tail)
         {
-            throw new NotImplementedException();
+            char nextHead = tail.FirstOrDefault();
+
+            switch (head)
+            {
+                case '(':
+                    return nextHead == ')';
+                default:
+                    throw new ArgumentException("Unknown head detected");
+            }
         }
     }
 

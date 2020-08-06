@@ -12,7 +12,7 @@ namespace BalancedBrackets_Tests
         {
             Solution solution = new Solution();
 
-            string head = "(";
+            char head = '(';
             string tail = ")";
 
             bool parenMatches = solution.HasMatchingParen(head, tail);
