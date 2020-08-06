@@ -107,3 +107,5 @@ YES
 
 
 <NA> 2020.08.05.09.38.00AM: write out first tests to solution from psuedo code
+
+<NA> 2020.08.06.09.41.45AM: verifying prep of tail to recurse

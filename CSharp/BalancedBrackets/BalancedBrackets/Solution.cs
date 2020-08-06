@@ -35,7 +35,12 @@ namespace BalancedBrackets
         public bool HasMatchingParen(char head, string tail)
         {
             char nextHead = tail.FirstOrDefault();
-            string nextTail = tail.Substring(1);
+
+            //Removing the head and the matching paren:
+            //string nextTail = tail.Substring(1,tail.Length - 2);
+            string nextTail = tail.Skip(1).Take(tail.Length - 2).ToString();
+
+            char matchingParen = tail.Last();
 
             if (nextHead == '(' || nextHead == '[' || nextHead == '{')
             {
@@ -47,7 +52,7 @@ namespace BalancedBrackets
                 }
             }
 
-            char matchingParen = tail.Last();
+            
 
             switch (head)
             {
