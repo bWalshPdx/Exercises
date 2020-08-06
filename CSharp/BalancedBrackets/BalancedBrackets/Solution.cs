@@ -35,11 +35,24 @@ namespace BalancedBrackets
         public bool HasMatchingParen(char head, string tail)
         {
             char nextHead = tail.FirstOrDefault();
+            string nextTail = tail.Substring(1);
+
+            if (nextHead == '(' || nextHead == '[' || nextHead == '{')
+            {
+                bool innerParenBalanced = HasMatchingParen(nextHead, nextTail);
+
+                if (!innerParenBalanced)
+                {
+                    return false;
+                }
+            }
+
+            char matchingParen = tail.Last();
 
             switch (head)
             {
                 case '(':
-                    return nextHead == ')';
+                    return matchingParen == ')';
                 default:
                     throw new ArgumentException("Unknown head detected");
             }

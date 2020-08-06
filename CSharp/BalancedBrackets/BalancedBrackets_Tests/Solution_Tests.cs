@@ -19,5 +19,31 @@ namespace BalancedBrackets_Tests
 
             parenMatches.Should().BeTrue();
         }
+
+        [Fact]
+        public void HasMatchingParen_GivenSinglePair_ShouldReturnFalse()
+        {
+            Solution solution = new Solution();
+
+            char head = '(';
+            string tail = "}";
+
+            bool parenMatches = solution.HasMatchingParen(head, tail);
+
+            parenMatches.Should().BeFalse();
+        }
+
+        [Fact]
+        public void HasMatchingParen_GivenTwoPairs_ShouldReturnTrue()
+        {
+            Solution solution = new Solution();
+
+            char head = '(';
+            string tail = "())";
+
+            bool parenMatches = solution.HasMatchingParen(head, tail);
+
+            parenMatches.Should().BeTrue();
+        }
     }
 }
