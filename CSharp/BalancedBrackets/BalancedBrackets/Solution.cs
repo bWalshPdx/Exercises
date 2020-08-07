@@ -27,9 +27,27 @@ namespace BalancedBrackets
 
     public class Solution
     {
-        public List<string> Solve(List<string> input)
+        public List<string> Solve(List<string> inputCollection)
         {
-            return input;
+            List<string> output = new List<string>();
+
+
+            foreach (var currentInput in inputCollection)
+            {
+                char head = currentInput.FirstOrDefault();
+                string tail = String.Concat(currentInput.Skip(1));
+
+                if (HasMatchingParen(head, tail))
+                {
+                    output.Add("YES");
+                }
+                else
+                {
+                    output.Add("NO");
+                }
+            }
+
+            return output;
         }
 
         public bool HasMatchingParen(char head, string tail)
@@ -38,7 +56,7 @@ namespace BalancedBrackets
 
             //Removing the head and the matching paren:
             //string nextTail = tail.Substring(1,tail.Length - 2);
-            string nextTail = tail.Skip(1).Take(tail.Length - 2).ToString();
+            string nextTail = String.Concat(tail.Skip(1).Take(tail.Length - 2));
 
             char matchingParen = tail.Last();
 
@@ -58,8 +76,12 @@ namespace BalancedBrackets
             {
                 case '(':
                     return matchingParen == ')';
+                case '[':
+                    return matchingParen == ']';
+                case '{':
+                    return matchingParen == '}';
                 default:
-                    throw new ArgumentException("Unknown head detected");
+                    return false;
             }
         }
     }
