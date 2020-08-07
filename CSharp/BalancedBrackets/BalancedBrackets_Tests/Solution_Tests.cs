@@ -91,6 +91,30 @@ namespace BalancedBrackets_Tests
                 "NO"
             };
 
+            List<string> output = solution.Solve(input);
+
+            output.Should().BeEquivalentTo(expectedOutput);
+        }
+
+
+        [Fact]
+        public void Solve_GivenSecondGuidingSolution_ShouldReturnCorrectOutput()
+        {
+            Solution solution = new Solution();
+
+            List<string> input = new List<string>()
+            {
+                "{(([])[])[]}",
+                "{(([])[])[]]}",
+                "{(([])[])[]}[]"
+            };
+
+            List<string> expectedOutput = new List<string>()
+            {
+                "YES",
+                "NO",
+                "YES"
+            };
 
             List<string> output = solution.Solve(input);
 

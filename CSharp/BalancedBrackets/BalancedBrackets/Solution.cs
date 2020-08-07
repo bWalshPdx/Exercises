@@ -70,8 +70,6 @@ namespace BalancedBrackets
                 }
             }
 
-            
-
             switch (head)
             {
                 case '(':
