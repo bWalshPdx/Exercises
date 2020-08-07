@@ -62,6 +62,22 @@ isEmpty => not Needed in this exercise
 - IF: Closed paren, check the passed along open paren and if the it matches the type return true, else false.
 
 
+* 2020.08.07.09.24.10AM: New way to parse after working through Guidance test 2 *
+
+{(([])[])[]} <= Original
+
+
+{           }
+
+ (      )
+  (  )
+   []
+      []
+          []
+
+
+Start with the first character and move towards the middle from the end to get its matching paren
+
 #### Example Guiding Tests:
 Test1:
 Input:

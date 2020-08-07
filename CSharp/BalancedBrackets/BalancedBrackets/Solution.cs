@@ -60,7 +60,7 @@ namespace BalancedBrackets
 
             char matchingParen = tail.Last();
 
-            if (tail.Length > 1)
+            if (nextTail.Any())
             {
                 bool innerParenBalanced = HasMatchingParen(nextHead, nextTail);
 
