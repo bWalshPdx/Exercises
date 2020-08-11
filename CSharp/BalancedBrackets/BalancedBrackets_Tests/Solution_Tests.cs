@@ -13,10 +13,9 @@ namespace BalancedBrackets_Tests
         {
             Solution solution = new Solution();
 
-            char head = '(';
-            string tail = ")";
+            string input = "()";
 
-            bool parenMatches = solution.HasMatchingParen(head, tail);
+            bool parenMatches = solution.HasMatchingParen(input);
 
             parenMatches.Should().BeTrue();
         }
@@ -26,10 +25,12 @@ namespace BalancedBrackets_Tests
         {
             Solution solution = new Solution();
 
-            char head = '(';
-            string tail = "}";
+            //char head = '(';
+            //string tail = "}";
 
-            bool parenMatches = solution.HasMatchingParen(head, tail);
+            string input = "(}";
+
+            bool parenMatches = solution.HasMatchingParen(input);
 
             parenMatches.Should().BeFalse();
         }
@@ -39,10 +40,12 @@ namespace BalancedBrackets_Tests
         {
             Solution solution = new Solution();
 
-            char head = '(';
-            string tail = "())";
+            //char head = '(';
+            //string tail = "())";
 
-            bool parenMatches = solution.HasMatchingParen(head, tail);
+            string input = "(())";
+
+            bool parenMatches = solution.HasMatchingParen(input);
 
             parenMatches.Should().BeTrue();
         }
@@ -52,10 +55,12 @@ namespace BalancedBrackets_Tests
         {
             Solution solution = new Solution();
 
-            char head = '(';
-            string tail = "()}";
+            //char head = '(';
+            //string tail = "()}";
 
-            bool parenMatches = solution.HasMatchingParen(head, tail);
+            string input = "(()}";
+
+            bool parenMatches = solution.HasMatchingParen(input);
 
             parenMatches.Should().BeFalse();
         }
@@ -65,10 +70,12 @@ namespace BalancedBrackets_Tests
         {
             Solution solution = new Solution();
 
-            char head = '(';
-            string tail = "(})";
+            //char head = '(';
+            //string tail = "(})";
 
-            bool parenMatches = solution.HasMatchingParen(head, tail);
+            string input = "((})";
+
+            bool parenMatches = solution.HasMatchingParen(input);
 
             parenMatches.Should().BeFalse();
         }

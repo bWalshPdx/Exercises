@@ -66,7 +66,6 @@ isEmpty => not Needed in this exercise
 
 {(([])[])[]} <= Original
 
-
 {           }
 
  (      )
@@ -77,6 +76,25 @@ isEmpty => not Needed in this exercise
 
 
 Start with the first character and move towards the middle from the end to get its matching paren
+
+2020.08.11.08.30.42AM: New Psuedo code:
+
+1. Get first paren:
+- Verify its a open parentheses
+
+2. Get closing paren:
+- Start at the end of the string, hunting for the matching closing parentheses working inwards.
+
+3. Split the string to prepare for the recursion
+- Split the string by the end parentheses
+
+- Remove the first parentheses from the first split string
+
+4. recurse
+
+
+
+
 
 #### Example Guiding Tests:
 Test1:
@@ -125,3 +143,6 @@ YES
 <NA> 2020.08.05.09.38.00AM: write out first tests to solution from psuedo code
 
 <NA> 2020.08.06.09.41.45AM: verifying prep of tail to recurse
+
+
+Note: I feel like there is always a 'pivot' where I discover something I didn't think about from the initial psuedo code.
