@@ -55,9 +55,6 @@ namespace BalancedBrackets_Tests
         {
             Solution solution = new Solution();
 
-            //char head = '(';
-            //string tail = "()}";
-
             string input = "(()}";
 
             bool parenMatches = solution.HasMatchingParen(input);

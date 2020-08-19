@@ -146,3 +146,12 @@ YES
 
 
 Note: I feel like there is always a 'pivot' where I discover something I didn't think about from the initial psuedo code.
+
+
+<NA> 2020.08.11.09.24.15AM: Tests are failing with new split string refactor
+
+Fix how strings are split
+
+	first split: skip first, take up the matching closing paren (not including)
+
+	second split: take everything after the match

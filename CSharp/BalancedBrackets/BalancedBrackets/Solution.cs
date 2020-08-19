@@ -52,6 +52,21 @@ namespace BalancedBrackets
 
         public bool HasMatchingParen(string input)
         {
+            if (input.Length == 0)
+            {
+                return true;
+            }
+
+            if (input.Length < 2)
+            {
+                return false;
+            }
+
+            if (input.Length % 2 != 0)
+            {
+                return false;
+            }
+
             char head = input.FirstOrDefault();
 
             char matchingParen;
@@ -78,7 +93,7 @@ namespace BalancedBrackets
                 if (matchingParenIndex == 0)
                 {
                     //No closing paren found:
-
+                    return false;
                 }
 
                 if (input[matchingParenIndex] == matchingParen)
@@ -98,9 +113,9 @@ namespace BalancedBrackets
             //Prep the input for recursion:
 
             //Remove the opening paren and closing paren:
-            string firstSplit = String.Concat(input.Skip(1).Take(matchingParenIndex + 1));
+            string firstSplit = String.Concat(input.Skip(1).Take(matchingParenIndex - 1));
 
-            string secondSplit = String.Concat(input.Skip(firstSplit.Length + 1));
+            string secondSplit = String.Concat(input.Skip(matchingParenIndex + 1));
 
 
 
