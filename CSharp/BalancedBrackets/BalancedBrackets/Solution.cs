@@ -11,15 +11,9 @@ namespace BalancedBrackets
         {
             List<string> input = HackerRankIo.ReceiveInput();
 
-            List<string> fakeOutput = new List<string>()
-            {
-                "YES",
-                "NO"
-            };
-
             Solution solution = new Solution();
 
-            List<string> output = solution.Solve(fakeOutput);
+            List<string> output = solution.Solve(input);
 
             HackerRankIo.ReturnOutput(output);
         }
