@@ -149,5 +149,36 @@ namespace BalancedBrackets_Tests
             output.Should().BeEquivalentTo(expectedOutput);
         }
 
+
+        [Fact]
+        public void Solve_GivenFourthGuidingSolution_ShouldReturnCorrectOutput()
+        {
+            Solution solution = new Solution();
+
+            List<string> input = new List<string>()
+            {
+                //"{}",
+                //"}([[{)[]))]{){}[",
+                //"{]]{()}{])",
+                //"(){}",
+                "{}{()}{{}}"
+            };
+
+            List<string> expectedOutput = new List<string>()
+            {
+                //"YES",
+                //"NO",
+                //"NO",
+                //"YES",
+                "YES"
+            };
+
+            List<string> output = solution.Solve(input);
+
+
+            //2020.08.31.08.33.14AM: Its the last 'yes' that is wrong:
+            output.Should().BeEquivalentTo(expectedOutput);
+        }
+
     }
 }
