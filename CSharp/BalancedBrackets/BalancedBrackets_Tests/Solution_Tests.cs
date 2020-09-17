@@ -15,7 +15,7 @@ namespace BalancedBrackets_Tests
 
             string input = "()";
 
-            bool parenMatches = solution.HasMatchingParen(input);
+            bool parenMatches = solution.IsBalanced(input);
 
             parenMatches.Should().BeTrue();
         }
@@ -30,7 +30,7 @@ namespace BalancedBrackets_Tests
 
             string input = "(}";
 
-            bool parenMatches = solution.HasMatchingParen(input);
+            bool parenMatches = solution.IsBalanced(input);
 
             parenMatches.Should().BeFalse();
         }
@@ -45,7 +45,7 @@ namespace BalancedBrackets_Tests
 
             string input = "(())";
 
-            bool parenMatches = solution.HasMatchingParen(input);
+            bool parenMatches = solution.IsBalanced(input);
 
             parenMatches.Should().BeTrue();
         }
@@ -57,7 +57,7 @@ namespace BalancedBrackets_Tests
 
             string input = "(()}";
 
-            bool parenMatches = solution.HasMatchingParen(input);
+            bool parenMatches = solution.IsBalanced(input);
 
             parenMatches.Should().BeFalse();
         }
@@ -72,7 +72,7 @@ namespace BalancedBrackets_Tests
 
             string input = "((})";
 
-            bool parenMatches = solution.HasMatchingParen(input);
+            bool parenMatches = solution.IsBalanced(input);
 
             parenMatches.Should().BeFalse();
         }

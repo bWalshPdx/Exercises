@@ -31,7 +31,7 @@ namespace BalancedBrackets
                 //char head = currentInput.FirstOrDefault();
                 //string tail = String.Concat(currentInput.Skip(1));
 
-                if (HasMatchingParen(currentInput))
+                if (IsBalanced(currentInput))
                 {
                     output.Add("YES");
                 }
@@ -44,95 +44,44 @@ namespace BalancedBrackets
             return output;
         }
 
-        public bool HasMatchingParen(string input)
+        public bool IsBalanced(string input)
         {
-            if (input.Length == 0)
+            List<Tuple<char,char>> bracketPairs = new List<Tuple<char, char>>()
             {
-                return true;
-            }
+                new Tuple<char, char>('(',')'),
+                new Tuple<char, char>('[',']'),
+                new Tuple<char, char>('{','}')
+            };
 
-            if (input.Length < 2)
+            Stack<char> stackOfBrackets = new Stack<char>();
+
+            Tuple<char, char> currentPair;
+
+            foreach (char currentChar in input)
             {
-                return false;
-            }
+                currentPair = bracketPairs.FirstOrDefault(bp => bp.Item1 == currentChar || bp.Item2 == currentChar);
 
-            if (input.Length % 2 != 0)
-            {
-                return false;
-            }
-
-            char head = input.FirstOrDefault();
-
-            char matchingParen;
-
-            switch (head)
-            {
-                case '(':
-                    matchingParen = ')';
-                    break;
-                case '[':
-                    matchingParen = ']';
-                    break;
-                case '{':
-                    matchingParen = '}';
-                    break;
-                default:
-                    return false;
-            }
-
-
-            int matchingParenIndex = input.Length - 1;
-            while (matchingParenIndex != 0)
-            {
-                if (matchingParenIndex == 0)
+                if (currentPair == null)
                 {
-                    //No closing paren found:
-                    return false;
+                    throw new Exception("Weird character detected. wtf");
                 }
 
-                if (input[matchingParenIndex] == matchingParen)
+                if (currentPair.Item1 == currentChar)
                 {
-                    break;
+                    stackOfBrackets.Push(currentChar);
+
+                    continue;
                 }
 
-                matchingParenIndex--;
+                if (currentPair.Item1 == stackOfBrackets.Peek())
+                {
+                    stackOfBrackets.Pop();
+
+                    continue;
+                }
             }
 
-            //If the opening paren is right next to the closing paren:
-            if (matchingParenIndex == 1)
-            {
-                return true;
-            }
-
-            //Prep the input for recursion:
-
-            //Remove the opening paren and closing paren:
-            string firstSplit = String.Concat(input.Skip(1).Take(matchingParenIndex - 1));
-
-            string secondSplit = String.Concat(input.Skip(matchingParenIndex + 1));
-
-
-
-            //Removing the head and the matching paren:
-            //string nextTail = tail.Substring(1,tail.Length - 2);
-            //string nextTail = String.Concat(tail.Skip(1).Take(tail.Length - 2));
-
-            //char matchingParen = tail.Last();
-
-            bool firstSplitBalanced = true;
-            bool secondSplitBalanced = true;
-
-            if (firstSplit.Any())
-            {
-                firstSplitBalanced = HasMatchingParen(firstSplit);
-            }
-
-            if (secondSplit.Any())
-            {
-                secondSplitBalanced = HasMatchingParen(secondSplit);
-            }
-
-            return firstSplitBalanced && secondSplitBalanced;
+            return !stackOfBrackets.Any();
         }
     }
 

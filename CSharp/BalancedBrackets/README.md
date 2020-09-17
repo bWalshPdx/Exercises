@@ -157,3 +157,16 @@ Fix how strings are split
 	second split: take everything after the match
 
 2020.08.19.09.16.42AM <NA> Figure out why things are passing in the test, but not hackerrank
+
+//2020.08.31.08.33.14AM: Its the last 'yes' that is wrong:
+
+//2020.09.15.08.47.20AM: Trying to figure out this particular pattern: {}{()}{{}} 
+	- It is a valid set of parens.
+
+
+	https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-python/
+
+	"One approach to check balanced parentheses is to use stack. Each time, when an open parentheses is encountered push it in the stack, and when closed parenthesis is encountered, match it with the top of stack and pop it. If stack is empty at the end, return Balanced otherwise, Unbalanced.""
+	<NA>:  Working on rewriting adding and removing stuff from a stack
+
+
