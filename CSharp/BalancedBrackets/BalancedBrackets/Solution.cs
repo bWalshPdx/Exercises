@@ -28,8 +28,6 @@ namespace BalancedBrackets
 
             foreach (var currentInput in inputCollection)
             {
-                //char head = currentInput.FirstOrDefault();
-                //string tail = String.Concat(currentInput.Skip(1));
 
                 if (IsBalanced(currentInput))
                 {
@@ -46,6 +44,12 @@ namespace BalancedBrackets
 
         public bool IsBalanced(string input)
         {
+            if (input.Length % 2 != 0)
+            {
+                return false;
+            }
+
+
             List<Tuple<char,char>> bracketPairs = new List<Tuple<char, char>>()
             {
                 new Tuple<char, char>('(',')'),
@@ -73,7 +77,7 @@ namespace BalancedBrackets
                     continue;
                 }
 
-                if (currentPair.Item1 == stackOfBrackets.Peek())
+                if (stackOfBrackets.Any() && currentPair.Item1 == stackOfBrackets.Peek())
                 {
                     stackOfBrackets.Pop();
 

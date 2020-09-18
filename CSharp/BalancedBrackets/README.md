@@ -167,6 +167,12 @@ Fix how strings are split
 	https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-python/
 
 	"One approach to check balanced parentheses is to use stack. Each time, when an open parentheses is encountered push it in the stack, and when closed parenthesis is encountered, match it with the top of stack and pop it. If stack is empty at the end, return Balanced otherwise, Unbalanced.""
-	<NA>:  Working on rewriting adding and removing stuff from a stack
+	<NA>: Figure out the last test that is breaking
 
+//<DONE>@:2020.09.18.08.40.18AM: All tests are now passing
 
+//2020.09.18.09.17.38AM: Need to see what in that huge test is failing, the fix it. Maybe add additional simple tests:
+	- Verify it doesn't start with a open bracket. 
+	- Verify it has equal open and closing bracket of each type.
+
+	THEN: get into using a stack.
