@@ -169,10 +169,54 @@ Fix how strings are split
 	"One approach to check balanced parentheses is to use stack. Each time, when an open parentheses is encountered push it in the stack, and when closed parenthesis is encountered, match it with the top of stack and pop it. If stack is empty at the end, return Balanced otherwise, Unbalanced.""
 	<NA>: Figure out the last test that is breaking
 
-//<DONE>@:2020.09.18.08.40.18AM: All tests are now passing
+<DONE>@:2020.09.18.08.40.18AM: All tests are now passing
 
-//2020.09.18.09.17.38AM: Need to see what in that huge test is failing, the fix it. Maybe add additional simple tests:
+2020.09.18.09.17.38AM: Need to see what in that huge test is failing, the fix it. Maybe add additional simple tests:
 	- Verify it doesn't start with a open bracket. 
 	- Verify it has equal open and closing bracket of each type.
 
 	THEN: get into using a stack.
+
+2020.09.22.08.56.24AM: This 
+
+
+## Retrospective:
+***
+
+What are the best aspects of the design of the code we’ve ended up with?:
+
+	I had two major ways of solving the problem, the first was using a recursvice decent parser. I have one move, and I use the crap out of it. 
+
+	However, that became hard to implement so I backed out of it 80% of the way through.
+
+	I actually used the datastructure that was meant for the exercise, like a bone head I tried to solve it like I would have parsing a math problem.
+
+	Once the stack was implemented, it was SO much easier. I feel like there is a good value in trying to figure it out yourself, but also I need to better understand
+	the theory of what I am trying to do first.
+
+In what ways did we do Test Driven Development particularly well?
+
+	The tests really came in handy when I made small changes at the end. I felt like I was able to do small refactors without it being a big risk.
+
+Did we learn anything new?
+
+	I used a stack, which is not something I normally use, but it worked so well right after implementing it, I should understand better how the stack is doing the heavy 
+	lifting in this exercise.
+
+Did anything unexpected happen?
+
+	I felt my recursive descent parser would have worked if I put more effort into it, however I think it was too complicated for what I was trying to do. The stack solved
+	the problem without adding much complexity.
+
+What do we still need to practice more?
+
+	I need to practice how to leverage a particular datastructure to do the heavy lifting, do more research on how to solve the problem first rather than using your solutions that you already know to shoe-horn it into the solution
+
+What should we do differently in the next dojo?
+
+	I think the practice was good. It took me longer than it should have. I need to suffer with my own attempt to solve it a bit less. Learn from others first, then come up with different ways to solve the problem.
+
+What will you do differently tomorrow in your production code?
+
+	Im not sure I will ever find a spot to use stacks in my current code, but I would love to try one day.
+

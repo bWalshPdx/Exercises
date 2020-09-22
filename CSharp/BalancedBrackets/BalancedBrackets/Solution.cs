@@ -88,8 +88,6 @@ namespace BalancedBrackets
                 if (stackOfBrackets.Any() && currentPair.Item1 == stackOfBrackets.Peek())
                 {
                     stackOfBrackets.Pop();
-
-                    continue;
                 }
             }
 
