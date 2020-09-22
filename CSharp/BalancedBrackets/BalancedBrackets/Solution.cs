@@ -44,18 +44,26 @@ namespace BalancedBrackets
 
         public bool IsBalanced(string input)
         {
+            List<Tuple<char, char>> bracketPairs = new List<Tuple<char, char>>()
+            {
+                new Tuple<char, char>('(',')'),
+                new Tuple<char, char>('[',']'),
+                new Tuple<char, char>('{','}')
+            };
+
             if (input.Length % 2 != 0)
             {
                 return false;
             }
 
 
-            List<Tuple<char,char>> bracketPairs = new List<Tuple<char, char>>()
+            foreach (var pairToVerify in bracketPairs)
             {
-                new Tuple<char, char>('(',')'),
-                new Tuple<char, char>('[',']'),
-                new Tuple<char, char>('{','}')
-            };
+                if(input[0] == pairToVerify.Item2)
+                {
+                    return false;
+                }
+            }
 
             Stack<char> stackOfBrackets = new Stack<char>();
 
