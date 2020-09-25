@@ -32,25 +32,18 @@ Use your mouse as little as possible
 
 2020.09.25.08.49.11AM:
 
+? - How to easily open and close a text file editor in windows terminal -? 
+	
+	- Vim is a great choice
 
-Questions around just using a keyboard:
+? - How to hop around a line faster. (not just using the arrow key)
 
+Getting into properties of a project is 'ALT + ENTER'
 
-	? - How to easily open and close a text file editor in windows terminal -? 
-		
-		- Vim is a great choice
+Vision: Be as fast as the comma ai guy
 
-	? - How to hop around a line faster. (not just using the arrow key)
+? - How to easily close visual studio - ? 
 
-	Getting into properties of a project is 'ALT + ENTER'
+? - How do I easily see what the exceptions are without using my mouse
 
-	Vision: Be as fast as the comma ai guy
-
-	? - How to easily close visual studio - ? 
-
-	? - How do I easily see what the exceptions are without using my mouse
-
-	Better alternative to ALT + TAB
-
-
-<NA> 2020.09.25.09.31.57AM: Finish up creating a template for hackerrank solutions
+Better alternative to ALT + TAB

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MaximumElement
+namespace ExerciseTemplate
 {
     public static class Go
     {
