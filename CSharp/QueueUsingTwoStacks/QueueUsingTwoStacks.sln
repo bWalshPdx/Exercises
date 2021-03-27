@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueUsingTwoStacks", "QueueUsingTwoStacks\QueueUsingTwoStacks.csproj", "{20D11291-FB5F-4829-B4BB-8BC0F0CCA4F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution-Tests", "Solution-Tests\Solution-Tests.csproj", "{1CFE6790-0F4D-4CC9-AA9A-5476296E4F11}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueUsingTwoStacks.Tests", "QueueUsingTwoStacks.Tests\QueueUsingTwoStacks.Tests.csproj", "{1CFE6790-0F4D-4CC9-AA9A-5476296E4F11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
