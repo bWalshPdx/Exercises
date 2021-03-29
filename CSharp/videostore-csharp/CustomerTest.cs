@@ -4,7 +4,7 @@ namespace VideoStore
 {
 	using NUnit.Framework;
 
-	[TestFixture]
+	/*[TestFixture]
 	public class CustomerTest
 	{
 		Customer customer;
@@ -46,5 +46,5 @@ namespace VideoStore
 		
 			Assert.AreEqual ("Rental Record for Fred\n\tPlan 9 from Outer Space\t2\n\t8 1/2\t2\n\tEraserhead\t3.5\nYou owed 7.5\nYou earned 3 frequent renter points\n", customer.GetStatement ());
 		}
-	}
+	}*/
 }
