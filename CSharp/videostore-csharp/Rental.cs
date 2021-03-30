@@ -4,23 +4,14 @@ namespace VideoStore
 {
 	public class Rental
 	{
-		private Movie movie;
-		private int daysRented;
-
 		public Rental(Movie movie, int daysRented)
 		{
-			this.movie = movie;
-			this.daysRented = daysRented;
+			this.Movie = movie;
+			this.DaysRented = daysRented;
 		}
 
-		public int DaysRented 
-		{
-			get { return daysRented; }
-		}
+		public int DaysRented { get; }
 
-		public Movie Movie 
-		{
-			get { return movie; }
-		}
+		public Movie Movie { get; }
 	}
 }

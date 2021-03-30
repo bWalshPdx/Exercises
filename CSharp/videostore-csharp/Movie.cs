@@ -8,24 +8,15 @@ namespace VideoStore
 		public const int REGULAR 	= 0;
 		public const int NEW_RELEASE = 1;
 
-		private string title;
-		private int priceCode;
+		private readonly string _title;
+
+		public string Title => _title;
 
 		public Movie(string title, int priceCode)
 		{
-			this.title = title;
-			this.priceCode = priceCode;
+			_title = title;
+			PriceCode = priceCode;
 		}
-
-		public string Title 
-		{
-			get { return title; }
-		}
-
-		public int PriceCode 
-		{
-			get { return priceCode; }
-			set { priceCode = value; }
-		}
+		public int PriceCode { get; private set; }
 	}
 }
