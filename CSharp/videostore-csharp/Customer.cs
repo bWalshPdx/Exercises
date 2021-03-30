@@ -6,19 +6,17 @@ namespace VideoStore
 
 	public class Customer
 	{
-		public string name;
-		public IList rentals = new ArrayList();
+		public readonly string Name;
+		public readonly IList Rentals = new ArrayList();
 		
 		public Customer(string name)
 		{
-			this.name = name;
+			Name = name;
 		}
-
-		
 
 		public void AddRental(Rental rental) 
 		{
-			rentals.Add(rental);
+			Rentals.Add(rental);
 		}
 	}
 }

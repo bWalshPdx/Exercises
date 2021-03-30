@@ -15,11 +15,11 @@ namespace VideoStore
         		{
         			double 				totalAmount 			= 0;
         			int					frequentRenterPoints 	= 0;
-        			String 				result 					= "Rental Record for " + customer.name + "\n";
+        			String 				result 					= "Rental Record for " + customer.Name + "\n";
         		
-        			for(int i = 0; i < customer.rentals.Count; i++ ){
+        			for(int i = 0; i < customer.Rentals.Count; i++ ){
         				double 		thisAmount = 0;
-        				Rental each = (Rental) customer.rentals[i];
+        				Rental each = (Rental) customer.Rentals[i];
         			    
         				// determines the amount for each line
         				switch (each.Movie.PriceCode) 
