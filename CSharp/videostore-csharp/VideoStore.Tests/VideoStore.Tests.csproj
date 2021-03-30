@@ -51,7 +51,8 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Tests.cs" />
+        <Compile Include="Customer.Tests.cs" />
+        <Compile Include="PointOfSaleTests.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>
