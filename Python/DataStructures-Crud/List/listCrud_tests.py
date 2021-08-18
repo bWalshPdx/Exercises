@@ -7,19 +7,23 @@ if __name__ == '__main__':
 class TestListCrud(unittest.TestCase):
     _listCrud = ListCrud()
 
-    def test_ReturnsSingleElement(self):
-        value = self._listCrud.Read()
+    def test_ReadSingleElement(self):
+        self._listCrud.create(0)
+        value = self._listCrud.read(0)
         self.assertEqual(0, value)
 
     def test_SaveSingleElement(self):
-        self._listCrud.Create(0)
-        value = self._listCrud.Read()
+        self._listCrud.create(0)
+        value = self._listCrud.read(0)
         self.assertEqual(0, value)
 
     def test_UpdateSingleElement(self):
-        self._listCrud.Create(0)
-        value = self._listCrud.Update(1)
-        self._listCrud.Update(0, 1)
-        value = self._listCrud.Read(0)
+        self._listCrud.create(0)
+        self._listCrud.update(0, 1)
+        value = self._listCrud.read(0)
         self.assertEqual(1, value)
 
+    def test_DeleteSingleElement(self):
+        self._listCrud.create(0)
+        self._listCrud.delete(0)
+        self.assertEqual(0, len(self._listCrud._myList))

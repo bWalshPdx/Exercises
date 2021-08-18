@@ -22,3 +22,14 @@ An unordered collection object for other unique objects
 
 ### List
 
+### Iteration 1
+
+#### Lessons:
+- Learn to quickly rename things.
+- Learn to run all tests via a command.
+- Read should not be the first test, Create should have been.
+- Figure out how to use the Rider keyboard layout from windows.
+ 
+
+
+

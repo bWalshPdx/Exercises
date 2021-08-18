@@ -1,9 +1,17 @@
 class ListCrud:
+    _myList = []
+
     def main(self):
         return
 
-    def Read(self):
-        return 0
+    def read(self, index):
+        return self._myList[index]
 
-    def Create(self, value):
-        return
+    def create(self, value):
+        self._myList.append(value)
+
+    def update(self, index, value):
+        self._myList[index] = value
+
+    def delete(self, index):
+        del self._myList[index]
