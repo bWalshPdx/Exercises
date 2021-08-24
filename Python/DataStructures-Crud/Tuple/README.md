@@ -24,3 +24,23 @@ an 0 tests in 0.000s
 
 OK
 ```
+
+I wrote this half in pycharm and half in vs code. I think once I get pycharm working well I like that better. I just don't know why it breaks sometimes.
+
+#### Lessons
+
+I need to get pycharm tdd locked down.
+    - The navigation is better. (And I don't need to learn a new thing)
+
+I learned how to use types as parameters and return types.
+
+I think I needed to add this to my tests in order to make it work:
+```python
+
+if __name__ == '__main__':
+    pass
+```
+
+We also needed to hit play in a certain spot of the file. Still trying to master that part.
+
+<NA> Write tuplecrud iteration 3

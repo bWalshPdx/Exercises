@@ -1,6 +1,8 @@
 import unittest
 from TupleCrud import TupleCrud
 
+if __name__ == '__main__':
+    pass
 
 class TupleCrud(unittest.TestCase):
     _tupleCrud = TupleCrud()
