@@ -3,10 +3,17 @@ import unittest
 if __name__ == '__main__':
     pass
 
-class TupleCrud():
-    def main(self):
-        return
+class TupleCrud(object):
+    _tuple = None
 
-class TestTupleCrud(unittest.TestCase):
-    def test_TestsWork(self):
-        tupleCrud = TupleCrud()
+    def create(self, new_tuple: tuple) -> None:
+        self._tuple = new_tuple
+
+    def read(self) -> tuple:
+        return self._tuple
+
+    def update(self, test_tuple):
+        if(test_tuple == None):
+            raise Exception("No Tuple to Update")
+
+        self._tuple = test_tuple
