@@ -5,7 +5,7 @@ if __name__ == '__main__':
 
 
 class Solution(object):
-    def numUniqueEmails(self, emails):
+    def numUniqueEmails(self, emails) -> int:
         pass
 
 
