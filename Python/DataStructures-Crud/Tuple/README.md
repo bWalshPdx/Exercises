@@ -52,4 +52,4 @@ setup basic common navigation commands
 THEN
 setup mac specific navigation commands based on sat file
 
-
+I went back to windows, so I can get to it right after work.
