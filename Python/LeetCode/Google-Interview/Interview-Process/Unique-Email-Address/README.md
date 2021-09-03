@@ -45,3 +45,13 @@ Constraints:
     All local and domain names are non-empty.
     Local names do not start with a '+' character.
 
+
+===========================
+Iteration 1:
+===========================
+My IDE is not working right, it keeps taking focus away from the IDE every time it runs a test.
+    - need to fix that.
+    - need to write out a checklist to ensure that is working correctly
+
+<NA> 2021.09.02.04.39.50PM: Fix IDE and write the cleaning up email thing.
+
