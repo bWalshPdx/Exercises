@@ -1,7 +1,7 @@
 # Unique Email Addresses
 
 ## References
-
+https://leetcode.com/explore/interview/card/google/67/sql-2/3044/
 
 
 ## Description
@@ -55,3 +55,9 @@ My IDE is not working right, it keeps taking focus away from the IDE every time 
 
 <NA> 2021.09.02.04.39.50PM: Fix IDE and write the cleaning up email thing.
 
+
+Learned how to use dictionaries a little bit
+
+learned how to manipulate strings
+
+learned how to run tests of multiple inputs easily
