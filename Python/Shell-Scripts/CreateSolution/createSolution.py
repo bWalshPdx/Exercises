@@ -46,6 +46,7 @@ if __name__ == '__main__':
     testFile.write("\n")
     testFile.write("class TestSolution(unittest.TestCase):\n")
     testFile.write("\n")
+    testFile.write("    #@unittest.skip()\n")
     testFile.write("    def test_Fact1(self):\n")
     testFile.write("        solution = Solution()\n")
     testFile.write("        self.assertEqual(1, 2)\n")
