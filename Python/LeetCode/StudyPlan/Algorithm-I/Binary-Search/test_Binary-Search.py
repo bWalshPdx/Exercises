@@ -11,23 +11,23 @@ class Solution:
         next_move: int = len(nums) // 2
         current_index: int = next_move
         while True:
+            current_value = nums[current_index]
 
-            if nums[current_index] == target:
+            if current_value == target:
                 return current_index
-            elif next_move == 0:
+            elif current_index == 0 or (len(nums) - 1) == current_index: #At the ends of the array
+                return -1
+            elif nums[current_index - 1] < target < nums[current_index + 1]: #Have searched that section of the array fully
                 return -1
 
             next_move: int = next_move // 2
             if next_move == 0:
                 next_move = 1
 
-            if nums[current_index] > target:
+            if current_value > target:
                 current_index = current_index - next_move
             else:
                 current_index = current_index + next_move
-
-            if next_move == 1:
-                next_move = 0
 
 
 class TestSolution(unittest.TestCase):
@@ -37,11 +37,10 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(4, solution.search([-1, 0, 3, 5, 9, 12], 9))
         self.assertEqual(-1, solution.search([-1, 0, 3, 5, 9, 12], 2))
 
-    # @unittest.skip("reason for skipping")
+    #@unittest.skip("reason for skipping")
     def test_FromLeetCode_Round2(self):
         solution = Solution()
         self.assertEqual(5, solution.search([-1, 0, 3, 5, 9, 12], 12))
-
 
     #@unittest.skip("reason for skipping")
     def test_findAtFirstTry(self):
