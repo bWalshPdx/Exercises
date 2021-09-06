@@ -43,6 +43,11 @@ class TestSolution(unittest.TestCase):
         self.assertEqual(5, solution.search([-1, 0, 3, 5, 9, 12], 12))
 
     #@unittest.skip("reason for skipping")
+    def test_FromLeetCode_Round3(self):
+        solution = Solution()
+        self.assertEqual(0, solution.search([2, 5], 2))
+
+    #@unittest.skip("reason for skipping")
     def test_findAtFirstTry(self):
         solution = Solution()
         self.assertEqual(0, solution.search([3], 3))
