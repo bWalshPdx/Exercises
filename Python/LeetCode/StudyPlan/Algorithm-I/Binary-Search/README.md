@@ -29,4 +29,10 @@ Constraints:
     nums is sorted in ascending order.
 
 
-#<NA> 2021.09.05.10.52.09AM: Working on problem from 'test_FromLeetCode_Round2'
+# I am stuck for 25 minutes, tapping. Going to the solution:
+
+### Iteration 2:
+
+Understanding the algorithm better, i needed to keep track of the bounds of the search by using left and right pointers
+https://www.youtube.com/watch?v=P3YID7liBug&ab_channel=HackerRank
+https://www.youtube.com/watch?v=tgVSkMA8joQ&ab_channel=mCoding

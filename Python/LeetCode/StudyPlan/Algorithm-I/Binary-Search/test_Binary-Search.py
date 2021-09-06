@@ -8,26 +8,20 @@ if __name__ == '__main__':
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        next_move: int = len(nums) // 2
-        current_index: int = next_move
-        while True:
-            current_value = nums[current_index]
+        return self.search_section(nums, target, 0, len(nums) - 1)
 
-            if current_value == target:
-                return current_index
-            elif current_index == 0 or (len(nums) - 1) == current_index: #At the ends of the array
-                return -1
-            elif nums[current_index - 1] < target < nums[current_index + 1]: #Have searched that section of the array fully
-                return -1
+    def search_section(self, nums: List[int], target: int, left: int, right: int):
+        if left > right:
+            return -1
 
-            next_move: int = next_move // 2
-            if next_move == 0:
-                next_move = 1
-
-            if current_value > target:
-                current_index = current_index - next_move
-            else:
-                current_index = current_index + next_move
+        current_index: int = (left + right) // 2
+        current_val = nums[current_index]
+        if target == current_val:
+            return current_index
+        elif target < current_val: #Go Left:
+            return self.search_section(nums, target, left, current_index - 1)
+        elif target > current_val:  # Go Right:
+            return self.search_section(nums, target, current_index + 1, right)
 
 
 class TestSolution(unittest.TestCase):
