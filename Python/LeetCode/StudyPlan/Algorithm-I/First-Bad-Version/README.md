@@ -33,3 +33,21 @@ Constraints:
 
     1 <= bad <= n <= 231 - 1
 
+## Iteration 1
+
+I am calling isBadVersion(N) -> returns a bool
+
+
+1, 2 , 3, 4, 5
+
+4 is the bad version
+
+if 3 is not bad go right.
+if 3 is bad go left.
+
+
+
+2021.09.07.05.56.18PM <NA>: Trying to figure out how to update a variable outside of a class (just in a file) and change
+it within my test. Its treating the variable as if it were local.
+
+2021.09.08.06.06.18PM <NA>: Trying to debug a error I am getting with my first test
