@@ -8,12 +8,15 @@ badVersionForTest = -1
 
 
 def isBadVersion(n: int) -> bool:
-    return n == badVersionForTest
+    return badVersionForTest <= n
 
 class Solution:
     def firstBadVersion(self, highest_version_number: int) -> int:
-        new_input: List[int] = list(range(highest_version_number + 1))
-        return self.getNextBadVersion(new_input, 0, len(new_input))
+        new_input: List[int] = list(range(1, highest_version_number + 1))
+        if len(new_input) == 1:
+            return new_input[0]
+
+        return self.getNextBadVersion(new_input, 0, len(new_input) - 1)
 
     def getNextBadVersion(self, current_input: List[int], left: int, right: int) -> int:
         if left > right:
@@ -23,8 +26,6 @@ class Solution:
         left_result = -1
         right_result = -1
         is_bad = isBadVersion(current_input[mid])
-
-
 
         if is_bad:
             left_result = self.getNextBadVersion(current_input, left, mid - 1) #Go Left to find earlier bad version
@@ -45,13 +46,23 @@ class TestSolution(unittest.TestCase):
         solution = Solution()
 
         global badVersionForTest
-        badVersionForTest = 0
-        self.assertEqual(badVersionForTest, solution.firstBadVersion(0))
-
+        badVersionForTest = 1
+        self.assertEqual(badVersionForTest, solution.firstBadVersion(1))
 
     def test_ListOf2(self):
         solution = Solution()
 
         global badVersionForTest
-        badVersionForTest = 0
-        self.assertEqual(badVersionForTest, solution.firstBadVersion(1))
+        badVersionForTest = 1
+        self.assertEqual(badVersionForTest, solution.firstBadVersion(2))
+
+        badVersionForTest = 2
+        self.assertEqual(badVersionForTest, solution.firstBadVersion(2))
+
+    def test_FromLeetCode_Round1(self):
+        solution = Solution()
+
+        global badVersionForTest
+        badVersionForTest = 1
+        self.assertEqual(badVersionForTest, solution.firstBadVersion(4))
+
