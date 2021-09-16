@@ -51,3 +51,5 @@ if 3 is bad go left.
 it within my test. Its treating the variable as if it were local.
 
 2021.09.08.06.06.18PM <NA>: Trying to debug a error I am getting with my first test
+
+2021.09.15.06.01.24PM <NA>: Had a memoryError when working with an array
