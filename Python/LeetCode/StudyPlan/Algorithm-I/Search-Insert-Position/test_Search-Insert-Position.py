@@ -40,10 +40,6 @@ class TestSolution(unittest.TestCase):
         solution = Solution()
         self.assertEqual(0, solution.searchInsert([1], 1))
 
-    def test_Example2_ReturnsIndexToInsert(self):
-        solution = Solution()
-        self.assertEqual(0, solution.searchInsert([], 1))
-
     def test_Example3_ReturnsCurrentIndex(self):
         solution = Solution()
         self.assertEqual(0, solution.searchInsert([1, 2], 1))
@@ -59,3 +55,21 @@ class TestSolution(unittest.TestCase):
     def test_Example5_ReturnsCurrentIndex(self):
         solution = Solution()
         self.assertEqual(0, solution.searchInsert([1, 2, 3], 1))
+
+    def test_Example6_ReturnsCurrentIndex(self):
+        solution = Solution()
+        self.assertEqual(4, solution.searchInsert([1, 2, 3, 4, 5, 6], 5))
+
+    def test_Example7_ReturnsCurrentIndex(self):
+        solution = Solution()
+        self.assertEqual(99, solution.searchInsert(range(1, 101), 100))
+
+    def test_Example8_ReturnsIndexToInsert(self):
+        solution = Solution()
+        self.assertEqual(0, solution.searchInsert([], 1))
+
+    # def test_Example8_ReturnsIndexToInsert(self):
+    #     solution = Solution()
+    #     self.assertEqual(1, solution.searchInsert([0], 1))
+
+
