@@ -68,8 +68,8 @@ class TestSolution(unittest.TestCase):
         solution = Solution()
         self.assertEqual(0, solution.searchInsert([], 1))
 
-    # def test_Example8_ReturnsIndexToInsert(self):
-    #     solution = Solution()
-    #     self.assertEqual(1, solution.searchInsert([0], 1))
+    def test_Example8_ReturnsIndexToInsert(self):
+         solution = Solution()
+         self.assertEqual(1, solution.searchInsert([0], 1))
 
 
