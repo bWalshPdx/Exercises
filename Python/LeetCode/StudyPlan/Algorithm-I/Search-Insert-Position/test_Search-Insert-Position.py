@@ -24,6 +24,31 @@ class Solution:
         if current_Value == target:
             return mid
 
+        # Detect Ends:
+        direct_left: int
+        direct_right: int
+
+        if (mid - 1) < 0:
+            direct_left = target - 1
+        else:
+            direct_left = nums[mid - 1]
+
+        if (len(nums) - 1) < (mid + 1):
+            direct_right = target + 1
+        else:
+            direct_right = nums[mid + 1]
+
+        if direct_left < target < current_Value:
+            return mid - 1
+
+        if current_Value < target < direct_right:
+            return mid + 1
+
+
+
+
+
+
         if target > current_Value: # Go Right:
             return self.searchInsertSection(nums, target, mid + 1, right)
         else:
