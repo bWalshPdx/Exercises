@@ -39,7 +39,7 @@ class Solution:
             direct_right = nums[mid + 1]
 
         if direct_left < target < current_Value:
-            return mid - 1
+            return mid
 
         if current_Value < target < direct_right:
             return mid + 1
@@ -93,8 +93,11 @@ class TestSolution(unittest.TestCase):
         solution = Solution()
         self.assertEqual(0, solution.searchInsert([], 1))
 
-    def test_Example8_ReturnsIndexToInsert(self):
+    def test_Example8_ReturnsIndexToInsertToRight(self):
          solution = Solution()
          self.assertEqual(1, solution.searchInsert([0], 1))
 
+    def test_Example8_ReturnsIndexToInsertToLeft(self):
+         solution = Solution()
+         self.assertEqual(0, solution.searchInsert([1], 0))
 
