@@ -44,11 +44,6 @@ class Solution:
         if current_Value < target < direct_right:
             return mid + 1
 
-
-
-
-
-
         if target > current_Value: # Go Right:
             return self.searchInsertSection(nums, target, mid + 1, right)
         else:
