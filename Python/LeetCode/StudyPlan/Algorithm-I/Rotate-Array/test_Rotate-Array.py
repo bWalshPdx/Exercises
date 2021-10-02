@@ -8,10 +8,15 @@ if __name__ == '__main__':
 
 class Solution:
 
-    def newIndex(self, arrayLength:int, currenIndex: int, shift: int) -> int:
-        
-        newIndex: int = currenIndex + shift
-        return newIndex
+    def get_new_index(self, array_length:int, current_index: int, shift: int) -> int:
+
+        if shift == 0:
+            return current_index
+
+        #newIndex: int = current_index + shift
+        adjusted_shift: int = (current_index + shift) // array_length
+
+        return current_index + adjusted_shift
 
 
     def rotate(self, nums: List[int], k: int) -> None:
@@ -40,21 +45,21 @@ class TestSolution(unittest.TestCase):
         array_length = 0
         current_index = 0
         shift = 0
-        self.assertEqual(0, solution.newIndex(array_length, current_index, shift))
+        self.assertEqual(0, solution.get_new_index(array_length, current_index, shift))
 
     def test_newIndex_Example2(self):
         solution = Solution()
         array_length = 2
         current_index = 0
         shift = 1
-        self.assertEqual(1, solution.newIndex(array_length, current_index, shift))
+        self.assertEqual(1, solution.get_new_index(array_length, current_index, shift))
 
     def test_newIndex_Example3(self):
         solution = Solution()
         array_length = 2
         current_index = 1
         shift = 1
-        self.assertEqual(0, solution.newIndex(array_length, current_index, shift))
+        self.assertEqual(0, solution.get_new_index(array_length, current_index, shift))
 
 
     # def test_TwoElementsRotateOne(self):
