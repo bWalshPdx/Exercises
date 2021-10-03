@@ -8,15 +8,18 @@ if __name__ == '__main__':
 
 class Solution:
 
-    def get_new_index(self, array_length:int, current_index: int, shift: int) -> int:
+    def get_new_index(self, array_length: int, current_index: int, shift: int) -> int:
 
         if shift == 0:
             return current_index
 
         #newIndex: int = current_index + shift
-        adjusted_shift: int = (current_index + shift) // array_length
+        new_index = current_index + shift
 
-        return current_index + adjusted_shift
+        if new_index <= (array_length - 1):
+            return new_index
+
+        return (current_index + shift) % array_length
 
 
     def rotate(self, nums: List[int], k: int) -> None:
