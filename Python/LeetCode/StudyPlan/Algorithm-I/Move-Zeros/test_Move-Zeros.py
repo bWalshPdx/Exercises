@@ -15,28 +15,23 @@ class Solution:
 
         current_index = 0
         zero_count = 0
-
         while True:
             if current_index == array_length:
                 break
 
             if nums[current_index] == 0:
                 zero_count = zero_count + 1
-
             else:
                 answer.append(nums[current_index])
 
             current_index = current_index + 1
 
         push_zero_count = 0
-
         while True:
             if push_zero_count == zero_count:
                 break
-
             answer.append(0)
             push_zero_count = push_zero_count + 1
-
         nums[:] = answer
 
 
