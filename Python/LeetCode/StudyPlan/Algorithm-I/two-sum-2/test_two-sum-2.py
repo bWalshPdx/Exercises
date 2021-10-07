@@ -4,26 +4,29 @@ from typing import List
 if __name__ == '__main__':
     pass
 
-
+# Reimplementing with suggested solution to speed it up:
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
 
-        outer_index = 0
-        inner_index = 1
+        low = 0
+        high = len(numbers) - 1
         while True:
-            if outer_index == len(numbers):
+            if low < high:
                 break
 
-            while True:
-                if inner_index == len(numbers):
-                    break
+            sum = numbers[low] + numbers[high]
 
-                if (numbers[outer_index] + numbers[inner_index]) == target:
-                    return [outer_index + 1, inner_index + 1]
-                inner_index = inner_index + 1
+            if sum == target:
+                return [low + 1, high + 1]
+            elif sum < target:
+                low = low + 1
+            else:
+                high = high - 1
 
-            outer_index = outer_index + 1
-            inner_index = outer_index + 1
+
+
+
+
 
 
 class TestSolution(unittest.TestCase):
