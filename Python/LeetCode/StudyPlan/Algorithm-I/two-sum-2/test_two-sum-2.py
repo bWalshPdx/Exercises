@@ -7,31 +7,23 @@ if __name__ == '__main__':
 
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        #sub_array = []
-
-        # current_value = 0
-        # while True:
-        #     if len(numbers) == current_value:
-        #         break
-        #
-        #     if numbers[current_value] > target and numbers[current_value] != 0:
-        #         break
-        #
-        #     if numbers[current_value] <= target or numbers[current_value] == 0:
-        #         sub_array.append(numbers[current_value])
-        #
-        #     current_value = current_value + 1
 
         outer_index = 0
         inner_index = 1
         while True:
+            if outer_index == len(numbers):
+                break
 
             while True:
+                if inner_index == len(numbers):
+                    break
+
                 if (numbers[outer_index] + numbers[inner_index]) == target:
                     return [outer_index + 1, inner_index + 1]
                 inner_index = inner_index + 1
 
             outer_index = outer_index + 1
+            inner_index = outer_index + 1
 
 
 class TestSolution(unittest.TestCase):
@@ -60,3 +52,11 @@ class TestSolution(unittest.TestCase):
     def test_LC_Example4(self):
         solution = Solution()
         self.assertEqual([1, 2], solution.twoSum([-3, 3, 4, 90], 0))
+
+    def test_LC_Example5(self):
+        solution = Solution()
+        self.assertEqual([2, 3], solution.twoSum([5, 25, 75], 100))
+
+    def test_LC_Example6(self):
+        solution = Solution()
+        self.assertEqual([4,5], solution.twoSum([1, 2, 3, 4, 4, 9, 56, 90], 8))
