@@ -11,11 +11,8 @@ class Solution:
         low = 0
         high = len(numbers) - 1
         while True:
-            if low < high:
-                break
 
             sum = numbers[low] + numbers[high]
-
             if sum == target:
                 return [low + 1, high + 1]
             elif sum < target:
