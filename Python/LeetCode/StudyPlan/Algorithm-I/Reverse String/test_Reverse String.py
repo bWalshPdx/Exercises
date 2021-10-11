@@ -7,19 +7,37 @@ if __name__ == '__main__':
 # I did this dumb dumb style. start with 0 and len - 1 and meet:
 class Solution:
     def reverseString(self, s: List[str]) -> None:
+        start: int = 0
+        end: int = len(s) - 1
 
-        current_index: int = 0
-        length = len(s)
         while True:
-            if length == current_index:
+            if start > end:
                 break
 
-            current_value: str = s.pop(0)
-            s.append(current_value)
-            current_index = current_index + 1
+            startVal = s[start]
+            endVal = s[end]
+            s[start] = endVal
+            s[end] = startVal
+
+            start = start + 1
+            end = end - 1
+
+        return s
 
 
 class TestSolution(unittest.TestCase):
+
+    def test_Fact1(self):
+        solution = Solution()
+        i = ["i"]
+        solution.reverseString(i)
+        self.assertEqual(["i"], i)
+
+    def test_Fact2(self):
+        solution = Solution()
+        i = ["i", "h"]
+        solution.reverseString(i)
+        self.assertEqual(["h", "i"], i)
 
     #@unittest.skip()
     def test_LC_Example1(self):
