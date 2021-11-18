@@ -36,3 +36,20 @@ Constraints:
 
 The number of nodes in the list is in the range [1, 100].
 1 <= Node.val <= 100
+
+
+--------------------------------
+
+Recieving a error:
+
+Given Input
+
+[65,66,26,77,96,86,11,21,13,80]
+
+AttributeError: 'NoneType' object has no attribute 'val'
+    if middle_val == next_head.val:
+Line 17 in middleNode (Solution.py)
+    ret = Solution().middleNode(param_1)
+Line 59 in _driver (Solution.py)
+    _driver()
+Line 70 in <module> (Solution.py)
