@@ -4,12 +4,6 @@ from typing import Optional
 if __name__ == '__main__':
     pass
 
-# Get the count of the nodes
-# Start the counter at the total nodes and decrease
-# When you get to the number right before:
-# - Get current.next.next
-#  - Make it current.next
-
 
 #Definition for singly-linked list.
 class ListNode:
@@ -19,7 +13,27 @@ class ListNode:
 
 class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        return None
+        # Get the count of the nodes
+        total_nodes: int = self.getCount(head)
+        # Start the counter at the total nodes and decrease
+        current_node_index: int = total_nodes
+        # When you get to the number right before:
+        # - Get current.next.next
+        #  - Make it current.next
+
+        while True:
+            if current_node_index == n:
+
+                if head.next != None and head.next.next != None:
+                    head.next = head.next.next
+
+                if head.next == None:
+                    head = None
+
+            current_node_index = current_node_index - 1
+
+        return head
+
 
     def getCount(self, head: ListNode) -> int:
         count: int = 0
@@ -74,11 +88,14 @@ class TestSolution(unittest.TestCase):
 
     #@unittest.skip()
     def test_removeNthFromEnd_Fact1(self):
+        #<NA> 2021.12.21.11.37.01AM: This is in a endless loop
         solution = Solution()
         inputNode = ListNode()
         inputNode.val = 1
 
-        self.assertEqual(None, solution.removeNthFromEnd(inputNode, 1))
+        output = solution.removeNthFromEnd(inputNode, 1)
+
+        self.assertEqual(None, output)
 
     def test_removeNthFromEnd_Fact2(self):
         solution = Solution()
@@ -93,7 +110,13 @@ class TestSolution(unittest.TestCase):
         expectedNode = ListNode()
         expectedNode.val = 1
 
-        self.assertEqual(expectedNode, solution.removeNthFromEnd(inputNode1, 1))
+        output = solution.removeNthFromEnd(inputNode1, 1)
+
+        is_valid: bool = self.ListNodesAreEqual(expectedNode, output)
+
+        self.assertTrue(is_valid)
+
+        #self.assertEqual(expectedNode, output)
 
     def test_ListNodesAreEqual_GivenSingleNode_BothAreEqual(self):
         inputNode = ListNode()
