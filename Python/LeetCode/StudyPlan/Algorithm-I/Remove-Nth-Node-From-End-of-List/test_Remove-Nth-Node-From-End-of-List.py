@@ -22,6 +22,8 @@ class Solution:
         #  - Make it current.next
 
         while True:
+            if current_node_index == -1:
+                break
             if current_node_index == n:
 
                 if head.next != None and head.next.next != None:
