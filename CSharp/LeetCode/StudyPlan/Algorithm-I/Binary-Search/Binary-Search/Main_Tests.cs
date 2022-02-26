@@ -1,5 +1,7 @@
 ﻿
 using System.Threading.Tasks;
+using FluentAssertions;
+using NUnit.Framework;
 using Xunit;
 
 namespace Binary_Search
@@ -14,12 +16,15 @@ namespace Binary_Search
     public class Solution_Tests
     {
         [Fact]
-        public async Task Search_Bootstrap()
+        public async Task Search_GivenSingleCorrectElement_ShouldReturnCorrectIndex()
         {
             Solution solution = new Solution();
+            int[] input = new int[] {9};
+            int target = 9;
 
-            solution.Search(new int[0], 0);
+            int output = solution.Search(input, target);
 
+            output.Should().Be(0);
         }
     }
 
