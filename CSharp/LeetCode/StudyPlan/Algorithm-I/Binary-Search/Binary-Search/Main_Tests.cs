@@ -15,18 +15,22 @@ namespace Binary_Search
             
             while (left <= right)
             {
-                throw new NotImplementedException("Add the binary search version of this");
-            }
-            
-            
-            for (int i = 0; i < nums.Length; i++)
-            {
-                if (nums[i] == target)
+                int pivot = GetPivot(left, right);
+                if (nums[pivot] == target)
+                    return pivot;
+
+                if (nums[pivot] < target) //Split Right
                 {
-                    return i;
+                    left = pivot + 1;
+                    right = nums.Length - 1;
+                }
+                if (nums[pivot] > target) //Split Left
+                {
+                    left = 0;
+                    right = pivot - 1;
                 }
             }
-
+            
             return -1;
         }
 
