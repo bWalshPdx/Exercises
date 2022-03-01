@@ -22,11 +22,9 @@ namespace Binary_Search
                 if (nums[pivot] < target) //Split Right
                 {
                     left = pivot + 1;
-                    right = nums.Length - 1;
                 }
                 if (nums[pivot] > target) //Split Left
                 {
-                    left = 0;
                     right = pivot - 1;
                 }
             }
@@ -85,6 +83,22 @@ namespace Binary_Search
             int[] input = new int[] {-1,0,3,5,9,12};
             int target = 9;
             int expectedIndex = 4;
+
+            int output = solution.Search(input, target);
+
+            output.Should().Be(expectedIndex);
+        }
+        //[-1,0,3,5,9,12]
+        //2
+        
+        
+        [Fact]
+        public async Task LeetCode_Fact2()
+        {
+            Solution solution = new Solution();
+            int[] input = new int[] {-1,0,3,5,9,12};
+            int target = 2;
+            int expectedIndex = -1;
 
             int output = solution.Search(input, target);
 
