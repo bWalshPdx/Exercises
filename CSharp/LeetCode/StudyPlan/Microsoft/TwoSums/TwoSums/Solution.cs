@@ -18,7 +18,6 @@ namespace TwoSums
                     }
                 }
             }
-
             throw new ArgumentException();
         }
     }
@@ -53,5 +52,18 @@ namespace TwoSums
             output.Should().BeEquivalentTo(expectedOutput);
         }
         
+        
+        [Fact]
+        public async Task TwoSums_Fact3()
+        {
+            Solution solution = new Solution();
+            int[] input = new[] {3,3};
+            int target = 6;
+            int[] expectedOutput = new[] {0, 1};
+            
+            int[] output = solution.TwoSum(input, target);
+
+            output.Should().BeEquivalentTo(expectedOutput);
+        }
     }
 }
