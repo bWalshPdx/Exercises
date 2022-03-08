@@ -22,7 +22,6 @@ namespace TwoSums
         }
     }
 
-
     public class Solution_Tests
     {
         [Fact]
