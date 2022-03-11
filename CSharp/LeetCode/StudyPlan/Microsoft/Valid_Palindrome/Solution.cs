@@ -10,22 +10,22 @@ namespace Valid_Palindrome
     public class Solution {
         public bool IsPalindrome(string input)
         {
-            input = cleanString(input);
+            string cleanedInput = cleanString(input);
             
             List<char> reversed = new List<char>();
 
-            for (int i = input.Length - 1; i > -1; i--)
+            for (int i = cleanedInput.Length - 1; i > -1; i--)
             {
-                reversed.Add(input[i]);
+                reversed.Add(cleanedInput[i]);
             }
 
             string output = new string(reversed.ToArray());
-            return input == output;
+            return cleanedInput == output;
         }
 
         public string cleanString(string input)
         {
-            var cleanedUpCharArray = input.Where(i => i.ToString().Contains("abcdefghijklmnopqrstuvwxyz")).ToArray();
+            var cleanedUpCharArray = input.Where(i => "abcdefghijklmnopqrstuvwxyz".Contains(i)).ToArray();
 
             return new string(cleanedUpCharArray);
         }
@@ -61,6 +61,17 @@ namespace Valid_Palindrome
             Solution sol = new Solution();
             string input = "A man, a plan, a canal: Panama";
             bool expectedOutput = true;
+            bool isPalindrome =  sol.IsPalindrome(input);
+
+            isPalindrome.Should().Be(expectedOutput);
+        }
+        
+        [Fact]
+        public async Task Fact4()
+        {
+            Solution sol = new Solution();
+            string input = "race a car";
+            bool expectedOutput = false;
             bool isPalindrome =  sol.IsPalindrome(input);
 
             isPalindrome.Should().Be(expectedOutput);
