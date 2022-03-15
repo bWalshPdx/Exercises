@@ -25,7 +25,7 @@ namespace Valid_Palindrome
 
         public string cleanString(string input)
         {
-            var cleanedUpCharArray = input.Where(i => "abcdefghijklmnopqrstuvwxyz".Contains(i)).ToArray();
+            var cleanedUpCharArray = input.ToLower().Where(i => "1234567890abcdefghijklmnopqrstuvwxyz".Contains(i)).ToArray();
 
             return new string(cleanedUpCharArray);
         }
@@ -71,6 +71,17 @@ namespace Valid_Palindrome
         {
             Solution sol = new Solution();
             string input = "race a car";
+            bool expectedOutput = false;
+            bool isPalindrome =  sol.IsPalindrome(input);
+
+            isPalindrome.Should().Be(expectedOutput);
+        }
+        
+        [Fact]
+        public async Task Fact5()
+        {
+            Solution sol = new Solution();
+            string input = "0P";
             bool expectedOutput = false;
             bool isPalindrome =  sol.IsPalindrome(input);
 
