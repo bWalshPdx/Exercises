@@ -25,8 +25,7 @@ namespace Valid_Palindrome
 
         public string cleanString(string input)
         {
-            var cleanedUpCharArray = input.ToLower().Where(i => "1234567890abcdefghijklmnopqrstuvwxyz".Contains(i)).ToArray();
-
+            var cleanedUpCharArray = input.ToLower().Where(Char.IsLetterOrDigit).ToArray();
             return new string(cleanedUpCharArray);
         }
     }
