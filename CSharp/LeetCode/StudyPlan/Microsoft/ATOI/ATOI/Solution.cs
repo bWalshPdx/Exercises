@@ -38,15 +38,20 @@ public class Solution {
             {
                 getIntegerChars = true;
             }
-            
-            if(getIntegerChars)
+            else if (Char.IsLetter(input[i]))
+            {
+                getIntegerChars = false;
+                break;
+            }
+
+            if (getIntegerChars)
                 sb.Append(input[i]);
         }
-        
-        return Int32.Parse(sb.ToString());
-    }
 
-    
+        Int32.TryParse(sb.ToString(), out int formattedInteger);
+
+        return formattedInteger;
+    }
 }
 
 
@@ -93,6 +98,19 @@ public class Solution_Test
         Solution solution = new Solution();
         string input = "words and 987";
         int expectedOutput = 0;
+
+        //<NA> Need to remove the leading white space, then check for a -, then check for integers and cut off the value
+
+        int output = solution.MyAtoi(input);
+        output.Should().Be(expectedOutput);
+    }
+
+    [Fact]
+    public void Fact5()
+    {
+        Solution solution = new Solution();
+        string input = "-91283472332";
+        int expectedOutput = -2147483648;
 
         //<NA> Need to remove the leading white space, then check for a -, then check for integers and cut off the value
 
