@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using FluentAssertions;
+using Microsoft.VisualBasic.CompilerServices;
 using Xunit;
 
 namespace ATOI;
@@ -52,13 +53,30 @@ public class Solution {
 
         return formattedInteger;
     }
+
+    public int MyToInt(char[] input)
+    {
+        int multiple = 1;
+        int output = 0;
+        
+        foreach (char currentChar in input.Reverse())
+        {
+            Int32.TryParse(currentChar.ToString(), out int formattedInteger);
+            output = (formattedInteger * multiple) + output;
+
+            multiple = multiple * 10;
+        }
+
+        //Int32.TryParse(input[0].ToString(), out int formattedInteger);
+        return output;
+    }
 }
 
 
 public class Solution_Test
 {
     [Fact]
-    public void Fact1()
+    public void MyAtoi_Fact1()
     {
         Solution solution = new Solution();
         string input = "42";
@@ -69,7 +87,7 @@ public class Solution_Test
     }
     
     [Fact]
-    public void Fact2()
+    public void MyAtoi_Fact2()
     {
         Solution solution = new Solution();
         string input = "   -42";
@@ -80,7 +98,7 @@ public class Solution_Test
     }
     
     [Fact]
-    public void Fact3()
+    public void MyAtoi_Fact3()
     {
         Solution solution = new Solution();
         string input = "4193 with words";
@@ -93,7 +111,7 @@ public class Solution_Test
     }
 
     [Fact]
-    public void Fact4()
+    public void MyAtoi_Fact4()
     {
         Solution solution = new Solution();
         string input = "words and 987";
@@ -105,8 +123,8 @@ public class Solution_Test
         output.Should().Be(expectedOutput);
     }
 
-    [Fact]
-    public void Fact5()
+    [Fact()]
+    public void MyAtoi_Fact5()
     {
         Solution solution = new Solution();
         string input = "-91283472332";
@@ -118,4 +136,49 @@ public class Solution_Test
         output.Should().Be(expectedOutput);
     }
 
+    [Fact]
+    public async Task MyToInt_Fact1()
+    {
+        Solution solution = new Solution();
+        char[] input = new []{'1'};
+        int expectedOutput = 1;
+
+        int output = solution.MyToInt(input);
+        output.Should().Be(expectedOutput);
+    }
+    
+    [Fact]
+    public async Task MyToInt_Fact2()
+    {
+        Solution solution = new Solution();
+        char[] input = new []{'1', '1'};
+        int expectedOutput = 11;
+
+        int output = solution.MyToInt(input);
+        output.Should().Be(expectedOutput);
+    }
+    
+    [Fact]
+    public async Task MyToInt_Fact3()
+    {
+        Solution solution = new Solution();
+        char[] input = new []{'1', '0', '0', '1'};
+        int expectedOutput = 1001;
+
+        int output = solution.MyToInt(input);
+        output.Should().Be(expectedOutput);
+    }
+
+    [Fact]
+    public async Task MyToInt_Fact4()
+    {
+        Solution solution = new Solution();
+        string input = "91283472332";
+        int expectedOutput = 2147483647;
+
+        //<NA> Need to remove the leading white space, then check for a -, then check for integers and cut off the value
+
+        int output = solution.MyToInt(input.ToCharArray());
+        output.Should().Be(expectedOutput);
+    }
 }
