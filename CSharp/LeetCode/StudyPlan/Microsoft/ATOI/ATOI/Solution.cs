@@ -162,7 +162,7 @@ public class Solution_Test
     [Fact()]
     public void MyAtoi_Fact6()
     {
-        throw new NotImplementedException("This needs to fail, just like in leetCode");
+        //throw new NotImplementedException("This needs to fail, just like in leetCode");
         Solution solution = new Solution();
         string input = "   +0 123";
         int expectedOutput = 0;
