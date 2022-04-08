@@ -15,8 +15,6 @@ namespace ReverseString
 
             s[start] = s[end];
             s[end] = temp;
-
-
         }
     }
 
@@ -24,7 +22,7 @@ namespace ReverseString
     public class Solution_Tests
     {
         [Fact]
-        public void ReverseString_Fact1()
+        public void ReverseString_MyFact1()
         {
             Solution solution = new Solution();
             char[] input = new[] { 'i' };
@@ -33,12 +31,11 @@ namespace ReverseString
 
             solution.ReverseString(input);
 
-            input.Should().BeEquivalentTo(expectedOutput);
+            input.Should().BeEquivalentTo(expectedOutput, options => options.WithStrictOrdering());
         }
-
-
+        
         [Fact]
-        public void ReverseString_Fact2()
+        public void ReverseString_MyFact2()
         {
             Solution solution = new Solution();
             char[] input = new[] { 't', 'o' };
@@ -47,8 +44,21 @@ namespace ReverseString
 
             solution.ReverseString(input);
 
-            input.Should().BeEquivalentTo(expectedOutput);
+            input.Should().BeEquivalentTo(expectedOutput, options => options.WithStrictOrdering());
         }
+
+        [Fact]
+        public void ReverseString_MyFact3()
+        {
+            Solution solution = new Solution();
+            char[] input = new[] { 'f', 'o', 'u', 'r' };
+            char[] expectedOutput = new[] { 'r', 'u', 'o', 'f' };
+            
+            solution.ReverseString(input);
+
+            input.Should().BeEquivalentTo(expectedOutput, options => options.WithStrictOrdering());
+        }
+
 
     }
 
