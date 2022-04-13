@@ -50,7 +50,7 @@ public class Solution
             stateInput.Index++;
         }
         //No input left to process:
-        else if (inputChars.Length < stateInput.Index)
+        else if (inputChars.Length <= stateInput.Index)
         {
             stateInput.NextState = DFA_State.End;
         }
@@ -74,7 +74,25 @@ public class Solution
         {
             stateInput.NextState = DFA_State.End;
         }
+        return stateInput;
+    }
 
+
+    public State DigitState(State stateInput)
+    {
+        char[] inputChars = stateInput.Input.ToCharArray();
+
+        //Process Current Digit:
+        if ((inputChars.Length <= stateInput.Index))
+        {
+            stateInput.NextState = DFA_State.End;
+        }
+        else if (Char.IsDigit(inputChars[stateInput.Index]))
+        {
+            stateInput.StringBuilder.Append(inputChars[stateInput.Index]);
+            stateInput.Index++;
+            stateInput.NextState = DFA_State.Digit;
+        }
 
         return stateInput;
     }
@@ -184,6 +202,97 @@ public class Solution_Tests
 
         output.Should().BeEquivalentTo(stateExpectedOutput);
     }
-#endregion
+    #endregion
+
+    #region DigitState
+
+    [Fact]
+    public async Task DigitState_HandleSingleDigit()
+    {
+        Solution solution = new Solution();
+        string input = "1";
+
+        State stateInput = new State(input);
+        
+        State stateExpectedOutput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.Digit
+        };
+
+        stateExpectedOutput.StringBuilder.Append("1");
+        
+        State output = solution.DigitState(stateInput);
+
+        output.Should().BeEquivalentTo(stateExpectedOutput);
+    }
+
+    [Fact]
+    public async Task DigitState_HandleEndOfLine()
+    {
+        Solution solution = new Solution();
+        string input = "1";
+
+        State stateInput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.Digit
+        };
+
+        stateInput.StringBuilder.Append("1");
+
+        State stateExpectedOutput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.End
+        };
+
+        stateExpectedOutput.StringBuilder.Append("1");
+        
+        State output = solution.DigitState(stateInput);
+
+        output.Should().BeEquivalentTo(stateExpectedOutput);
+    }
+
+    [Fact]
+    public async Task DigitState_HandleNonDigit()
+    {
+        throw new NotImplementedException("Write new not a digit condition");
+        Solution solution = new Solution();
+        string input = "1";
+
+        State stateInput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.Digit
+        };
+
+        stateInput.StringBuilder.Append("1");
+
+        State stateExpectedOutput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.End
+        };
+
+        stateExpectedOutput.StringBuilder.Append("1");
+
+        State output = solution.DigitState(stateInput);
+
+        output.Should().BeEquivalentTo(stateExpectedOutput);
+    }
+
+    #endregion
+
 
 }
