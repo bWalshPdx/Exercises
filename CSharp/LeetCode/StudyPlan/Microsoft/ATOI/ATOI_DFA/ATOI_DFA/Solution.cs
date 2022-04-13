@@ -18,7 +18,7 @@ public class State
     public State(String input)
     {
         StringBuilder = new StringBuilder();
-        Input = "";
+        Input = input;
         NextState = DFA_State.Start;
     }
 }
@@ -26,6 +26,8 @@ public class State
 public enum DFA_State
 {
     Start,
+    Digit,
+    Sign,
     End
 }
 
@@ -39,30 +41,49 @@ public class Solution
     public State StartingState(State stateInput)
     {
         char[] inputChars = stateInput.Input.ToCharArray();
-        //Handle Whitespace:
-
-        if (inputChars.Length < stateInput.Index)
-            stateInput.NextState = DFA_State.End;
-        else if (inputChars[stateInput.Index] == ' ')
-            stateInput.NextState = DFA_State.Start;
 
 
-        throw new NotImplementedException("Write up the next state logic with the index increment");
-
-
-        return new State()
+        //If its empty go to Dead State (End):
+        if (inputChars.Length == 0)
         {
-            Input = stateInput.Input,
-            StringBuilder = new StringBuilder(),
-            Index = 1,
-            NextState = DFA_State.End
-        };
+            stateInput.NextState = DFA_State.End;
+            stateInput.Index++;
+        }
+        //No input left to process:
+        else if (inputChars.Length < stateInput.Index)
+        {
+            stateInput.NextState = DFA_State.End;
+        }
+        //Empty string, iterate and process:
+        else if (inputChars[stateInput.Index] == ' ')
+        {
+            stateInput.NextState = DFA_State.Start;
+            stateInput.Index++;
+        }
+        //Go to digit  to process:
+        else if (Char.IsDigit(inputChars[stateInput.Index]))
+        {
+            stateInput.NextState = DFA_State.Digit;
+        }
+        //Sign found:
+        else if (inputChars[stateInput.Index] == '+' || inputChars[stateInput.Index] == '-')
+        {
+            stateInput.NextState = DFA_State.Sign;
+        }
+        else if (inputChars[stateInput.Index] != '+' || inputChars[stateInput.Index] != '-' || !Char.IsDigit(inputChars[stateInput.Index]))
+        {
+            stateInput.NextState = DFA_State.End;
+        }
+
+
+        return stateInput;
     }
 }
 
 
 public class Solution_Tests
 {
+    #region StartingState
     //TODO: Hard code the state expected output rather than just returning the input:
     [Fact]
     public async Task StartingState_HandleSingleWhitespace()
@@ -83,8 +104,7 @@ public class Solution_Tests
 
         output.Should().BeEquivalentTo(stateExpectedOutput);
     }
-
-
+    
     [Fact]
     public async Task StartingState_HandleMultipleWhitespaces()
     {
@@ -104,4 +124,66 @@ public class Solution_Tests
 
         output.Should().BeEquivalentTo(stateExpectedOutput);
     }
+
+    [Fact]
+    public async Task StartingState_HandleDigit()
+    {
+        Solution solution = new Solution();
+        string input = "1";
+
+        State stateInput = new State(input);
+        State stateExpectedOutput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 0,
+            NextState = DFA_State.Digit
+        };
+
+        State output = solution.StartingState(stateInput);
+
+        output.Should().BeEquivalentTo(stateExpectedOutput);
+    }
+
+    [Fact]
+    public async Task StartingState_HandleSign()
+    {
+        Solution solution = new Solution();
+        string input = "+";
+
+        State stateInput = new State(input);
+        State stateExpectedOutput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 0,
+            NextState = DFA_State.Sign
+        };
+
+        State output = solution.StartingState(stateInput);
+
+        output.Should().BeEquivalentTo(stateExpectedOutput);
+    }
+
+    [Fact]
+    public async Task StartingState_HandleNondigiitNonSign()
+    {
+        Solution solution = new Solution();
+        string input = "A";
+
+        State stateInput = new State(input);
+        State stateExpectedOutput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 0,
+            NextState = DFA_State.End
+        };
+
+        State output = solution.StartingState(stateInput);
+
+        output.Should().BeEquivalentTo(stateExpectedOutput);
+    }
+#endregion
+
 }

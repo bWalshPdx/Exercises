@@ -1,5 +1,7 @@
 https://leetcode.com/problems/string-to-integer-atoi/solution/
 
+## Prepping for writing the Solution
+
 
 ## Reflection:
 
