@@ -100,6 +100,57 @@ public class Solution
 
         return stateInput;
     }
+
+    public State SignState(State stateInput)
+    {
+        char[] inputChars = stateInput.Input.ToCharArray();
+
+        if (inputChars.Length <= stateInput.Index)
+        {
+            stateInput.NextState = DFA_State.End;
+        }
+        else if (!Char.IsDigit(inputChars[stateInput.Index]))
+        {
+            stateInput.NextState = DFA_State.End;
+        }
+        else if (Char.IsDigit(inputChars[stateInput.Index]))
+        {
+            if (inputChars[stateInput.Index - 1] == '+' || inputChars[stateInput.Index - 1] == '-')
+            {
+                stateInput.StringBuilder.Append(stateInput.Index - 1);
+            }
+            
+            stateInput.NextState = DFA_State.Digit;
+        }
+
+        return stateInput;
+    }
+
+    public int? EndState(State stateInput)
+    {   
+        return Convert.ToInt32(stateInput.StringBuilder.ToString());
+    }
+
+    public int? ToMyInt(string input)
+    {
+        double multiple = 1;
+        double output = 0;
+
+        foreach (char currentChar in input.Reverse())
+        {
+            Int32.TryParse(currentChar.ToString(), out int formattedInteger);
+            output = (formattedInteger * multiple) + output;
+
+            multiple = multiple * 10;
+        }
+
+        if (output > 2147483647)
+        {
+            return null;
+        }
+
+        return Convert.ToInt32(output);
+    }
 }
 
 
@@ -297,5 +348,129 @@ public class Solution_Tests
 
     #endregion
 
+    #region SignState
+
+    [Fact]
+    public async Task SignState_HandleEndOfLine()
+    {
+        Solution solution = new Solution();
+        string input = "+";
+
+        State stateInput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.Sign
+        };
+        
+        State stateExpectedOutput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.End
+        };
+        
+        State output = solution.SignState(stateInput);
+
+        output.Should().BeEquivalentTo(stateExpectedOutput);
+    }
+
+    [Fact]
+    public async Task SignState_HandleNotADigit()
+    {
+        Solution solution = new Solution();
+        string input = "+a";
+
+        State stateInput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.Sign
+        };
+
+        State stateExpectedOutput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.End
+        };
+
+        State output = solution.SignState(stateInput);
+
+        output.Should().BeEquivalentTo(stateExpectedOutput);
+    }
+
+    [Fact]
+    public async Task SignState_HandleDigit()
+    {
+        Solution solution = new Solution();
+        string input = "-1";
+
+        State stateInput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.Sign
+        };
+
+        State stateExpectedOutput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.Digit
+        };
+
+        stateExpectedOutput.StringBuilder.Append("-");
+
+        State output = solution.SignState(stateInput);
+
+        output.Should().BeEquivalentTo(stateExpectedOutput);
+    }
+
+    #endregion
+
+    #region EndState
+
+    [Fact]
+    public async Task EndState_ReturnsInteger()
+    {
+        Solution solution = new Solution();
+        string input = "1";
+
+        State stateInput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.End
+        };
+
+        stateInput.StringBuilder.Append("1");
+
+       
+        int? output = solution.EndState(stateInput);
+
+        output.Value.Should().Be(1);
+    }
+
+
+    [Fact]
+    public async Task ToMyInt_ReturnsInteger()
+    {
+        Solution solution = new Solution();
+        string input = "12";
+
+        int output = solution.ToMyInt(input);
+        
+        output.Should().Be(12);
+    }
+
+    #endregion
 
 }
