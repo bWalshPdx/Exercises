@@ -93,6 +93,10 @@ public class Solution
             stateInput.Index++;
             stateInput.NextState = DFA_State.Digit;
         }
+        else
+        {
+            stateInput.NextState = DFA_State.End;
+        }
 
         return stateInput;
     }
@@ -263,9 +267,8 @@ public class Solution_Tests
     [Fact]
     public async Task DigitState_HandleNonDigit()
     {
-        throw new NotImplementedException("Write new not a digit condition");
         Solution solution = new Solution();
-        string input = "1";
+        string input = "1a";
 
         State stateInput = new State()
         {
