@@ -242,8 +242,16 @@ public class Solution_Tests
         output.Should().Be(4193);
     }
 
-    #endregion
+    [Fact]
+    public async Task MyAtoi_Fact6()
+    {
+        Solution solution = new Solution();
+        int output = solution.MyAtoi("words and 987");
 
+        output.Should().Be(0);
+    }
+
+    #endregion
 
     #region StartingState
     //TODO: Hard code the state expected output rather than just returning the input:
