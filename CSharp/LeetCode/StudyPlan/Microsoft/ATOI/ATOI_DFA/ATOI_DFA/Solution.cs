@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Reflection.Metadata;
+using System.Text;
 using FluentAssertions;
 using Xunit;
 
@@ -8,6 +9,7 @@ public class State
 {
     public string Input { get; set; }
     public StringBuilder StringBuilder { get; set; }
+    public char Sign { get; set; }
     public int Index { get; set; }
     public DFA_State NextState { get; set; }
 
@@ -19,6 +21,7 @@ public class State
     {
         StringBuilder = new StringBuilder();
         Input = input;
+        Sign = ' ';
         NextState = DFA_State.Start;
     }
 }
@@ -35,7 +38,31 @@ public class Solution
 {
     public int MyAtoi(string input)
     {
-        return 0;
+        State state = new State(input);
+        
+        while (true)
+        {
+            switch (state.NextState)
+            {
+                case DFA_State.Start:
+                    state = StartingState(state);
+                    break;
+                case DFA_State.Digit:
+                    state = DigitState(state);
+                    break;
+                case DFA_State.End:
+                    return EndState(state).Value;
+                    break;
+                case DFA_State.Sign:
+                    state = SignState(state);
+                    break;
+                default:
+                    throw new NotImplementedException("State not found");
+            }
+        }
+
+
+        
     }
     
     public State StartingState(State stateInput)
@@ -109,26 +136,38 @@ public class Solution
         {
             stateInput.NextState = DFA_State.End;
         }
-        else if (!Char.IsDigit(inputChars[stateInput.Index]))
+        else if (inputChars[stateInput.Index] == '+' || inputChars[stateInput.Index] == '-')
         {
-            stateInput.NextState = DFA_State.End;
+            if (stateInput.Sign == ' ')
+            {
+                stateInput.Sign = inputChars[stateInput.Index];
+                stateInput.Index++;
+            }
+            else
+            {
+                stateInput.NextState = DFA_State.End;
+            }
         }
         else if (Char.IsDigit(inputChars[stateInput.Index]))
         {
-            if (inputChars[stateInput.Index - 1] == '+' || inputChars[stateInput.Index - 1] == '-')
-            {
-                stateInput.StringBuilder.Append(stateInput.Index - 1);
-            }
-            
             stateInput.NextState = DFA_State.Digit;
+        }
+        else if (!Char.IsDigit(inputChars[stateInput.Index]))
+        {
+            stateInput.NextState = DFA_State.End;
         }
 
         return stateInput;
     }
 
     public int? EndState(State stateInput)
-    {   
-        return Convert.ToInt32(stateInput.StringBuilder.ToString());
+    {
+        int converted = Convert.ToInt32(stateInput.StringBuilder.ToString());
+
+        if (stateInput.Sign == '-')
+            converted = converted * -1;
+
+        return converted;
     }
 
     public int? ToMyInt(string input)
@@ -143,7 +182,7 @@ public class Solution
 
             multiple = multiple * 10;
         }
-
+        
         if (output > 2147483647)
         {
             return null;
@@ -156,6 +195,56 @@ public class Solution
 
 public class Solution_Tests
 {
+    #region MyATOI
+
+    [Fact]
+    public async Task MyAtoi_Fact1()
+    {
+        Solution solution = new Solution();
+        int output = solution.MyAtoi("1");
+        
+        output.Should().Be(1);
+    }
+
+    [Fact]
+    public async Task MyAtoi_Fact2()
+    {
+        Solution solution = new Solution();
+        int output = solution.MyAtoi("10");
+
+        output.Should().Be(10);
+    }
+
+    [Fact]
+    public async Task MyAtoi_Fact3()
+    {
+        Solution solution = new Solution();
+        int output = solution.MyAtoi("-100");
+
+        output.Should().Be(-100);
+    }
+
+    [Fact]
+    public async Task MyAtoi_Fact4()
+    {
+        Solution solution = new Solution();
+        int output = solution.MyAtoi("42");
+
+        output.Should().Be(42);
+    }
+
+    [Fact]
+    public async Task MyAtoi_Fact5()
+    {
+        Solution solution = new Solution();
+        int output = solution.MyAtoi("4193 with words");
+
+        output.Should().Be(4193);
+    }
+
+    #endregion
+
+
     #region StartingState
     //TODO: Hard code the state expected output rather than just returning the input:
     [Fact]
@@ -169,6 +258,7 @@ public class Solution_Tests
         {
             Input = input,
             StringBuilder = new StringBuilder(),
+            Sign = ' ',
             Index = 1,
             NextState = DFA_State.End
         };
@@ -189,6 +279,7 @@ public class Solution_Tests
         {
             Input = input,
             StringBuilder = new StringBuilder(),
+            Sign = ' ',
             Index = 1,
             NextState = DFA_State.Start
         };
@@ -209,6 +300,7 @@ public class Solution_Tests
         {
             Input = input,
             StringBuilder = new StringBuilder(),
+            Sign = ' ',
             Index = 0,
             NextState = DFA_State.Digit
         };
@@ -229,6 +321,7 @@ public class Solution_Tests
         {
             Input = input,
             StringBuilder = new StringBuilder(),
+            Sign = ' ',
             Index = 0,
             NextState = DFA_State.Sign
         };
@@ -249,6 +342,7 @@ public class Solution_Tests
         {
             Input = input,
             StringBuilder = new StringBuilder(),
+            Sign = ' ',
             Index = 0,
             NextState = DFA_State.End
         };
@@ -273,6 +367,7 @@ public class Solution_Tests
         {
             Input = input,
             StringBuilder = new StringBuilder(),
+            Sign = ' ',
             Index = 1,
             NextState = DFA_State.Digit
         };
@@ -414,7 +509,8 @@ public class Solution_Tests
         {
             Input = input,
             StringBuilder = new StringBuilder(),
-            Index = 1,
+            Sign = ' ',
+            Index = 0,
             NextState = DFA_State.Sign
         };
 
@@ -422,12 +518,11 @@ public class Solution_Tests
         {
             Input = input,
             StringBuilder = new StringBuilder(),
+            Sign = '-',
             Index = 1,
-            NextState = DFA_State.Digit
+            NextState = DFA_State.Sign
         };
-
-        stateExpectedOutput.StringBuilder.Append("-");
-
+        
         State output = solution.SignState(stateInput);
 
         output.Should().BeEquivalentTo(stateExpectedOutput);
@@ -438,7 +533,7 @@ public class Solution_Tests
     #region EndState
 
     [Fact]
-    public async Task EndState_ReturnsInteger()
+    public async Task EndState_ReturnsInteger1()
     {
         Solution solution = new Solution();
         string input = "1";
@@ -461,16 +556,39 @@ public class Solution_Tests
 
 
     [Fact]
+    public async Task EndState_ReturnsInteger160()
+    {
+        Solution solution = new Solution();
+        string input = "160";
+
+        State stateInput = new State()
+        {
+            Input = input,
+            StringBuilder = new StringBuilder(),
+            Index = 1,
+            NextState = DFA_State.End
+        };
+
+        stateInput.StringBuilder.Append("1");
+        stateInput.StringBuilder.Append("6");
+        stateInput.StringBuilder.Append("0");
+
+
+        int? output = solution.EndState(stateInput);
+
+        output.Value.Should().Be(160);
+    }
+
+    [Fact]
     public async Task ToMyInt_ReturnsInteger()
     {
         Solution solution = new Solution();
         string input = "12";
 
-        int output = solution.ToMyInt(input);
+        int? output = solution.ToMyInt(input);
         
         output.Should().Be(12);
     }
-
     #endregion
 
 }
