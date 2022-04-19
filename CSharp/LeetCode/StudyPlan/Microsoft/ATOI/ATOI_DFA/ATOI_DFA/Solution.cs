@@ -162,10 +162,13 @@ public class Solution
 
     public int? EndState(State stateInput)
     {
-        int converted = Convert.ToInt32(stateInput.StringBuilder.ToString());
+        int? converted = ToMyInt(stateInput.StringBuilder.ToString());
 
         if (stateInput.Sign == '-')
-            converted = converted * -1;
+            converted = converted.Value * -1;
+
+
+
 
         return converted;
     }
