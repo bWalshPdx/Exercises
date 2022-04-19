@@ -51,7 +51,7 @@ public class Solution
                     state = DigitState(state);
                     break;
                 case DFA_State.End:
-                    return EndState(state).Value;
+                    return EndState(state);
                     break;
                 case DFA_State.Sign:
                     state = SignState(state);
@@ -160,17 +160,26 @@ public class Solution
         return stateInput;
     }
 
-    public int? EndState(State stateInput)
+    public int EndState(State stateInput)
     {
         int? converted = ToMyInt(stateInput.StringBuilder.ToString());
 
+        if (converted == null)
+        {
+            if (stateInput.Sign == '-')
+            {
+                return Convert.ToInt32(Math.Pow(-2, 31));
+            }
+            else
+            {
+                return Convert.ToInt32(Math.Pow(2, 31) - 1);
+            }
+        }
+        
         if (stateInput.Sign == '-')
             converted = converted.Value * -1;
-
-
-
-
-        return converted;
+        
+        return converted.Value;
     }
 
     public int? ToMyInt(string input)
@@ -599,6 +608,18 @@ public class Solution_Tests
         int? output = solution.ToMyInt(input);
         
         output.Should().Be(12);
+    }
+
+    [Fact]
+    public async Task ToMyInt_ReturnsPositiveClamp()
+    {
+        
+        Solution solution = new Solution();
+        string input = "2147483699";
+
+        int? output = solution.MyAtoi(input);
+
+        output.Should().Be(2147483647);
     }
     #endregion
 
