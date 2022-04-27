@@ -11,8 +11,8 @@ https://leetcode.com/explore/interview/card/microsoft/30/array-and-strings/166/
 ### Proposed tests for each rule:
 
 x - The sperator can handle leading blank spaces
-- The seperator can handle multiple spaces
-- the sperator will add non space characters
+x - The seperator can handle multiple spaces
+x- the sperator will add non space characters
 - Reverse words will reverse the words given to it.
 
 
