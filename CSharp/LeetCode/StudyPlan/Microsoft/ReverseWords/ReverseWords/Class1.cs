@@ -9,24 +9,18 @@ namespace ReverseWords
         public string ReverseWords(string input)
         {
             string[] splitUp = Splitter(input);
-
             return Reverser(splitUp);
         }
 
         public string[] Splitter(string s)
         {
-            string[] output;
-            output = s.Split(' ');
-            output = output.Where(o => o != "").ToArray();
-
-            return output;
+            string[] output = s.Split(' ');
+            return output.Where(o => o != "").ToArray();
         }
 
         public string Reverser(string[] input)
         {
-            string output = String.Join(" ", input.Reverse());
-
-            return output;
+            return String.Join(" ", input.Reverse());
         }
     }
 
@@ -36,9 +30,7 @@ namespace ReverseWords
         public void Splitter_CanHandleMultiLeadingSpaces()
         {
             Solution s = new Solution();
-
             string[] output = s.Splitter("   i");
-
             output.Length.Should().Be(1);
             output[0].Should().Be("i");
         }
@@ -90,6 +82,5 @@ namespace ReverseWords
 
             output.Should().Be("reversed is this");
         }
-
     }
 }
