@@ -6,9 +6,11 @@ namespace ReverseWords
 {
     public class Solution
     {
-        public string ReverseWords(string s)
+        public string ReverseWords(string input)
         {
-            return "";
+            string[] splitUp = Splitter(input);
+
+            return Reverser(splitUp);
         }
 
         public string[] Splitter(string s)
@@ -22,7 +24,9 @@ namespace ReverseWords
 
         public string Reverser(string[] input)
         {
-            throw new NotImplementedException();
+            string output = String.Join(" ", input.Reverse());
+
+            return output;
         }
     }
 
@@ -74,7 +78,17 @@ namespace ReverseWords
 
             string output = s.Reverser(input);
 
-            output.Should().Be("three two one");
+            output.Should().Be("one two three");
+        }
+        
+        [Fact]
+        public void Reverser_Fact1()
+        {
+            Solution s = new Solution();
+
+            string output =  s.ReverseWords("this is reversed");
+
+            output.Should().Be("reversed is this");
         }
 
     }

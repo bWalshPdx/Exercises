@@ -13,7 +13,7 @@ https://leetcode.com/explore/interview/card/microsoft/30/array-and-strings/166/
 x - The sperator can handle leading blank spaces
 x - The seperator can handle multiple spaces
 x- the sperator will add non space characters
-- Reverse words will reverse the words given to it.
+x - Reverse words will reverse the words given to it.
 
 
 ## Reflection:
