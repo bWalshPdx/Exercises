@@ -7,22 +7,35 @@ namespace LeetCodeTemplate;
 public class Solution {
     public string LongestPalindrome(string s)
     {
-        for (int index = 0; index < s.Length - 1; index++)
+        //<NA> Need to make it faster:
+        string currentBestPalindrome = "";
+        for (int index = 0; index <= s.Length - 1; index++)
         {
+            int currentLength = currentBestPalindrome.Length;
             while (true)
-            {
-                //<NA> do the below:
-                //Get the start/end indexes for substring
-                //Get substring
-                //Check if substring is a palandrome
-                //Save the palindrome for output
-                //add to length
+            {//Get the start/end indexes for substring
+                int start = index;
+                int end = start + currentLength;
+
+                if (s.Length - 1 < end)
+                    break;
                 
+                //Get substring
+                string substring = GetSubstring(start, end, s);
+                //Check if substring is a palindrome
+                //Save the palindrome for output
+                if (IsPalindrome(substring))
+                {
+                    if(currentBestPalindrome.Length < substring.Length)
+                        currentBestPalindrome = substring;
+                }
+                //add to length
+                currentLength++;
             }
             
         }
         
-        return s;
+        return currentBestPalindrome;
     }
 
     public bool IsPalindrome(string input)
@@ -60,7 +73,7 @@ public class Solution {
 public class Solution_Test
 {
     [Fact]
-    public void LongestPalindrome_ShouldReturnSingleChar()
+    public void LongestPalindrome_Fact1()
     {
         Solution s = new Solution();
         string input = "b";
@@ -69,6 +82,51 @@ public class Solution_Test
         s.LongestPalindrome(input).Should().Be(output);
     }
     
+    [Fact]
+    public void LongestPalindrome_Fact2()
+    {
+        Solution s = new Solution();
+        string input = "babad";
+        string exptectedOutput = "bab";
+    
+        s.LongestPalindrome(input).Should().Be(exptectedOutput);
+    }
+    
+    [Fact]
+    public void LongestPalindrome_Fact3()
+    {
+        Solution s = new Solution();
+        string input = "cbbd";
+        string exptectedOutput = "bb";
+    
+        s.LongestPalindrome(input).Should().Be(exptectedOutput);
+    }
+    
+    [Fact]
+    public void LongestPalindrome_Fact4()
+    {
+        Solution s = new Solution();
+        string input = "daomdukomcayjwgmmetypncdeixarhbectjcwftjjtwjrctixtrsehegwlfotpljeeqhntacfihecdjysgfmxxbjfeskvvfqdoedfxriujnoeteleftsjgdsagqvcgcdjbxgmguunhbjxyajutohgbdwqtjghdftpvidkbftqbpeahxbfyamonazvubzirhqseetaneptnpjbtrtitttxsyjckjvwtrmuwgidkofvobrwrffzrpnxbectsydbvswstfiqranjzhsebjnmprjoirqkgttahrivkcjtitdcpohwwerwgrdivqbltfnigavydxpmitttjjzyrmpaptkczzgnsovebvxezkkovgqegctxacvjfqwtiycnhartzczcgosiquhmdbljjzyrnmffcwnkyzytnsvyzayrieqyrfpxintbbiyrawxlguzaisedwabpzvevlejadztuclcpwvonehkhknicdksdcnjfaoeaqhcdkdtywilwewadcnaprcasccdcnvdgjdqirrsqwzhqqorlhbgpelpupdvuynzybcqkffnnpocidkkigimsa";
+        string exptectedOutput = "tjjt";
+    
+        string output = s.LongestPalindrome(input);
+        
+        output.Should().Be(exptectedOutput);
+    }
+    
+    [Fact]
+    public void LongestPalindrome_Fact5()
+    {
+        Solution s = new Solution();
+        string input = "rgczcpratwyqxaszbuwwcadruayhasynuxnakpmsyhxzlnxmdtsqqlmwnbxvmgvllafrpmlfuqpbhjddmhmbcgmlyeypkfpreddyencsdmgxysctpubvgeedhurvizgqxclhpfrvxggrowaynrtuwvvvwnqlowdihtrdzjffrgoeqivnprdnpvfjuhycpfydjcpfcnkpyujljiesmuxhtizzvwhvpqylvcirwqsmpptyhcqybstsfgjadicwzycswwmpluvzqdvnhkcofptqrzgjqtbvbdxylrylinspncrkxclykccbwridpqckstxdjawvziucrswpsfmisqiozworibeycuarcidbljslwbalcemgymnsxfziattdylrulwrybzztoxhevsdnvvljfzzrgcmagshucoalfiuapgzpqgjjgqsmcvtdsvehewrvtkeqwgmatqdpwlayjcxcavjmgpdyklrjcqvxjqbjucfubgmgpkfdxznkhcejscymuildfnuxwmuklntnyycdcscioimenaeohgpbcpogyifcsatfxeslstkjclauqmywacizyapxlgtcchlxkvygzeucwalhvhbwkvbceqajstxzzppcxoanhyfkgwaelsfdeeviqogjpresnoacegfeejyychabkhszcokdxpaqrprwfdahjqkfptwpeykgumyemgkccynxuvbdpjlrbgqtcqulxodurugofuwzudnhgxdrbbxtrvdnlodyhsifvyspejenpdckevzqrexplpcqtwtxlimfrsjumiygqeemhihcxyngsemcolrnlyhqlbqbcestadoxtrdvcgucntjnfavylip";
+        string exptectedOutput = "tjjt";
+    
+        string output = s.LongestPalindrome(input);
+        
+        output.Should().Be(exptectedOutput);
+    }
+    
+    # region Misc
     [Fact]
     public void IsPalindrome_ShouldReturnTrue()
     {
@@ -81,7 +139,7 @@ public class Solution_Test
     
     [Fact]
     public void IsPalindrome_ShouldReturnFalse()
-    {
+    { 
         Solution s = new Solution();
         string input = "ba";
         bool expectedOutput = false;
@@ -147,5 +205,6 @@ public class Solution_Test
         output.Should().Be(expectedOutput);
     }
     
+    #endregion
 }
 
