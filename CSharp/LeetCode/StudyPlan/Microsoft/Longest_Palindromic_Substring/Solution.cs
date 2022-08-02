@@ -7,7 +7,16 @@ namespace LeetCodeTemplate;
 public class Solution {
     public string LongestPalindrome(string s)
     {
-        //<NA> Need to make it faster:
+        /*
+         * <NA> Need to make it faster:
+         *      1. Change problem to just handle pointers rather than clipping substrings and passing them around
+         *      2. Start with the entire string first, then get smaller.
+         *      3. IsPalindrome: Start with pointer in the middle then work your way down
+         *          - Handle even number substrings
+         *          - Handle odd number substrings
+         * 
+         */
+
         string currentBestPalindrome = "";
         for (int index = 0; index <= s.Length - 1; index++)
         {
@@ -16,12 +25,17 @@ public class Solution {
             {//Get the start/end indexes for substring
                 int start = index;
                 int end = start + currentLength;
+                
+                
 
                 if (s.Length - 1 < end)
                     break;
                 
                 //Get substring
                 string substring = GetSubstring(start, end, s);
+                
+                
+                
                 //Check if substring is a palindrome
                 //Save the palindrome for output
                 if (IsPalindrome(substring))

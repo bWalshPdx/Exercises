@@ -19,6 +19,11 @@ Input: s = "cbbd"
 Output: "bb"
 
 
+## Reference to research I did:
+Trying to make it more performant:
+https://www.youtube.com/watch?v=y2BD4MJqV20&ab_channel=NickWhite
+https://www.youtube.com/watch?v=XYQecbcd6_c&ab_channel=NeetCode
+
 ### Rules of the Problem:
 
 ### Proposed tests for each rule:
@@ -34,7 +39,7 @@ Output: "bb"
 
 
 ### Did anything unexpected happen?
-
+- Having problems with speed from my brute force solution.
 
 ### What do I still need to practice more?
 
