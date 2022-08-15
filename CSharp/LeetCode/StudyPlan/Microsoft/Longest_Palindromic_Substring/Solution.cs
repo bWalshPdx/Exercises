@@ -7,31 +7,68 @@ namespace LeetCodeTemplate;
 public class Solution {
     public string LongestPalindrome(string s)
     {
-        for (int index = 0; index < s.Length - 1; index++)
+        //<NA> Need to make it faster:
+        string currentBestPalindrome = "";
+        for (int index = 0; index <= s.Length - 1; index++)
         {
+            int currentLength = currentBestPalindrome.Length;
             while (true)
-            {
-                //<NA> do the below:
-                //Get the start/end indexes for substring
+            {//Get the start/end indexes for substring
+                int start = index;
+                int end = start + currentLength;
+
+                if (s.Length - 1 < end)
+                    break;
+
                 //Get substring
-                //Check if substring is a palandrome
+                string substring = GetSubstring(start, end, s);
+                //Check if substring is a palindrome
                 //Save the palindrome for output
+                if (IsPalindrome(substring))
+                {
+                    if(currentBestPalindrome.Length < substring.Length)
+                        currentBestPalindrome = substring;
+                }
                 //add to length
-                
+                currentLength++;
             }
-            
+
         }
-        
-        return s;
+
+        return currentBestPalindrome;
     }
 
     public bool IsPalindrome(string input)
     {
-        char[] charArray = input.ToCharArray();
-        Array.Reverse( charArray );
-        string reversed = new string( charArray );
+        double splitInt = input.Length / 2;
+        double index = Math.Floor(splitInt); 
         
-        return reversed == input;
+        double left = index - 1;
+        double right = index + 1;
+        
+        //check the bounds for pointers:
+        if (left < 0)
+            left = 0;
+
+        if (right > (input.Length - 1))
+            right = input.Length - 1;
+        
+        while (true)
+        {
+            if (left < 0)
+                break;
+
+            if (right > (input.Length - 1))
+                break;
+            
+            if (input[(int)left] != input[(int)right])
+                return false;
+
+            left--;
+            right++;
+        }
+
+        return true;
     }
 
     public string GetSubstring(int start, int end, string input)
@@ -59,6 +96,8 @@ public class Solution {
 
 public class Solution_Test
 {
+    #region LongestPalindrome
+    
     [Fact]
     public void LongestPalindrome_ShouldReturnSingleChar()
     {
@@ -69,6 +108,10 @@ public class Solution_Test
         s.LongestPalindrome(input).Should().Be(output);
     }
     
+    #endregion
+
+    #region IsPalindrome
+
     [Fact]
     public void IsPalindrome_ShouldReturnTrue()
     {
@@ -88,6 +131,10 @@ public class Solution_Test
 
         s.IsPalindrome(input).Should().Be(expectedOutput);
     }
+    
+    #endregion
+
+    #region Misc
     
     [Fact]
     public void GetStubString_ShouldReturn333()
@@ -120,6 +167,15 @@ public class Solution_Test
     }
     
     [Fact()]
+    public void GetLongestString_ShouldReturnbab()
+    {
+        Solution s = new Solution();
+        string input = "babad";
+        
+        s.GetSubstring(0, 0, input).Should().Be("bab");
+    }
+    
+    [Fact()]
     public void GetSubStringValues_Fact1()
     {
         Solution s = new Solution();
@@ -146,6 +202,10 @@ public class Solution_Test
         
         output.Should().Be(expectedOutput);
     }
+
+    #endregion
+    
+    
     
 }
 
