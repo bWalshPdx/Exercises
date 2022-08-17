@@ -43,8 +43,23 @@ public class Solution {
         double splitInt = input.Length / 2;
         double index = Math.Floor(splitInt); 
         
-        double left = index - 1;
-        double right = index + 1;
+        double left = -1;
+        double right = -1;
+        
+        
+        //Set pointers if a even length:
+        if (input.Length % 2 == 0)
+        {
+            left = index - 1;
+            right = index;
+        }
+        else
+        {
+            left = index - 1;
+            right = index + 1;
+        }
+        
+        
         
         //check the bounds for pointers:
         if (left < 0)
@@ -60,8 +75,11 @@ public class Solution {
 
             if (right > (input.Length - 1))
                 break;
+
+            char leftChar = input[(int)left];
+            char rightChar = input[(int)right];
             
-            if (input[(int)left] != input[(int)right])
+            if (leftChar != rightChar)
                 return false;
 
             left--;
@@ -108,12 +126,23 @@ public class Solution_Test
         s.LongestPalindrome(input).Should().Be(output);
     }
     
+    //[Fact(Skip = "Fixing palindrome first")]
+    [Fact]
+    public void LongestPalindrome_ShouldReturnBab()
+    {
+        Solution s = new Solution();
+        string input = "babad";
+        string output = "bab";
+    
+        s.LongestPalindrome(input).Should().Be(output);
+    }
+    
     #endregion
 
     #region IsPalindrome
 
     [Fact]
-    public void IsPalindrome_ShouldReturnTrue()
+    public void IsPalindrome_ShouldReturnTrue_Fact1()
     {
         Solution s = new Solution();
         string input = "b";
@@ -123,12 +152,22 @@ public class Solution_Test
     }
     
     [Fact]
-    public void IsPalindrome_ShouldReturnFalse()
+    public void IsPalindrome_ShouldReturnFalse_Fact1()
     {
         Solution s = new Solution();
         string input = "ba";
         bool expectedOutput = false;
 
+        s.IsPalindrome(input).Should().Be(expectedOutput);
+    }
+    
+    [Fact]
+    public void IsPalindrome_ShouldReturnFalse_Fact2()
+    {
+        Solution s = new Solution();
+        string input = "baba";
+        bool expectedOutput = false;
+    
         s.IsPalindrome(input).Should().Be(expectedOutput);
     }
     
@@ -164,15 +203,6 @@ public class Solution_Test
         string input = "1xxxxxx";
         
         s.GetSubstring(0, 0, input).Should().Be("1");
-    }
-    
-    [Fact()]
-    public void GetLongestString_ShouldReturnbab()
-    {
-        Solution s = new Solution();
-        string input = "babad";
-        
-        s.GetSubstring(0, 0, input).Should().Be("bab");
     }
     
     [Fact()]
