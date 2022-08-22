@@ -1,12 +1,22 @@
 
+using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 using FluentAssertions;
 using Xunit;
 namespace LeetCodeTemplate;
 
 public class Solution {
+    //NAS 2022.08.22.09.56.13AM:
+    //Write 2 dim array
+    public bool?[,] _storedResults;
+    //Update ispalindrome to store results if not found
+    //Update ispalidrome to check that table first
+    
+
     public string LongestPalindrome(string s)
     {
+        _storedResults = new bool?[s.Length - 1, s.Length - 1];
+        
         //<NA> Need to make it faster:
         string currentBestPalindrome = "";
         for (int index = 0; index <= s.Length - 1; index++)
@@ -40,6 +50,7 @@ public class Solution {
 
     public bool IsPalindrome(string input)
     {
+        bool isPalindrome = false;
         double splitInt = input.Length / 2;
         double index = Math.Floor(splitInt); 
         
@@ -75,18 +86,32 @@ public class Solution {
 
             if (right > (input.Length - 1))
                 break;
+            
+            //There is a better way to write this:
+            if (_storedResults[(int)left, (int)right] != null)
+            {
+                if (_storedResults[(int)left, (int)right] == false)
+                {
+                    return false;
+                }
+            }
 
             char leftChar = input[(int)left];
             char rightChar = input[(int)right];
-            
+
             if (leftChar != rightChar)
-                return false;
+            {
+                isPalindrome = false;
+                break;
+            }
 
             left--;
             right++;
         }
+        
+        _storedResults[(int)left, (int)right] = isPalindrome;
 
-        return true;
+        return isPalindrome;
     }
 
     public string GetSubstring(int start, int end, string input)
@@ -155,9 +180,11 @@ public class Solution_Test
     public void IsPalindrome_ShouldReturnFalse_Fact1()
     {
         Solution s = new Solution();
+        
         string input = "ba";
         bool expectedOutput = false;
 
+        s._storedResults = new bool?[input.Length - 1, input.Length - 1];
         s.IsPalindrome(input).Should().Be(expectedOutput);
     }
     
@@ -168,6 +195,7 @@ public class Solution_Test
         string input = "baba";
         bool expectedOutput = false;
     
+        s._storedResults = new bool?[input.Length - 1, input.Length - 1];
         s.IsPalindrome(input).Should().Be(expectedOutput);
     }
     
