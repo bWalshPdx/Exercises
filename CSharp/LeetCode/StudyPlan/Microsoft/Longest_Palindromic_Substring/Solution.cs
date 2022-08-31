@@ -15,7 +15,7 @@ public class Solution {
 
     public string LongestPalindrome(string s)
     {
-        _storedResults = new bool?[s.Length - 1, s.Length - 1];
+        SetupStoredResults(s.Length);
         
         //<NA> Need to make it faster:
         string currentBestPalindrome = "";
@@ -50,7 +50,7 @@ public class Solution {
 
     public bool IsPalindrome(string input)
     {
-        bool isPalindrome = false;
+        bool isPalindrome = true;
         double splitInt = input.Length / 2;
         double index = Math.Floor(splitInt); 
         
@@ -105,13 +105,29 @@ public class Solution {
                 break;
             }
 
+            _storedResults[(int)left, (int)right] = isPalindrome;
+
             left--;
             right++;
         }
         
-        _storedResults[(int)left, (int)right] = isPalindrome;
+        
 
         return isPalindrome;
+    }
+
+    public void SetupStoredResults(int lengthOfStoredResults)
+    {
+        int arrayLength = lengthOfStoredResults - 1;
+        _storedResults = new bool?[lengthOfStoredResults, lengthOfStoredResults];
+
+        for (int i = 0; i <= arrayLength; i++)
+        {
+            for (int j = 0; j <= arrayLength; j++)
+            {
+                _storedResults[i, j] = null;
+            }
+        }
     }
 
     public string GetSubstring(int start, int end, string input)
@@ -173,6 +189,7 @@ public class Solution_Test
         string input = "b";
         bool expectedOutput = true;
 
+        s.SetupStoredResults(input.Length);
         s.IsPalindrome(input).Should().Be(expectedOutput);
     }
     
@@ -184,7 +201,7 @@ public class Solution_Test
         string input = "ba";
         bool expectedOutput = false;
 
-        s._storedResults = new bool?[input.Length - 1, input.Length - 1];
+        s.SetupStoredResults(input.Length);
         s.IsPalindrome(input).Should().Be(expectedOutput);
     }
     
