@@ -177,7 +177,17 @@ public class Solution_Test
     
         s.LongestPalindrome(input).Should().Be(output);
     }
-    
+
+    [Fact(Timeout = 10000)]
+    public void IsPalindrome_ShouldNotExceedTimeLimt()
+    {
+        Solution s = new Solution();
+        string input = "kyyrjtdplseovzwjkykrjwhxquwxsfsorjiumvxjhjmgeueafubtonhlerrgsgohfosqssmizcuqryqomsipovhhodpfyudtusjhonlqabhxfahfcjqxyckycstcqwxvicwkjeuboerkmjshfgiglceycmycadpnvoeaurqatesivajoqdilynbcihnidbizwkuaoegmytopzdmvvoewvhebqzskseeubnretjgnmyjwwgcooytfojeuzcuyhsznbcaiqpwcyusyyywqmmvqzvvceylnuwcbxybhqpvjumzomnabrjgcfaabqmiotlfojnyuolostmtacbwmwlqdfkbfikusuqtupdwdrjwqmuudbcvtpieiwteqbeyfyqejglmxofdjksqmzeugwvuniaxdrunyunnqpbnfbgqemvamaxuhjbyzqmhalrprhnindrkbopwbwsjeqrmyqipnqvjqzpjalqyfvaavyhytetllzupxjwozdfpmjhjlrnitnjgapzrakcqahaqetwllaaiadalmxgvpawqpgecojxfvcgxsbrldktufdrogkogbltcezflyctklpqrjymqzyzmtlssnavzcquytcskcnjzzrytsvawkavzboncxlhqfiofuohehaygxidxsofhmhzygklliovnwqbwwiiyarxtoihvjkdrzqsnmhdtdlpckuayhtfyirnhkrhbrwkdymjrjklonyggqnxhfvtkqxoicakzsxmgczpwhpkzcntkcwhkdkxvfnjbvjjoumczjyvdgkfukfuldolqnauvoyhoheoqvpwoisniv";
+        string output = "qahaq";
+
+        s.LongestPalindrome(input).Should().Be(output);
+    }
+
     #endregion
 
     #region IsPalindrome
@@ -215,11 +225,10 @@ public class Solution_Test
         s._storedResults = new bool?[input.Length - 1, input.Length - 1];
         s.IsPalindrome(input).Should().Be(expectedOutput);
     }
-    
     #endregion
 
     #region Misc
-    
+
     [Fact]
     public void GetStubString_ShouldReturn333()
     {
