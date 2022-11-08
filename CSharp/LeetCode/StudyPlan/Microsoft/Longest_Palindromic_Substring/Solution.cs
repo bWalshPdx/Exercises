@@ -5,48 +5,40 @@ using Xunit;
 namespace LeetCodeTemplate;
 
 public class Solution {
-    public string LongestPalindrome(string s)
+    public string LongestPalindrome(string input)
     {
-        /*
-         * <NA> Need to make it faster:
-         *      1. Change problem to just handle pointers rather than clipping substrings and passing them around
-         *      2. Start with the entire string first, then get smaller.
-         *      3. IsPalindrome: Start with pointer in the middle then work your way down
-         *          - Handle even number substrings
-         *          - Handle odd number substrings
-         * 
-         */
-
         string currentBestPalindrome = "";
-        for (int index = 0; index <= s.Length - 1; index++)
+        for (int index = 0; index <= input.Length - 1; index++)
         {
             int currentLength = currentBestPalindrome.Length;
             while (true)
-            {//Get the start/end indexes for substring
+            {
+                //Get the start/end indexes for substring
                 int start = index;
                 int end = start + currentLength;
                 
-                
-
-                if (s.Length - 1 < end)
+                if (input.Length - 1 < end)
                     break;
                 
-                //Get substring
-                string substring = GetSubstring(start, end, s);
+                // end - start + 1
+                int nextSubStringLength = end - start + 1;
                 
-                
-                
-                //Check if substring is a palindrome
-                //Save the palindrome for output
-                if (IsPalindrome(substring))
+                if (nextSubStringLength > currentBestPalindrome.Length)
                 {
-                    if(currentBestPalindrome.Length < substring.Length)
-                        currentBestPalindrome = substring;
+                    string substring = GetSubstring(start, end, input);
+                    
+                    //Check if substring is a palindrome
+                    if (IsPalindrome(substring))
+                    {
+                        if(currentBestPalindrome.Length < substring.Length)
+                            //Save the palindrome for output
+                            currentBestPalindrome = substring;
+                    }
                 }
+                
                 //add to length
                 currentLength++;
             }
-            
         }
         
         return currentBestPalindrome;
