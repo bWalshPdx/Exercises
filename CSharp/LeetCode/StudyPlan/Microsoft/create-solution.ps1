@@ -1,7 +1,17 @@
-param(
+<#
+.SYNOPSIS
+Creates a folder with optional note file and mindmap
+.DESCRIPTION
+Creates a folder with optional note file and mindmap
+#>
+[CmdletBinding(SupportsShouldProcess=$true, ConfirmImpact='High')]
+Param(
+    [Parameter(Mandatory=$true)]
     [string]$solutionName,
+
+    [Parameter(Mandatory=$true)]
     [string]$solutionLink
-    )
+)
 
 if($solutionName.Length -eq 0) 
 {
